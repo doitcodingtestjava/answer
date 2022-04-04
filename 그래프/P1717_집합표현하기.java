@@ -1,21 +1,21 @@
 import java.util.Scanner;
-public class P1717_ÁýÇÕÀÇÇ¥Çö {
+public class P1717_ì§‘í•©í‘œí˜„í•˜ê¸° {
   public static int[] parent;
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     int N = sc.nextInt();
     int M = sc.nextInt();
     parent = new int[N + 1];
-    for (int i = 0; i <= N; i++) { // ´ëÇ¥ ³ëµå¸¦ ÀÚ±â ÀÚ½ÅÀ¸·Î ÃÊ±âÈ­ ÇÏ±â
+    for (int i = 0; i <= N; i++) { // ëŒ€í‘œ ë…¸ë“œë¥¼ ìžê¸° ìžì‹ ìœ¼ë¡œ ì´ˆê¸°í™” í•˜ê¸°
       parent[i] = i;
     }
     for (int i = 0; i < M; i++) {
       int question = sc.nextInt();
       int a = sc.nextInt();
       int b = sc.nextInt();
-      if (question == 0) { // ÁýÇÕÇÕÄ¡±â
+      if (question == 0) { // ì§‘í•©í•©ì¹˜ê¸°
         union(a, b);
-      } else { // °°Àº ÁýÇÕÀÇ ¿ø¼ÒÀÎÁö È®ÀÎÇÏ±â
+      } else { // ê°™ì€ ì§‘í•©ì˜ ì›ì†Œì¸ì§€ í™•ì¸í•˜ê¸°
         if (checkSame(a, b)) {
           System.out.println("YES");
         } else {
@@ -24,20 +24,20 @@ public class P1717_ÁýÇÕÀÇÇ¥Çö {
       }
     }
   }
-  public static void union(int a, int b) { // union ¿¬»ê : ¹Ù·Î ¿¬°áÀÌ ¾Æ´Ñ ´ëÇ¥ ³ëµå³¢¸® ¿¬°áÇÏ¿© ÁÜ
+  public static void union(int a, int b) { // union ì—°ì‚° : ë°”ë¡œ ì—°ê²°ì´ ì•„ë‹Œ ëŒ€í‘œ ë…¸ë“œë¼ë¦¬ ì—°ê²°í•˜ì—¬ ì¤Œ
     a = find(a);
     b = find(b);
     if (a != b) {
       parent[b] = a;
     }
   }
-  public static int find(int a) { // find ¿¬»ê
+  public static int find(int a) { // find ì—°ì‚°
     if (a == parent[a])
       return a;
     else
-      return parent[a] = find(parent[a]); // Àç±ÍÇÔ¼öÀÇ ÇüÅÂ·Î ±¸Çö
+      return parent[a] = find(parent[a]); // ìž¬ê·€í•¨ìˆ˜ì˜ í˜•íƒœë¡œ êµ¬í˜„
   }
-  public static boolean checkSame(int a, int b) { // µÎ ¿ø¼Ò°¡ °°Àº ÁýÇÕÀÎÁö È®ÀÎ
+  public static boolean checkSame(int a, int b) { // ë‘ ì›ì†Œê°€ ê°™ì€ ì§‘í•©ì¸ì§€ í™•ì¸
     a = find(a);
     b = find(b);
     if (a == b) {
