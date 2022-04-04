@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.Arrays;
 import java.util.StringTokenizer;
-public class P1219_¿À¸¸½ÄÀÇ°í¹Î {
+public class P1219_ì„¸ì¼ì¦ˆë§¨ì˜ê³ ë¯¼ {
   private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   private static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
   static int N, M, sCity, eCity;
@@ -16,8 +16,8 @@ public class P1219_¿À¸¸½ÄÀÇ°í¹Î {
     Edge_1219s = new Edge_1219[M];
     distance = new long[N];
     cityMoney = new long[N];
-    Arrays.fill(distance, Long.MIN_VALUE); // ÃÖ´Ü°Å¸® ¹è¿­ ÃÊ±âÈ­
-    for (int i = 0; i < M; i++) { // °£¼± ¸®½ºÆ®¿¡ µ¥ÀÌÅÍ ÀúÀåÇÏ±â
+    Arrays.fill(distance, Long.MIN_VALUE); // ìµœë‹¨ê±°ë¦¬ ë°°ì—´ ì´ˆê¸°í™”
+    for (int i = 0; i < M; i++) { // ê°„ì„  ë¦¬ìŠ¤íŠ¸ì— ë°ì´í„° ì €ì¥í•˜ê¸°
       st = new StringTokenizer(br.readLine());
       int start = Integer.parseInt(st.nextToken());
       int end = Integer.parseInt(st.nextToken());
@@ -28,32 +28,32 @@ public class P1219_¿À¸¸½ÄÀÇ°í¹Î {
     for (int i = 0; i < N; i++) {
       cityMoney[i] = Long.parseLong(st.nextToken());
     }
-    distance[sCity] = cityMoney[sCity]; // º¯ÇüµÈ º§¸¸Æ÷µå ¾Ë°í¸®Áò ¼öÇà
-    for (int i = 0; i <= N + 100; i++) { // ¾ç¼ö½ÎÀÌÅ¬ÀÌ ÀüÆÄµÇµµ·Ï ÃæºĞÈ÷ Å« ¼ö·Î ¹İº¹ÇÏ±â
+    distance[sCity] = cityMoney[sCity]; // ë³€í˜•ëœ ë²¨ë§Œí¬ë“œ ì•Œê³ ë¦¬ì¦˜ ìˆ˜í–‰
+    for (int i = 0; i <= N + 100; i++) { // ì–‘ìˆ˜ì‹¸ì´í´ì´ ì „íŒŒë˜ë„ë¡ ì¶©ë¶„íˆ í° ìˆ˜ë¡œ ë°˜ë³µí•˜ê¸°
       for (int j = 0; j < M; j++) {
         int start = Edge_1219s[j].start;
         int end = Edge_1219s[j].end;
         int price = Edge_1219s[j].price;
-        if (distance[start] == Long.MIN_VALUE) continue; // ½ÃÀÛ³ëµå°¡ ¹Ì¹æ¹® ³ëµåÀÌ¸é skip
-        // ½ÃÀÛ ³ëµå°¡ ¾ç¼ö»çÀÌÅ¬¿¡ ¿¬°áµÈ ³ëµå¶ó¸é Á¾·á ³ëµåµµ ¿¬°á ³ëµå·Î °»½Å
+        if (distance[start] == Long.MIN_VALUE) continue; // ì‹œì‘ë…¸ë“œê°€ ë¯¸ë°©ë¬¸ ë…¸ë“œì´ë©´ skip
+        // ì‹œì‘ ë…¸ë“œê°€ ì–‘ìˆ˜ì‚¬ì´í´ì— ì—°ê²°ëœ ë…¸ë“œë¼ë©´ ì¢…ë£Œ ë…¸ë“œë„ ì—°ê²° ë…¸ë“œë¡œ ê°±ì‹ 
         else if (distance[start] == Long.MAX_VALUE)
           distance[end] = Long.MAX_VALUE;
-        // ´õ ¸¹Àº µ·À» ¹ú¼ö ÀÖ´Â »õ·Î¿î °æ·Î°¡ ¹ß°ßµÈ °æ¿ì »õ·Î¿î °æ·Î °ªÀ¸·Î °»½Å
+        // ë” ë§ì€ ëˆì„ ë²Œìˆ˜ ìˆëŠ” ìƒˆë¡œìš´ ê²½ë¡œê°€ ë°œê²¬ëœ ê²½ìš° ìƒˆë¡œìš´ ê²½ë¡œ ê°’ìœ¼ë¡œ ê°±ì‹ 
         else if (distance[end] < distance[start] + cityMoney[end] - price) {
           distance[end] = distance[start] + cityMoney[end] - price;
-          // N-1 ¹İº¹ ÀÌÈÄ °»½ÅµÇ´Â Á¾·á ³ëµå´Â ¾ç¼ö»çÀÌÅ¬ ¿¬°á ³ëµå·Î º¯°æ
+          // N-1 ë°˜ë³µ ì´í›„ ê°±ì‹ ë˜ëŠ” ì¢…ë£Œ ë…¸ë“œëŠ” ì–‘ìˆ˜ì‚¬ì´í´ ì—°ê²° ë…¸ë“œë¡œ ë³€ê²½
           if (i >= N - 1)
             distance[end] = Long.MAX_VALUE;
         }
       }
     }
-    if (distance[eCity] == Long.MIN_VALUE) System.out.println("gg"); // µµÂø ºÒ°¡´É
-    else if (distance[eCity] == Long.MAX_VALUE) System.out.println("Gee"); // ¾ç¼ö»çÀÌÅ¬ ¿¬°á
-    else System.out.println(distance[eCity]); //±× ÀÌ¿ÜÀÇ °æ¿ì
+    if (distance[eCity] == Long.MIN_VALUE) System.out.println("gg"); // ë„ì°© ë¶ˆê°€ëŠ¥
+    else if (distance[eCity] == Long.MAX_VALUE) System.out.println("Gee"); // ì–‘ìˆ˜ì‚¬ì´í´ ì—°ê²°
+    else System.out.println(distance[eCity]); //ê·¸ ì´ì™¸ì˜ ê²½ìš°
   }
 }
-class Edge_1219 { // °£¼±¸®½ºÆ®¸¦ ÆíÇÏ°Ô ´Ù·ç±â À§ÇØ Å¬·¡½º·Î º°µµ ±¸Çö
-  int start, end, price; // ½ÃÀÛÁ¡, µµÂøÁ¡, °É¸®´Â ½Ã°£
+class Edge_1219 { // ê°„ì„ ë¦¬ìŠ¤íŠ¸ë¥¼ í¸í•˜ê²Œ ë‹¤ë£¨ê¸° ìœ„í•´ í´ë˜ìŠ¤ë¡œ ë³„ë„ êµ¬í˜„
+  int start, end, price; // ì‹œì‘ì , ë„ì°©ì , ê±¸ë¦¬ëŠ” ì‹œê°„
   public Edge_1219(int start, int end, int price) {
     this.start = start;
     this.end = end;
