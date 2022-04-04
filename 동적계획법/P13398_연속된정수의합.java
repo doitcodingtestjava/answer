@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class P13398_¿¬¼ÓÇÕ2 {
+public class P13398_ì—°ì†ëœì •ìˆ˜ì˜í•© {
   public static void main(String[] args) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -11,21 +11,21 @@ public class P13398_¿¬¼ÓÇÕ2 {
     for (int i = 0; i < N; i++) {
       A[i] = Integer.parseInt(st.nextToken());
     }
-    // ¿À¸¥ÂÊ ¹æÇâÀ¸·Î index¸¦ Æ÷ÇÔÇÑ ÃÖ´ë ¿¬¼Ó ÇÕ ±¸ÇÏ±â.
+    // ì˜¤ë¥¸ìª½ ë°©í–¥ìœ¼ë¡œ indexë¥¼ í¬í•¨í•œ ìµœëŒ€ ì—°ì† í•© êµ¬í•˜ê¸°.
     int[] L = new int[N];
     L[0] = A[0];
     int result = L[0];
     for (int i = 1; i < N; i++) {
       L[i] = Math.max(A[i], L[i - 1] + A[i]);
-      result = Math.max(result, L[i]); // ÇÏ³ªµµ Á¦°Å ÇÏÁö ¾Ê¾ÒÀ» ¶§¸¦ ±âº» ÃÖ´ë°ªÀ¸·Î ÀúÀå
+      result = Math.max(result, L[i]); // í•˜ë‚˜ë„ ì œê±° í•˜ì§€ ì•Šì•˜ì„ ë•Œë¥¼ ê¸°ë³¸ ìµœëŒ€ê°’ìœ¼ë¡œ ì €ì¥
     }
-    // ¿ŞÂÊ ¹æÇâÀ¸·Î index¸¦ Æ÷ÇÔÇÑ ÃÖ´ë ¿¬¼Ó ÇÕ ±¸ÇÏ±â.
+    // ì™¼ìª½ ë°©í–¥ìœ¼ë¡œ indexë¥¼ í¬í•¨í•œ ìµœëŒ€ ì—°ì† í•© êµ¬í•˜ê¸°.
     int[] R = new int[N];
     R[N - 1] = A[N - 1];
     for (int i = N - 2; i >= 0; i--) {
       R[i] = Math.max(A[i], R[i + 1] + A[i]);
     }
-    // L[i - 1] + R[i + 1] µÎ°³ÀÇ ±¸°£ÇÕ ¹è¿­À» ´õÇØÁÖ¸é i¹øÂ° °ªÀ» Á¦°ÅÇÑ È¿°ú¸¦ ¾òÀ½
+    // L[i - 1] + R[i + 1] ë‘ê°œì˜ êµ¬ê°„í•© ë°°ì—´ì„ ë”í•´ì£¼ë©´ ië²ˆì§¸ ê°’ì„ ì œê±°í•œ íš¨ê³¼ë¥¼ ì–»ìŒ
     for (int i = 1; i < N - 1; i++) {
       int temp = L[i - 1] + R[i + 1];
       result = Math.max(result, temp);
