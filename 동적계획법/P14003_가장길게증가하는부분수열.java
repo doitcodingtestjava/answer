@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.StringTokenizer;
-public class P14403_°¡Àå±æ°ÔÁõ°¡ÇÏ´ÂºÎºĞ¼ö¿­ {
+public class P14003_ê°€ì¥ê¸¸ê²Œì¦ê°€í•˜ëŠ”ë¶€ë¶„ìˆ˜ì—´ {
   static int N, maxLength;
   static int B[] = new int[1000001];
   static int A[] = new int[1000001];
@@ -17,19 +17,19 @@ public class P14403_°¡Àå±æ°ÔÁõ°¡ÇÏ´ÂºÎºĞ¼ö¿­ {
     B[++maxLength] = A[1];
     D[1] = 1;
     for (int i = 2; i <= N; i++) {
-      if (B[maxLength] < A[i]) { //°¡Àå ¸¶Áö¸· ¼ö¿­º¸´Ù ÇöÀç ¼ö¿­ÀÌ Å« °æ¿ì
+      if (B[maxLength] < A[i]) { //ê°€ì¥ ë§ˆì§€ë§‰ ìˆ˜ì—´ë³´ë‹¤ í˜„ì¬ ìˆ˜ì—´ì´ í° ê²½ìš°
         B[++maxLength] = A[i];
         D[i] = maxLength;
       } else { 
-        index = binarysearch(1, maxLength, A[i]);    // B¹è¿­¿¡¼­ data[i]º¸´Ù Ã³À½À¸·Î Å©°Å³ª °°¾ÆÁö´Â ¿ø¼ÒÀÇ index Ã£±â
+        index = binarysearch(1, maxLength, A[i]);    // Bë°°ì—´ì—ì„œ data[i]ë³´ë‹¤ ì²˜ìŒìœ¼ë¡œ í¬ê±°ë‚˜ ê°™ì•„ì§€ëŠ” ì›ì†Œì˜ index ì°¾ê¸°
         B[index] = A[i];
         D[i] = index;
       }
     }
-    System.out.println(maxLength); //°¡Àå ±ä Áõ°¡ÇÏ´Â ºÎºĞ ¼ö¿­ ±æÀÌ Ãâ·Â
+    System.out.println(maxLength); //ê°€ì¥ ê¸´ ì¦ê°€í•˜ëŠ” ë¶€ë¶„ ìˆ˜ì—´ ê¸¸ì´ ì¶œë ¥
     index = maxLength;
     int x = B[maxLength] + 1;
-    for (int i = N; i >= 1; i--) { //µÚ¿¡¼­ ºÎÅÍ Å½»öÇÏ¸é¼­ Á¤´ä ¼ö¿­ ÀúÀåÇÏ±â
+    for (int i = N; i >= 1; i--) { //ë’¤ì—ì„œ ë¶€í„° íƒìƒ‰í•˜ë©´ì„œ ì •ë‹µ ìˆ˜ì—´ ì €ì¥í•˜ê¸°
       if (D[i] == index && A[i] < x) {
         ans[index] = A[i];
         x = A[i];
@@ -39,7 +39,7 @@ public class P14403_°¡Àå±æ°ÔÁõ°¡ÇÏ´ÂºÎºĞ¼ö¿­ {
     for (int i = 1; i <= maxLength; i++)
       System.out.print(ans[i] + " ");
   }
-  // ÇöÀç ¼ö¿­ÀÌ µé¾î °¥ ¼ö ÀÖ´Â À§Ä¡¸¦ ºü¸£°Ô Ã£¾ÆÁÖ±â À§ÇÑ ¹ÙÀÌ³Ê¸® ¼­Ä¡ ±¸Çö
+  // í˜„ì¬ ìˆ˜ì—´ì´ ë“¤ì–´ ê°ˆ ìˆ˜ ìˆëŠ” ìœ„ì¹˜ë¥¼ ë¹ ë¥´ê²Œ ì°¾ì•„ì£¼ê¸° ìœ„í•œ ë°”ì´ë„ˆë¦¬ ì„œì¹˜ êµ¬í˜„
   static int binarysearch(int l, int r, int now) {
     int mid;
     while (l < r) {
