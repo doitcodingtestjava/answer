@@ -1,21 +1,21 @@
 import java.util.*;
-public class P2775_ºÎ³àÈ¸ÀåÀÌ_µÉÅ×¾ß {
+public class P2775_ë¶€ë…€íšŒì¥ì´ë í…Œì•¼ {
   static int T, N, K;
   static int[][] D;
   public static void main(String[] args) throws Exception {
     D = new int[15][15];
-    for (int i = 0; i < 15; i++) { //ÃÊ±âÈ­
+    for (int i = 0; i < 15; i++) { //ì´ˆê¸°í™”
       D[i][1] = 1;
       D[0][i] = i;
     }
     for (int i = 1; i < 15; i++) {
       for (int j = 2; j < 15; j++) {
-        D[i][j] = D[i][j-1] + D[i-1][j];  // Á¡È­½Ä
+        D[i][j] = D[i][j-1] + D[i-1][j];  // ì í™”ì‹
       }
     }
     Scanner sc = new Scanner(System.in);
     T = sc.nextInt();
-    for(int i=0; i<T; i++) // D¹è¿­À» ¸ğµÎ ±¸ÇØ³õÀº ÈÄ ÁúÀÇ Ãâ·Â
+    for(int i=0; i<T; i++) // Dë°°ì—´ì„ ëª¨ë‘ êµ¬í•´ë†“ì€ í›„ ì§ˆì˜ ì¶œë ¥
     {
       K = sc.nextInt();
       N = sc.nextInt();
