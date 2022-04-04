@@ -1,13 +1,13 @@
 import java.io.*;
 import java.util.*;
-public class P2042_±¸°£ÇÕ±¸ÇÏ±â {
+public class P2042_êµ¬ê°„í•©êµ¬í•˜ê¸°3 {
   static long[] tree;
   public static void main(String[] args) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     StringTokenizer st = new StringTokenizer(br.readLine());
-    int N = Integer.parseInt(st.nextToken()); // ¼öÀÇ °³¼ö
-    int M = Integer.parseInt(st.nextToken()); // º¯°æÀÌ ÀÏ¾î³ª´Â È½¼ö
-    int K = Integer.parseInt(st.nextToken()); // ±¸°£ ÇÕÀ» ±¸ÇÏ´Â È½¼ö
+    int N = Integer.parseInt(st.nextToken()); // ìˆ˜ì˜ ê°œìˆ˜
+    int M = Integer.parseInt(st.nextToken()); // ë³€ê²½ì´ ì¼ì–´ë‚˜ëŠ” íšŸìˆ˜
+    int K = Integer.parseInt(st.nextToken()); // êµ¬ê°„ í•©ì„ êµ¬í•˜ëŠ” íšŸìˆ˜
     int treeHeight = 0;
     int lenght = N;
     while (lenght != 0) {
@@ -17,11 +17,11 @@ public class P2042_±¸°£ÇÕ±¸ÇÏ±â {
     int treeSize = (int) Math.pow(2, treeHeight + 1);
     int leftNodeStartIndex = treeSize / 2 - 1;
     tree = new long[treeSize + 1];
-    // µ¥ÀÌÅÍ¸¦ ¸®ÇÁ³ëµå¿¡ ÀÔ·Â ¹Ş±â
+    // ë°ì´í„°ë¥¼ ë¦¬í”„ë…¸ë“œì— ì…ë ¥ ë°›ê¸°
     for (int i = leftNodeStartIndex + 1; i <= leftNodeStartIndex + N; i++) {
       tree[i] = Long.parseLong(br.readLine());
     }
-    setTree(treeSize - 1); // tree ¸¸µé±â
+    setTree(treeSize - 1); // tree ë§Œë“¤ê¸°
 
     for (int i = 0; i < M + K; i++) {
       st = new StringTokenizer(br.readLine());
@@ -29,9 +29,9 @@ public class P2042_±¸°£ÇÕ±¸ÇÏ±â {
       int s = Integer.parseInt(st.nextToken());
       long e = Long.parseLong(st.nextToken());
 
-      if (a == 1) { // º¯°æ
+      if (a == 1) { // ë³€ê²½
         changeVal(leftNodeStartIndex + s, e);
-      } else if (a == 2) { // ±¸°£ ÇÕ
+      } else if (a == 2) { // êµ¬ê°„ í•©
         s = s + leftNodeStartIndex;
         e = e + leftNodeStartIndex;
         System.out.println(getSum(s, (int) e));
