@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Scanner;
-public class P1913_È¸ÀÇ½Ç¹èÁ¤ {
+public class P1931_íšŒì˜ì‹¤ë°°ì • {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     int N = sc.nextInt();
@@ -13,7 +13,7 @@ public class P1913_È¸ÀÇ½Ç¹èÁ¤ {
     Arrays.sort(A, new Comparator<int[]>() {
       @Override
       public int compare(int[] S, int[] E) {
-        if (S[1] == E[1]) { // Á¾·á ½Ã°£ÀÌ °°À» °æ¿ì
+        if (S[1] == E[1]) { // ì¢…ë£Œ ì‹œê°„ì´ ê°™ì„ ê²½ìš°
           return S[0] - E[0];
         }
         return S[1] - E[1];
@@ -22,8 +22,8 @@ public class P1913_È¸ÀÇ½Ç¹èÁ¤ {
     int count = 0;
     int end = -1;
     for (int i = 0; i < N; i++) {
-      if (A[i][0] >= end) { // °ãÄ¡Áö ¾Ê´Â ´ÙÀ½ È¸ÀÇ°¡ ³ª¿Â°æ¿ì
-        end = A[i][1]; // Á¾·á½Ã°£ ¾÷µ¥ÀÌÆ®
+      if (A[i][0] >= end) { // ê²¹ì¹˜ì§€ ì•ŠëŠ” ë‹¤ìŒ íšŒì˜ê°€ ë‚˜ì˜¨ê²½ìš°
+        end = A[i][1]; // ì¢…ë£Œì‹œê°„ ì—…ë°ì´íŠ¸
         count++;
       }
     }
