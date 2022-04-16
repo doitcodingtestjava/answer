@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class P11004_K번째수_시간초과없는버전 {
+public class P11004_K번째수_병합정렬버전 {
   public static int[] A, tmp;
   public static void main(String[] args) throws IOException {
     BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
