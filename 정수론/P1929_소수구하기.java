@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class P1929_¼Ò¼ö±¸ÇÏ±â {
+public class P1929_ì†Œìˆ˜êµ¬í•˜ê¸° {
   public static void main(String[] args) {
     Scanner in = new Scanner(System.in);
     int M = in.nextInt();
@@ -8,11 +8,11 @@ public class P1929_¼Ò¼ö±¸ÇÏ±â {
     for (int i = 2; i <= N; i++) {
       A[i] = i;
     }
-    for (int i = 2; i <= Math.sqrt(N); i++) { // Á¦°ö±Ù ±îÁö¸¸ ¼öÇà
+    for (int i = 2; i <= Math.sqrt(N); i++) { // ì œê³±ê·¼ ê¹Œì§€ë§Œ ìˆ˜í–‰
       if (A[i] == 0) {
         continue;
       }
-      for (int j = i + i; j <= N; j = j + i) { // ¹è¼ö Áö¿ì±â
+      for (int j = i + i; j <= N; j = j + i) { // ë°°ìˆ˜ ì§€ìš°ê¸°
         A[j] = 0;
       }
     }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
-public class P1948_ÀÓ°è°æ·Î {
+public class P1948_ì„ê³„ê²½ë¡œ {
   public static void main(String[] args) throws Exception {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     int N = Integer.parseInt(br.readLine());
@@ -15,20 +15,20 @@ public class P1948_ÀÓ°è°æ·Î {
       A.add(new ArrayList<>());
       reverseA.add(new ArrayList<>());
     }
-    int[] indegree = new int[N + 1]; // ÁøÀÔÂ÷¼ö¹è¿­
+    int[] indegree = new int[N + 1]; // ì§„ì…ì°¨ìˆ˜ë°°ì—´
     for (int i = 0; i < M; i++) {
       StringTokenizer st = new StringTokenizer(br.readLine());
       int S = Integer.parseInt(st.nextToken());
       int E = Integer.parseInt(st.nextToken());
       int V = Integer.parseInt(st.nextToken());
       A.get(S).add(new dNode(E, V));
-      reverseA.get(E).add(new dNode(S, V));  //¿ª¹æÇâ °£¼± Á¤º¸ ÀúÀå
-      indegree[E]++; // ÁøÀÔÂ÷¼ö ¹è¿­ ÃÊ±âÈ­
+      reverseA.get(E).add(new dNode(S, V));  //ì—­ë°©í–¥ ê°„ì„  ì •ë³´ ì €ì¥
+      indegree[E]++; // ì§„ì…ì°¨ìˆ˜ ë°°ì—´ ì´ˆê¸°í™”
     }
     StringTokenizer st = new StringTokenizer(br.readLine());
     int startDosi = Integer.parseInt(st.nextToken());
     int endDosi = Integer.parseInt(st.nextToken());
-    // À§»ó Á¤·Ä
+    // ìœ„ìƒ ì •ë ¬
     Queue<Integer> queue = new LinkedList<>();
     queue.offer(startDosi);
     int[] result = new int[N + 1];
@@ -42,7 +42,7 @@ public class P1948_ÀÓ°è°æ·Î {
         }
       }
     }
-    // À§»ó Á¤·Ä reverse
+    // ìœ„ìƒ ì •ë ¬ reverse
     int resultCount = 0;
     boolean visited[] = new boolean[N + 1];
     queue = new LinkedList<>();
@@ -51,9 +51,9 @@ public class P1948_ÀÓ°è°æ·Î {
     while (!queue.isEmpty()) {
       int now = queue.poll();
       for (dNode next : reverseA.get(now)) {
-        if (result[next.targetNode] + next.value == result[now]) { //1ºĞµµ ½¬Áö ¾Ê´Â µµ·Î Ã¼Å©
+        if (result[next.targetNode] + next.value == result[now]) { //1ë¶„ë„ ì‰¬ì§€ ì•ŠëŠ” ë„ë¡œ ì²´í¬
           resultCount++;
-          if (visited[next.targetNode] == false) { //Áßº¹ Ä«¿îÆ® ¹æÁö¸¦ À§ÇØ ±â ¹æ¹® ³ëµå Á¦¿Ü
+          if (visited[next.targetNode] == false) { //ì¤‘ë³µ ì¹´ìš´íŠ¸ ë°©ì§€ë¥¼ ìœ„í•´ ê¸° ë°©ë¬¸ ë…¸ë“œ ì œì™¸
             visited[next.targetNode] = true;
             queue.offer(next.targetNode);
           }

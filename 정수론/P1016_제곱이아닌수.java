@@ -1,18 +1,18 @@
 import java.util.*;
-public class P1016_Á¦°öÀÌ¾Æ´Ñ¼ö {
+public class P1016_ì œê³±ì´ì•„ë‹Œìˆ˜ {
   public static void main(String[] args) throws Exception {
     Scanner sc = new Scanner(System.in);
     long Min = sc.nextLong();
     long Max = sc.nextLong();
-    boolean[] Check = new boolean[(int) (Max - Min + 1)]; // ÃÖ´ë ÃÖ¼Ò Â÷ÀÌ¸¸Å­ ¹è¿­ ¼±¾ğ
-    // 2ÀÇ Á¦°ö¼öÀÎ 4ºÎÅÍ maxº¸´Ù ÀÛ°Å³ª °°Àº ±îÁö ¹İº¹
+    boolean[] Check = new boolean[(int) (Max - Min + 1)]; // ìµœëŒ€ ìµœì†Œ ì°¨ì´ë§Œí¼ ë°°ì—´ ì„ ì–¸
+    // 2ì˜ ì œê³±ìˆ˜ì¸ 4ë¶€í„° maxë³´ë‹¤ ì‘ê±°ë‚˜ ê°™ì€ ê¹Œì§€ ë°˜ë³µ
     for (long i = 2; i * i <= Max; i++) {
-      long pow = i * i; // Á¦°ö¼ö
+      long pow = i * i; // ì œê³±ìˆ˜
       long start_index = Min / pow;
       ;
       if (Min % pow != 0)
-        start_index++; // ³ª¸ÓÁö°¡ ÀÖÀ¸¸é 1À» ´õÇØÁÖ¾î¾ß Minº¸´Ù Å« Á¦°ö¼ö ºÎÅÍ ½ÃÀÛµÊ
-      for (long j = start_index; pow * j <= Max; j++) { // Á¦°ö¼ö¸¦ true·Î º¯°æ
+        start_index++; // ë‚˜ë¨¸ì§€ê°€ ìˆìœ¼ë©´ 1ì„ ë”í•´ì£¼ì–´ì•¼ Minë³´ë‹¤ í° ì œê³±ìˆ˜ ë¶€í„° ì‹œì‘ë¨
+      for (long j = start_index; pow * j <= Max; j++) { // ì œê³±ìˆ˜ë¥¼ trueë¡œ ë³€ê²½
         Check[(int) ((j * pow) - Min)] = true;
       }
     }

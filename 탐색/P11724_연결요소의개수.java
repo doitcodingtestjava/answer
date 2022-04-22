@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.*;
-public class P11724_¿¬°á¿ä¼ÒÀÇ°³¼ö {
+public class P11724_ì—°ê²°ìš”ì†Œì˜ê°œìˆ˜ {
   static ArrayList<Integer>[] A;
   static boolean visited[];
   public static void main(String[] args) throws IOException {
@@ -10,19 +10,19 @@ public class P11724_¿¬°á¿ä¼ÒÀÇ°³¼ö {
     int m = Integer.parseInt(st.nextToken());
     A = new ArrayList[n + 1];
     visited = new boolean[n + 1];
-    for (int i = 1; i < n + 1; i++) { // ÀÎÁ¢ ¸®½ºÆ® ÃÊ±âÈ­
+    for (int i = 1; i < n + 1; i++) { // ì¸ì ‘ ë¦¬ìŠ¤íŠ¸ ì´ˆê¸°í™”
       A[i] = new ArrayList<Integer>();
     }
     for (int i = 0; i < m; i++) {
       st = new StringTokenizer(br.readLine());
       int s = Integer.parseInt(st.nextToken());
       int e = Integer.parseInt(st.nextToken());
-      A[s].add(e); // ¾ç ¹æÇâ °£¼±ÀÌ¹Ç·Î ¾çÂÊÀ¸·Î °£¼±À» ´õ ÇØÁØ´Ù
+      A[s].add(e); // ì–‘ ë°©í–¥ ê°„ì„ ì´ë¯€ë¡œ ì–‘ìª½ìœ¼ë¡œ ê°„ì„ ì„ ë” í•´ì¤€ë‹¤
       A[e].add(s);
     }
     int count = 0;
     for (int i = 1; i < n + 1; i++) {
-      if (!visited[i]) { // ¹Ì ¹æ¹®ÇÑ Á¤Á¡ÀÌ ¾øÀ» ¶§±îÁö ¹İº¹
+      if (!visited[i]) { // ë¯¸ ë°©ë¬¸í•œ ì •ì ì´ ì—†ì„ ë•Œê¹Œì§€ ë°˜ë³µ
         count++;
         DFS(i);
       }
@@ -35,7 +35,7 @@ public class P11724_¿¬°á¿ä¼ÒÀÇ°³¼ö {
     }
     visited[v] = true;
     for (int i : A[v]) {
-      if (visited[i] == false) { // ¿¬°á Á¤Á¡ Áß ¹æ¹®ÇÏÁö ¾Ê¾Ò´ø Á¤Á¡¸¸ Å½»öÇÔ
+      if (visited[i] == false) { // ì—°ê²° ì •ì  ì¤‘ ë°©ë¬¸í•˜ì§€ ì•Šì•˜ë˜ ì •ì ë§Œ íƒìƒ‰í•¨
         DFS(i);
       }
     }

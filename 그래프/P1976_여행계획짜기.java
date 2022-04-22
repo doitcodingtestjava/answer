@@ -1,30 +1,30 @@
 import java.util.Scanner;
-public class P1976_¿©Çà°èÈ¹Â¥±â {
+public class P1976_ì—¬í–‰ê³„íšì§œê¸° {
   public static int[] parent;
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     int N = sc.nextInt();
     int M = sc.nextInt();
     int[][] dosi = new int[N + 1][N + 1];
-    for (int i = 1; i <= N; i++) { //µµ½Ã ¿¬°á µ¥ÀÌÅÍ ÀúÀå
+    for (int i = 1; i <= N; i++) { //ë„ì‹œ ì—°ê²° ë°ì´í„° ì €ì¥
       for (int j = 1; j <= N; j++) {
         dosi[i][j] = sc.nextInt();
       }
     }
     int[] route = new int[M + 1];
-    for (int i = 1; i <= M; i++) { //¿©Çà µµ½Ã Á¤º¸ ÀúÀå
+    for (int i = 1; i <= M; i++) { //ì—¬í–‰ ë„ì‹œ ì •ë³´ ì €ì¥
       route[i] = sc.nextInt();
     }
     parent = new int[N + 1];
-    for (int i = 1; i <= N; i++) { //´ëÇ¥ ³ëµå¸¦ ÀÚ±â ÀÚ½ÅÀ¸·Î ÃÊ±âÈ­
+    for (int i = 1; i <= N; i++) { //ëŒ€í‘œ ë…¸ë“œë¥¼ ìê¸° ìì‹ ìœ¼ë¡œ ì´ˆê¸°í™”
       parent[i] = i;
     }
-    for (int i = 1; i <= N; i++) { //ÀÎÁ¢Çà·Ä Å½»ö¿¡¼­ µµ½Ã°¡ ¿¬°áµÇ¾îÀÖÀ¸¸é À¯´Ï¿Â ½ÇÇà
+    for (int i = 1; i <= N; i++) { //ì¸ì ‘í–‰ë ¬ íƒìƒ‰ì—ì„œ ë„ì‹œê°€ ì—°ê²°ë˜ì–´ìˆìœ¼ë©´ ìœ ë‹ˆì˜¨ ì‹¤í–‰
       for (int j = 1; j <= N; j++) {
         if (dosi[i][j] == 1) union(i, j);
       }
     }
-    // ¿©Çà °èÈ¹ µµ½ÃµéÀÌ ÇÏ³ªÀÇ ´ëÇ¥ µµ½Ã·Î ¿¬°áµÇ¾îÀÖ´ÂÁö È®ÀÎ
+    // ì—¬í–‰ ê³„íš ë„ì‹œë“¤ì´ í•˜ë‚˜ì˜ ëŒ€í‘œ ë„ì‹œë¡œ ì—°ê²°ë˜ì–´ìˆëŠ”ì§€ í™•ì¸
     int index = find(route[1]); 
     for (int i = 2; i < route.length; i++) {
       if (index != find(route[i])) {
@@ -34,17 +34,17 @@ public class P1976_¿©Çà°èÈ¹Â¥±â {
     }
     System.out.println("YES");
   }
-  public static void union(int a, int b) { // union ¿¬»ê : ´ëÇ¥ ³ëµå³¢¸® ¿¬°áÇÏ¿© ÁÜ
+  public static void union(int a, int b) { // union ì—°ì‚° : ëŒ€í‘œ ë…¸ë“œë¼ë¦¬ ì—°ê²°í•˜ì—¬ ì¤Œ
     a = find(a);
     b = find(b);
     if (a != b) {
       parent[b] = a;
     }
   }
-  public static int find(int a) { // find ¿¬»ê
+  public static int find(int a) { // find ì—°ì‚°
     if (a == parent[a])
       return a;
     else
-      return parent[a] = find(parent[a]); // Àç±ÍÇÔ¼öÀÇ ÇüÅÂ·Î ±¸Çö -> °æ·Î ¾ĞÃà ºÎºĞ
+      return parent[a] = find(parent[a]); // ì¬ê·€í•¨ìˆ˜ì˜ í˜•íƒœë¡œ êµ¬í˜„ -> ê²½ë¡œ ì••ì¶• ë¶€ë¶„
   }
 }

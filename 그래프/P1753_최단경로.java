@@ -1,6 +1,6 @@
 import java.util.*;
 import java.io.*;
-public class P1753_ÃÖ´Ü°æ·Î {
+public class P1753_ìµœë‹¨ê²½ë¡œ {
   public static int V,E,K;
   public static int distance[];
   public static boolean visited[];
@@ -21,30 +21,30 @@ public class P1753_ÃÖ´Ü°æ·Î {
     for (int i = 0; i <= V; i++) {
       distance[i] = Integer.MAX_VALUE;
     }
-    for (int i = 0; i < E; i++) { // °¡ÁßÄ¡°¡ ÀÖ´Â ÀÎÁ¢ ¸®½ºÆ® ÃÊ±âÈ­
+    for (int i = 0; i < E; i++) { // ê°€ì¤‘ì¹˜ê°€ ìˆëŠ” ì¸ì ‘ ë¦¬ìŠ¤íŠ¸ ì´ˆê¸°í™”
       st = new StringTokenizer(br.readLine());
       int u = Integer.parseInt(st.nextToken());
       int v = Integer.parseInt(st.nextToken());
       int w = Integer.parseInt(st.nextToken());
       list[u].add(new Edge_1753(v, w));
     }
-    q.add(new Edge_1753(K, 0)); // K¸¦ ½ÃÀÛÁ¡À¸·Î ¼³Á¤
+    q.add(new Edge_1753(K, 0)); // Kë¥¼ ì‹œì‘ì ìœ¼ë¡œ ì„¤ì •
     distance[K] = 0;
     while (!q.isEmpty()) {
       Edge_1753 current = q.poll();
       int c_v = current.vertex;
-      if (visited[c_v]) continue; // ±â ¹æ¹® ³ëµå´Â ´Ù½Ã Å¥¿¡ ³ÖÁö ¾Ê½À´Ï´Ù.
+      if (visited[c_v]) continue; // ê¸° ë°©ë¬¸ ë…¸ë“œëŠ” ë‹¤ì‹œ íì— ë„£ì§€ ì•ŠìŠµë‹ˆë‹¤.
   visited[c_v] = true;
       for (int i = 0; i < list[c_v].size(); i++) {
         Edge_1753 tmp = list[c_v].get(i);
         int next = tmp.vertex;
         int value = tmp.value;
-        if (distance[next] > distance[c_v] + value) { // ÃÖ¼Ò °Å¸®·Î ¾÷µ¥ÀÌÆ®
+        if (distance[next] > distance[c_v] + value) { // ìµœì†Œ ê±°ë¦¬ë¡œ ì—…ë°ì´íŠ¸
           distance[next] = value + distance[c_v];
           q.add(new Edge_1753(next, distance[next]));
         }
       }}
-    for (int i = 1; i <= V; i++) { // °Å¸® ¹è¿­ Ãâ·Â
+    for (int i = 1; i <= V; i++) { // ê±°ë¦¬ ë°°ì—´ ì¶œë ¥
       if (visited[i])
         System.out.println(distance[i]);
       else

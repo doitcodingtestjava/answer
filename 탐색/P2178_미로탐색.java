@@ -4,8 +4,8 @@ import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
-public class P2178_¹Ì·ÎÅ½»ö {
-  // »ó ¿ì ÇÏ ÁÂ Å½»öÀ» À§ÇÑ ¹è¿­ ¼±¾ğ
+public class P2178_ë¯¸ë¡œíƒìƒ‰ {
+  // ìƒ ìš° í•˜ ì¢Œ íƒìƒ‰ì„ ìœ„í•œ ë°°ì—´ ì„ ì–¸
   static int[] dx = { 0, 1, 0, -1 };
   static int[] dy = { 1, 0, -1, 0 };
   static boolean[][] visited;
@@ -38,8 +38,8 @@ public class P2178_¹Ì·ÎÅ½»ö {
       for (int k = 0; k < 4; k++) {
         int x = now[0] + dx[k];
         int y = now[1] + dy[k];
-        if (x >= 0 && y >= 0 && x < N && y < M) { // ÁÂÇ¥ À¯È¿¼º °Ë»ç
-          if (A[x][y] != 0 && !visited[x][y]) { // ¹Ì¹æ¹® Á¤Á¡ °Ë»ç
+        if (x >= 0 && y >= 0 && x < N && y < M) { // ì¢Œí‘œ ìœ íš¨ì„± ê²€ì‚¬
+          if (A[x][y] != 0 && !visited[x][y]) { // ë¯¸ë°©ë¬¸ ì •ì  ê²€ì‚¬
             visited[x][y] = true;
             A[x][y] = A[now[0]][now[1]] + 1; // depth update
             queue.add(new int[] { x, y });

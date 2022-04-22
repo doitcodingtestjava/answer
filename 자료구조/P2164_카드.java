@@ -1,18 +1,18 @@
 import java.util.Queue;
 import java.util.LinkedList;
 import java.util.Scanner;
-public class P2164_Ä«µå {
+public class P2164_ì¹´ë“œ {
  public static void main(String[] args) {
  Scanner sc = new Scanner(System.in);
  Queue<Integer> myQueue = new LinkedList<>();
  int N = sc.nextInt();
- for (int i = 1; i <= N; i++) { // Ä«µå¸¦ Å¥¿¡ ÀúÀåÇÏ±â
+ for (int i = 1; i <= N; i++) { // ì¹´ë“œë¥¼ íì— ì €ì¥í•˜ê¸°
  myQueue.add(i);
  }
- while (myQueue.size() > 1) { // Ä«µå°¡ 1Àå ³²À» ¶§±îÁö
- myQueue.poll(); // ¸Ç À§ÀÇ Ä«µå¸¦ ¹ö¸²
- myQueue.add(myQueue.poll()); // ¸Ç À§ÀÇ Ä«µå¸¦ °¡Àå ¾Æ·¡ Ä«µå ¹ØÀ¸·Î ÀÌµ¿
+ while (myQueue.size() > 1) { // ì¹´ë“œê°€ 1ì¥ ë‚¨ì„ ë•Œê¹Œì§€
+ myQueue.poll(); // ë§¨ ìœ„ì˜ ì¹´ë“œë¥¼ ë²„ë¦¼
+ myQueue.add(myQueue.poll()); // ë§¨ ìœ„ì˜ ì¹´ë“œë¥¼ ê°€ì¥ ì•„ë˜ ì¹´ë“œ ë°‘ìœ¼ë¡œ ì´ë™
  }
- System.out.println(myQueue.poll()); // ¸¶Áö¸·À¸·Î ³²Àº Ä«µå Ãâ·Â
+ System.out.println(myQueue.poll()); // ë§ˆì§€ë§‰ìœ¼ë¡œ ë‚¨ì€ ì¹´ë“œ ì¶œë ¥
  }
 }

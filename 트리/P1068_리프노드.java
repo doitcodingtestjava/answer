@@ -1,5 +1,5 @@
 import java.util.*;
-public class P1068_¸®ÇÁ³ëµå {
+public class P1068_ë¦¬í”„ë…¸ë“œ {
   static ArrayList<Integer>[] tree;
   static boolean[] visit;
   static int answer = 0;

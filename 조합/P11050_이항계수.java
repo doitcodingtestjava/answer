@@ -1,5 +1,5 @@
 import java.util.*;
-public class P11050_ÀÌÇ×°è¼ö {
+public class P11050_ì´í•­ê³„ìˆ˜ {
   static int N, K;
   static int[][] D;
   public static void main(String[] args) throws Exception {

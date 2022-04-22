@@ -1,22 +1,22 @@
 import java.util.Scanner;
-public class P1747_¼Ò¼öÆÓ¸°µå·Ò {
+public class P1747_ì†Œìˆ˜íŒ°ë¦°ë“œë¡¬ {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     int N = sc.nextInt();
-    int[] A = new int[10000001]; // NÀÇ ¹üÀ§±îÁö ¼Ò¼ö ±¸ÇØÁÖ±â
+    int[] A = new int[10000001]; // Nì˜ ë²”ìœ„ê¹Œì§€ ì†Œìˆ˜ êµ¬í•´ì£¼ê¸°
     for (int i = 2; i < A.length; i++) {
       A[i] = i;
     }
-    for (int i = 2; i < Math.sqrt(A.length); i++) { // Á¦°ö±Ù ±îÁö¸¸ ¼öÇà
+    for (int i = 2; i < Math.sqrt(A.length); i++) { // ì œê³±ê·¼ ê¹Œì§€ë§Œ ìˆ˜í–‰
       if (A[i] == 0) {
         continue;
       }
-      for (int j = i + i; j < A.length; j = j + i) { // ¹è¼ö Áö¿ì±â
+      for (int j = i + i; j < A.length; j = j + i) { // ë°°ìˆ˜ ì§€ìš°ê¸°
         A[j] = 0;
       }
     }
     int i = N;
-    while (true) { // NºÎÅÍ 1¾¿ Áõ°¡½ÃÄÑ°¡¸é¼­ ¼Ò¼ö¿Í Æç¸°µå·Ò ¼ö°¡ ¸Â´ÂÁö È®ÀÎ
+    while (true) { // Në¶€í„° 1ì”© ì¦ê°€ì‹œì¼œê°€ë©´ì„œ ì†Œìˆ˜ì™€ í ë¦°ë“œë¡¬ ìˆ˜ê°€ ë§ëŠ”ì§€ í™•ì¸
       if (A[i] != 0) {
         int result = A[i];
         if (isPalindrome(result)) {
@@ -27,7 +27,7 @@ public class P1747_¼Ò¼öÆÓ¸°µå·Ò {
       i++;
     }
   }
-  private static boolean isPalindrome(int target) // Æç¸°µå·Ò¼ö ÆÇº° ÇÔ¼ö
+  private static boolean isPalindrome(int target) // í ë¦°ë“œë¡¬ìˆ˜ íŒë³„ í•¨ìˆ˜
   {
     char temp[] = String.valueOf(target).toCharArray();
     int s = 0;

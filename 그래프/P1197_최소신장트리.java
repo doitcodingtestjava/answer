@@ -1,13 +1,13 @@
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
-public class P1197_ÃÖ¼Ò½ÅÀåÆ®¸® {
+public class P1197_ìµœì†Œì‹ ì¥íŠ¸ë¦¬ {
   static int[] parent;
   static PriorityQueue<pEdge> queue;
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
-    int N = sc.nextInt(); // ³ëµåÀÇ ¼ö
-    int M = sc.nextInt(); // °£¼±ÀÇ ¼ö
+    int N = sc.nextInt(); // ë…¸ë“œì˜ ìˆ˜
+    int M = sc.nextInt(); // ê°„ì„ ì˜ ìˆ˜
     queue = new PriorityQueue<>();
     parent = new int[N + 1];
     for (int i = 0; i < N; i++) {
@@ -23,7 +23,7 @@ public class P1197_ÃÖ¼Ò½ÅÀåÆ®¸® {
     int result = 0;
     while (useEdge < N - 1) {
       pEdge now = queue.poll();
-      if (find(now.s) != find(now.e)) // °°Àº ºÎ¸ğ°¡ ¾Æ´Ï¶ó¸é -> ¿¬°áÇØµµ ½ÎÀÌÅ¬ÀÌ »ı±âÁö ¾Ê´Â´Ù¸é
+      if (find(now.s) != find(now.e)) // ê°™ì€ ë¶€ëª¨ê°€ ì•„ë‹ˆë¼ë©´ -> ì—°ê²°í•´ë„ ì‹¸ì´í´ì´ ìƒê¸°ì§€ ì•ŠëŠ”ë‹¤ë©´
       {
         union(now.s, now.e);
         result = result + now.v;
@@ -33,18 +33,18 @@ public class P1197_ÃÖ¼Ò½ÅÀåÆ®¸® {
     System.out.println(result);
 
   }
-  public static void union(int a, int b) { // union ¿¬»ê : ´ëÇ¥ ³ëµå³¢¸® ¿¬°áÇÏ¿© ÁÜ
+  public static void union(int a, int b) { // union ì—°ì‚° : ëŒ€í‘œ ë…¸ë“œë¼ë¦¬ ì—°ê²°í•˜ì—¬ ì¤Œ
     a = find(a);
     b = find(b);
     if (a != b) {
       parent[b] = a;
     }
   }
-  public static int find(int a) { // find ¿¬»ê
+  public static int find(int a) { // find ì—°ì‚°
     if (a == parent[a])
       return a;
     else
-      return parent[a] = find(parent[a]); // Àç±ÍÇÔ¼öÀÇ ÇüÅÂ·Î ±¸Çö -> °æ·Î ¾ĞÃà ºÎºĞ
+      return parent[a] = find(parent[a]); // ì¬ê·€í•¨ìˆ˜ì˜ í˜•íƒœë¡œ êµ¬í˜„ -> ê²½ë¡œ ì••ì¶• ë¶€ë¶„
   }
 }
 class pEdge implements Comparable<pEdge> {

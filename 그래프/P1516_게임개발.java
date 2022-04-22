@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
-public class P1516_°ÔÀÓ°³¹ß {
+public class P1516_ê²Œì„ê°œë°œ {
   public static void main(String[] args) throws Exception {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     int N = Integer.parseInt(br.readLine());
@@ -12,20 +12,20 @@ public class P1516_°ÔÀÓ°³¹ß {
     for (int i = 0; i <= N; i++) {
       A.add(new ArrayList<>());
     }
-    int[] indegree = new int[N + 1]; // ÁøÀÔÂ÷¼ö¹è¿­
-    int[] selfBuild = new int[N + 1]; // ÀÚ±âÀÚ½ÅÀ» Áş´Âµ¥ °É¸®´Â ½Ã°£
+    int[] indegree = new int[N + 1]; // ì§„ì…ì°¨ìˆ˜ë°°ì—´
+    int[] selfBuild = new int[N + 1]; // ìê¸°ìì‹ ì„ ì§“ëŠ”ë° ê±¸ë¦¬ëŠ” ì‹œê°„
     for (int i = 1; i <= N; i++) {
       StringTokenizer st = new StringTokenizer(br.readLine());
-      selfBuild[i] = Integer.parseInt(st.nextToken()); // ÇØ´ç °Ç¹°À» Áş±â À§ÇÑ ½Ã°£
-      while (true) { // ÀÎÁ¢¸®½ºÆ® ÃÊ±âÈ­
+      selfBuild[i] = Integer.parseInt(st.nextToken()); // í•´ë‹¹ ê±´ë¬¼ì„ ì§“ê¸° ìœ„í•œ ì‹œê°„
+      while (true) { // ì¸ì ‘ë¦¬ìŠ¤íŠ¸ ì´ˆê¸°í™”
         int preTemp = Integer.parseInt(st.nextToken());
         if (preTemp == -1)
           break;
         A.get(preTemp).add(i);
-        indegree[i]++; // ÁøÀÔÂ÷¼ö ¹è¿­ ÃÊ±âÈ­
+        indegree[i]++; // ì§„ì…ì°¨ìˆ˜ ë°°ì—´ ì´ˆê¸°í™”
       }
     }
-    // À§»ó Á¤·Ä
+    // ìœ„ìƒ ì •ë ¬
     Queue<Integer> queue = new LinkedList<>();
     for (int i = 1; i <= N; i++) {
       if (indegree[i] == 0) {

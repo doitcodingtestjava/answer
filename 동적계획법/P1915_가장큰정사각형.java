@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class P1915_°¡ÀåÅ«Á¤»ç°¢Çü {
+public class P1915_ê°€ì¥í°ì •ì‚¬ê°í˜• {
   public static void main(String[] args) {
     long[][] D = new long[1001][1001];
     Scanner sc = new Scanner(System.in);

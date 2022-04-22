@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.*;
-public class P1414_ºÒ¿ìÀÌ¿ôµ½±â {
+public class P1414_ë¶ˆìš°ì´ì›ƒë•ê¸° {
   static int[] parent;
   static int N, sum;
   static PriorityQueue<lEdge> queue;
@@ -18,7 +18,7 @@ public class P1414_ºÒ¿ìÀÌ¿ôµ½±â {
           temp = tempc[j] - 'a' + 1;
         else if (tempc[j] >= 'A' && tempc[j] <= 'Z')
           temp = tempc[j] - 'A' + 27;
-        sum = sum + temp; // ÃÑ ·£¼±ÀÇ ±æÀÇ ÀúÀå
+        sum = sum + temp; // ì´ ëœì„ ì˜ ê¸¸ì˜ ì €ì¥
         if (i != j && temp != 0)queue.add(new lEdge(i, j, temp));
       }
     }
@@ -26,9 +26,9 @@ public class P1414_ºÒ¿ìÀÌ¿ôµ½±â {
     for (int i = 0; i < parent.length; i++)parent[i] = i;
     int useEdge = 0;
     int result = 0;
-    while (!queue.isEmpty()) { // ÃÖ¼Ò ½ÅÀå Æ®¸® ¾Ë°í¸®ÁòÀ» ¼öÇàÇÏ¿© Áİ´Ï´Ù.
+    while (!queue.isEmpty()) { // ìµœì†Œ ì‹ ì¥ íŠ¸ë¦¬ ì•Œê³ ë¦¬ì¦˜ì„ ìˆ˜í–‰í•˜ì—¬ ì¤ë‹ˆë‹¤.
       lEdge now = queue.poll();
-      if (find(now.s) != find(now.e)){ // °°Àº ºÎ¸ğ°¡ ¾Æ´Ï¶ó¸é -> ¿¬°á °¡´É
+      if (find(now.s) != find(now.e)){ // ê°™ì€ ë¶€ëª¨ê°€ ì•„ë‹ˆë¼ë©´ -> ì—°ê²° ê°€ëŠ¥
         union(now.s, now.e);
         result = result + now.v;
         useEdge++;
@@ -37,13 +37,13 @@ public class P1414_ºÒ¿ìÀÌ¿ôµ½±â {
     if (useEdge == N - 1) System.out.println(sum - result);
     else System.out.println(-1);
   }
-  public static void union(int a, int b) { // union ¿¬»ê : ´ëÇ¥ ³ëµå³¢¸® ¿¬°áÇÏ¿© ÁÜ
+  public static void union(int a, int b) { // union ì—°ì‚° : ëŒ€í‘œ ë…¸ë“œë¼ë¦¬ ì—°ê²°í•˜ì—¬ ì¤Œ
     a = find(a); b = find(b);
     if (a != b) parent[b] = a;
   }
-  public static int find(int a) { // find ¿¬»ê
+  public static int find(int a) { // find ì—°ì‚°
     if (a == parent[a]) return a;
-    else return parent[a] = find(parent[a]); // Àç±ÍÇÔ¼öÀÇ ÇüÅÂ·Î ±¸Çö -> °æ·Î ¾ĞÃà ºÎºĞ
+    else return parent[a] = find(parent[a]); // ì¬ê·€í•¨ìˆ˜ì˜ í˜•íƒœë¡œ êµ¬í˜„ -> ê²½ë¡œ ì••ì¶• ë¶€ë¶„
 }
 }
 class lEdge implements Comparable<lEdge> {

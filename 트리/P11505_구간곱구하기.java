@@ -1,14 +1,14 @@
 import java.io.*;
 import java.util.*;
-public class P11505_±¸°£°ö±¸ÇÏ±â {
+public class P11505_êµ¬ê°„ê³±êµ¬í•˜ê¸° {
   static long[] tree;
   static int MOD;
   public static void main(String[] args) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     StringTokenizer st = new StringTokenizer(br.readLine());
-    int N = Integer.parseInt(st.nextToken()); // ¼öÀÇ °³¼ö
-    int M = Integer.parseInt(st.nextToken()); // º¯°æÀÌ ÀÏ¾î³ª´Â È½¼ö
-    int K = Integer.parseInt(st.nextToken()); // ±¸°£ °öÀ» ±¸ÇÏ´Â È½¼ö
+    int N = Integer.parseInt(st.nextToken()); // ìˆ˜ì˜ ê°œìˆ˜
+    int M = Integer.parseInt(st.nextToken()); // ë³€ê²½ì´ ì¼ì–´ë‚˜ëŠ” íšŸìˆ˜
+    int K = Integer.parseInt(st.nextToken()); // êµ¬ê°„ ê³±ì„ êµ¬í•˜ëŠ” íšŸìˆ˜
     int treeHeight = 0;
     int lenght = N;
     while (lenght != 0) {
@@ -19,21 +19,21 @@ public class P11505_±¸°£°ö±¸ÇÏ±â {
     int leftNodeStartIndex = treeSize / 2 - 1;
     MOD = 1000000007;
     tree = new long[treeSize + 1];
-    for (int i = 0; i < tree.length; i++) {   //ÃÊ±â °ªÀ» °ö¼ÀÀÌ±â ¶§¹®¿¡ 1·Î ¼³Á¤
+    for (int i = 0; i < tree.length; i++) {   //ì´ˆê¸° ê°’ì„ ê³±ì…ˆì´ê¸° ë•Œë¬¸ì— 1ë¡œ ì„¤ì •
       tree[i] = 1;
     }
     for (int i = leftNodeStartIndex + 1; i <= leftNodeStartIndex + N; i++) {
-      tree[i] = Long.parseLong(br.readLine()); // µ¥ÀÌÅÍ¸¦ ¸®ÇÁ³ëµå¿¡ ÀÔ·Â ¹Ş±â
+      tree[i] = Long.parseLong(br.readLine()); // ë°ì´í„°ë¥¼ ë¦¬í”„ë…¸ë“œì— ì…ë ¥ ë°›ê¸°
     }
-    setTree(treeSize - 1); // tree ¸¸µé±â
+    setTree(treeSize - 1); // tree ë§Œë“¤ê¸°
     for (int i = 0; i < M + K; i++) {
       st = new StringTokenizer(br.readLine());
       long a = Integer.parseInt(st.nextToken());
       int s = Integer.parseInt(st.nextToken());
       long e = Long.parseLong(st.nextToken());
-      if (a == 1) { // º¯°æ
+      if (a == 1) { // ë³€ê²½
         changeVal(leftNodeStartIndex + s, e);
-      } else if (a == 2) { // ±¸°£ °ö
+      } else if (a == 2) { // êµ¬ê°„ ê³±
         s = s + leftNodeStartIndex;
         e = e + leftNodeStartIndex;
         System.out.println(getMul(s, (int) e));
@@ -43,7 +43,7 @@ public class P11505_±¸°£°ö±¸ÇÏ±â {
     }
     br.close();
   }
-  // ¸ğµç ÇÔ¼ö¿¡¼­ °ö¼ÀÀÌ ¹ß»ıÇÒ¶§ ¸¶´Ù MOD¿¬»ê ¼öÇà
+  // ëª¨ë“  í•¨ìˆ˜ì—ì„œ ê³±ì…ˆì´ ë°œìƒí• ë•Œ ë§ˆë‹¤ MODì—°ì‚° ìˆ˜í–‰
   private static long getMul(int s, int e) {
     long partMul = 1;
     while (s <= e) {
@@ -62,7 +62,7 @@ public class P11505_±¸°£°ö±¸ÇÏ±â {
   }
   private static void changeVal(int index, long val) {
     tree[index] = val;
-    while (index > 1) { //ÇöÀç ³ëµåÀÇ ¾çÂÊ ÀÚ½Ä ³ëµå¸¦ Ã£¾Æ °öÇØÁÖ´Â ·ÎÁ÷
+    while (index > 1) { //í˜„ì¬ ë…¸ë“œì˜ ì–‘ìª½ ìì‹ ë…¸ë“œë¥¼ ì°¾ì•„ ê³±í•´ì£¼ëŠ” ë¡œì§
       index = index / 2;
       tree[index] = tree[index * 2] % MOD * tree[index * 2 + 1] % MOD;
     }

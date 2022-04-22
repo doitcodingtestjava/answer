@@ -1,10 +1,10 @@
 import java.util.*;
-public class P2023_½Å±âÇÑ¼Ò¼ö {
+public class P2023_ì‹ ê¸°í•œì†Œìˆ˜ {
   static int N;
   public static void main(String[] args) {
     Scanner in = new Scanner(System.in);
     N = in.nextInt();
-    // ÀÏÀÇ ÀÚ¸® ¼Ò¼ö´Â 2 3 5 7 ÀÌ¹Ç·Î 4°³ ¼ö¿¡¼­¸¸ ½ÃÀÛ
+    // ì¼ì˜ ìë¦¬ ì†Œìˆ˜ëŠ” 2 3 5 7 ì´ë¯€ë¡œ 4ê°œ ìˆ˜ì—ì„œë§Œ ì‹œì‘
     DFS(2, 1);
     DFS(3, 1);
     DFS(5, 1);
@@ -18,10 +18,10 @@ public class P2023_½Å±âÇÑ¼Ò¼ö {
       return;
     }
     for (int i = 1; i < 10; i++) {
-      if (i % 2 == 0) { // Â¦¼öÀÌ¸é ´õ ÀÌ»ó Å½»öÇÒ ÇÊ¿ä°¡ ¾øÀ½
+      if (i % 2 == 0) { // ì§ìˆ˜ì´ë©´ ë” ì´ìƒ íƒìƒ‰í•  í•„ìš”ê°€ ì—†ìŒ
         continue;
       }
-      if (isPrime(number * 10 + i)) { // ¼Ò¼öÀÌ¸é Àç±Í·Î ÀÚ¸®¼ö¸¦ ´Ã·Á°©´Ï´Ù.
+      if (isPrime(number * 10 + i)) { // ì†Œìˆ˜ì´ë©´ ì¬ê·€ë¡œ ìë¦¬ìˆ˜ë¥¼ ëŠ˜ë ¤ê°‘ë‹ˆë‹¤.
         DFS(number * 10 + i, jarisu + 1);
       }
     }

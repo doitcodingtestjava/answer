@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.Arrays;
 import java.util.StringTokenizer;
-public class P11657_Å¸ÀÓ¸Ó½Å {
+public class P11657_íƒ€ì„ë¨¸ì‹  {
   private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   private static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
   static int N, M;
@@ -13,46 +13,46 @@ public class P11657_Å¸ÀÓ¸Ó½Å {
     M = Integer.parseInt(st.nextToken());
     edges = new Edge[M + 1];
     distance = new long[N + 1];
-    Arrays.fill(distance, Integer.MAX_VALUE); // ÃÖ´Ü°Å¸® ¹è¿­ ÃÊ±âÈ­
-    for (int i = 0; i < M; i++) { // °£¼± ¸®½ºÆ®¿¡ µ¥ÀÌÅÍ ÀúÀåÇÏ±â
+    Arrays.fill(distance, Integer.MAX_VALUE); // ìµœë‹¨ê±°ë¦¬ ë°°ì—´ ì´ˆê¸°í™”
+    for (int i = 0; i < M; i++) { // ê°„ì„  ë¦¬ìŠ¤íŠ¸ì— ë°ì´í„° ì €ì¥í•˜ê¸°
       st = new StringTokenizer(br.readLine());
       int start = Integer.parseInt(st.nextToken());
       int end = Integer.parseInt(st.nextToken());
       int time = Integer.parseInt(st.nextToken());
       edges[i] = new Edge(start, end, time);
     }
-    // º§¸¸Æ÷µå ¾Ë°í¸®Áò ¼öÇà
+    // ë²¨ë§Œí¬ë“œ ì•Œê³ ë¦¬ì¦˜ ìˆ˜í–‰
     distance[1] = 0;
-    for (int i = 1; i < N; i++) {  //Nº¸´Ù ÇÏ³ª ÀûÀº ¼ö¸¸Å­ ¹İº¹
+    for (int i = 1; i < N; i++) {  //Në³´ë‹¤ í•˜ë‚˜ ì ì€ ìˆ˜ë§Œí¼ ë°˜ë³µ
       for (int j = 0; j < M; j++) {
         Edge edge = edges[j];
-        // ´õ ÀÛÀº ÃÖ´Ü°Å¸® °¡ ÀÖ´Â °æ¿ì °»½Å
+        // ë” ì‘ì€ ìµœë‹¨ê±°ë¦¬ ê°€ ìˆëŠ” ê²½ìš° ê°±ì‹ 
         if (distance[edge.start] != Integer.MAX_VALUE && distance[edge.end] > distance[edge.start] + edge.time) {
           distance[edge.end] = distance[edge.start] + edge.time;
         }
       }
     }
     boolean mCycle = false;
-    for (int i = 0; i < M; i++) { // À½¼ö cycle È®ÀÎ
+    for (int i = 0; i < M; i++) { // ìŒìˆ˜ cycle í™•ì¸
       Edge edge = edges[i];
       if (distance[edge.start] != Integer.MAX_VALUE && distance[edge.end] > distance[edge.start] + edge.time) {
         mCycle = true;
       }
     }
-    if (!mCycle) { // À½ÀÇ cycleÀÌ ¾ø´Â °æ¿ì
+    if (!mCycle) { // ìŒì˜ cycleì´ ì—†ëŠ” ê²½ìš°
       for (int i = 2; i <= N; i++) {
         if (distance[i] == Integer.MAX_VALUE)
           System.out.println("-1");
         else
           System.out.println(distance[i]);
       }
-    } else { // À½ÀÇ cycleÀÌ ÀÖ´Â °æ¿ì
+    } else { // ìŒì˜ cycleì´ ìˆëŠ” ê²½ìš°
       System.out.println("-1");
     }
   }
 }
-class Edge { // °£¼±¸®½ºÆ®¸¦ ÆíÇÏ°Ô ´Ù·ç±â À§ÇØ Å¬·¡½º·Î º°µµ ±¸Çö
-  int start, end, time;  // ½ÃÀÛÁ¡, µµÂøÁ¡, °É¸®´Â ½Ã°£
+class Edge { // ê°„ì„ ë¦¬ìŠ¤íŠ¸ë¥¼ í¸í•˜ê²Œ ë‹¤ë£¨ê¸° ìœ„í•´ í´ë˜ìŠ¤ë¡œ ë³„ë„ êµ¬í˜„
+  int start, end, time;  // ì‹œì‘ì , ë„ì°©ì , ê±¸ë¦¬ëŠ” ì‹œê°„
   public Edge(int start, int end, int time) {
     this.start = start;
     this.end = end;

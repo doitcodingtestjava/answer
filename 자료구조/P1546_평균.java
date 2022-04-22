@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class P1546_Æò±Õ {
+public class P1546_í‰ê·  {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     int N = sc.nextInt();
@@ -14,7 +14,7 @@ public class P1546_Æò±Õ {
         max = A[i];
       sum = sum + A[i];
     }
-    // °¢°¢ °è»êÀÌ ¾Æ´Ñ ¼ö½Ä º¯È¯À» ÅëÇØ ÃÑÇÕ¿¡ ´ëÇØ ÇÑ¹ø¸¸ °è»êÇØÁÖ¸é ·ÎÁ÷ÀÌ °£´ÜÇØ Áı´Ï´Ù.
+    // ê°ê° ê³„ì‚°ì´ ì•„ë‹Œ ìˆ˜ì‹ ë³€í™˜ì„ í†µí•´ ì´í•©ì— ëŒ€í•´ í•œë²ˆë§Œ ê³„ì‚°í•´ì£¼ë©´ ë¡œì§ì´ ê°„ë‹¨í•´ ì§‘ë‹ˆë‹¤.
     System.out.println(sum * 100.0 / max / N);
   }
 

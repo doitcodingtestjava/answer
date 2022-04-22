@@ -1,6 +1,6 @@
 import java.util.Scanner;
 import java.util.Stack;
-public class P1874_½ºÅÃ¼ö¿­ {
+public class P1874_ìŠ¤íƒìˆ˜ì—´ {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     int N = sc.nextInt();
@@ -10,11 +10,11 @@ public class P1874_½ºÅÃ¼ö¿­ {
     }
     Stack<Integer> stack = new Stack<>();
     StringBuffer bf = new StringBuffer();
-    int num = 1; // ¿À¸§Â÷¼ø ¼ö
+    int num = 1; // ì˜¤ë¦„ì°¨ìˆœ ìˆ˜
     boolean result = true;
     for (int i = 0; i < A.length; i++) {
-      int su = A[i]; // ÇöÀç ¼ö¿­ÀÇ ¼ö
-      if (su >= num) { //ÇöÀç ¼ö¿­ °ª >= ¿À¸§Â÷¼ø ÀÚ¿¬¼ö : °ªÀÌ °°¾Æ Áú ¶§±îÁö push()¼öÇà
+      int su = A[i]; // í˜„ì¬ ìˆ˜ì—´ì˜ ìˆ˜
+      if (su >= num) { //í˜„ì¬ ìˆ˜ì—´ ê°’ >= ì˜¤ë¦„ì°¨ìˆœ ìì—°ìˆ˜ : ê°’ì´ ê°™ì•„ ì§ˆ ë•Œê¹Œì§€ push()ìˆ˜í–‰
         while (su >= num) { // push()
           stack.push(num++);
           bf.append("+\n");
@@ -22,9 +22,9 @@ public class P1874_½ºÅÃ¼ö¿­ {
         stack.pop();
         bf.append("-\n");
       }
-      else {  //ÇöÀç ¼ö¿­ °ª < ¿À¸§Â÷¼ø ÀÚ¿¬¼ö: pop()À» ¼öÇàÇÏ¿© ¼ö¿­ ¿ø¼Ò¸¦ ²¨³À´Ï´Ù
+      else {  //í˜„ì¬ ìˆ˜ì—´ ê°’ < ì˜¤ë¦„ì°¨ìˆœ ìì—°ìˆ˜: pop()ì„ ìˆ˜í–‰í•˜ì—¬ ìˆ˜ì—´ ì›ì†Œë¥¼ êº¼ëƒ…ë‹ˆë‹¤
         int n = stack.pop();
-        // ½ºÅÃÀÇ °¡Àå À§ÀÇ ¼ö°¡ ¸¸µé¾î¾ß ÇÏ´Â ¼ö¿­ÀÇ ¼ö º¸´Ù Å©´Ù¸é ¼ö¿­ Ãâ·Â ºÒ°¡´É
+        // ìŠ¤íƒì˜ ê°€ì¥ ìœ„ì˜ ìˆ˜ê°€ ë§Œë“¤ì–´ì•¼ í•˜ëŠ” ìˆ˜ì—´ì˜ ìˆ˜ ë³´ë‹¤ í¬ë‹¤ë©´ ìˆ˜ì—´ ì¶œë ¥ ë¶ˆê°€ëŠ¥
         if (n > su) {
           System.out.println("NO");
           result = false;

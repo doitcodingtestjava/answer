@@ -1,6 +1,6 @@
 import java.io.IOException;
 import java.util.Scanner;
-public class P10986_³ª¸ÓÁöÇÕ {
+public class P10986_ë‚˜ë¨¸ì§€í•© {
   public static void main(String[] args) throws IOException {
     Scanner sc = new Scanner(System.in);
     int N = sc.nextInt();
@@ -9,18 +9,18 @@ public class P10986_³ª¸ÓÁöÇÕ {
     long[] C = new long[M];
     long answer = 0;
     S[0] = sc.nextInt();
-    for (int i = 1; i < N; i++) { // ¼ö¿­ ÇÕ¹è¿­ ¸¸µé±â
+    for (int i = 1; i < N; i++) { // ìˆ˜ì—´ í•©ë°°ì—´ ë§Œë“¤ê¸°
       S[i] = S[i - 1] + sc.nextInt();
     }
-    for (int i = 0; i < N; i++) { // ÇÕ¹è¿­ÀÇ ¸ğµç °ª¿¡ %¿¬»ê ¼öÇàÇÏ±â
+    for (int i = 0; i < N; i++) { // í•©ë°°ì—´ì˜ ëª¨ë“  ê°’ì— %ì—°ì‚° ìˆ˜í–‰í•˜ê¸°
       int remainder = (int) (S[i] % M);
       if (remainder == 0)
-        answer++; // 0~i±îÁöÀÇ ±¸°£ÇÕ ÀÚÃ¼°¡ 0ÀÎ °æ¿ì Á¤´ä¿¡ ´õÇØÁÖ±â
-      C[remainder]++; // °°Àº ³ª¸ÓÁö¸¦ °¡Áø ÀÎµ¦½ºÀÇ °³¼ö Ä«¿îÆÃ ÇØÁÖ±â
+        answer++; // 0~iê¹Œì§€ì˜ êµ¬ê°„í•© ìì²´ê°€ 0ì¸ ê²½ìš° ì •ë‹µì— ë”í•´ì£¼ê¸°
+      C[remainder]++; // ê°™ì€ ë‚˜ë¨¸ì§€ë¥¼ ê°€ì§„ ì¸ë±ìŠ¤ì˜ ê°œìˆ˜ ì¹´ìš´íŒ… í•´ì£¼ê¸°
     }
     for (int i = 0; i < M; i++) {
       if (C[i] > 1) {
-        answer = answer + (C[i] * (C[i] - 1) / 2); // °°Àº ³ª¸ÓÁö¸¦ °¡Áø ÀÎµ¦½ºµéÁß 2°³¸¦ »Ì´Â °æ¿ìÀÇ ¼ö¸¦ ´õÇØÁÖ±â
+        answer = answer + (C[i] * (C[i] - 1) / 2); // ê°™ì€ ë‚˜ë¨¸ì§€ë¥¼ ê°€ì§„ ì¸ë±ìŠ¤ë“¤ì¤‘ 2ê°œë¥¼ ë½‘ëŠ” ê²½ìš°ì˜ ìˆ˜ë¥¼ ë”í•´ì£¼ê¸°
       }
     }
     System.out.println(answer);

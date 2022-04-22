@@ -1,10 +1,10 @@
 import java.util.Scanner;
-public class P14501_Åğ»ç {
+public class P14501_í‡´ì‚¬ {
   public static void main(String[] args) {
     // TODO Auto-generated method stub
     Scanner sc = new Scanner(System.in);
     int N = sc.nextInt();
-    int[] D = new int[N+2]; //¿À´ÃºÎÅÍ Åğ»çÀÏ±îÁö ¹ú¼öÀÖ´Â ÃÖ´ë ¼öÀÔ
+    int[] D = new int[N+2]; //ì˜¤ëŠ˜ë¶€í„° í‡´ì‚¬ì¼ê¹Œì§€ ë²Œìˆ˜ìˆëŠ” ìµœëŒ€ ìˆ˜ì…
     int[] T = new int[N+1];
     int[] P = new int[N+1];
     for(int i=1; i<=N; i++)

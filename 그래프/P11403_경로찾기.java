@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.StringTokenizer;
-public class P11403_°æ·ÎÃ£±â {
+public class P11403_ê²½ë¡œì°¾ê¸° {
   private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   private static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
   static int N;
@@ -15,7 +15,7 @@ public class P11403_°æ·ÎÃ£±â {
         distance[i][j] = v;
       }
     }
-    for (int k = 0; k < N; k++) { // º¯ÇüµÈ ÇÃ·ÎÀÌµå ¿ö¼È ¾Ë°í¸®Áò ¼öÇà
+    for (int k = 0; k < N; k++) { // ë³€í˜•ëœ í”Œë¡œì´ë“œ ì›Œì…œ ì•Œê³ ë¦¬ì¦˜ ìˆ˜í–‰
       for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
           if (distance[i][k]==1 && distance[k][j]==1) distance[i][j]=1;

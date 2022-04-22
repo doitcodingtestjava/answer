@@ -1,16 +1,16 @@
 import java.util.Scanner;
-public class P14425_¹®ÀÚ¿­Ã£±â {
+public class P14425_ë¬¸ìžì—´ì°¾ê¸° {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     int n = sc.nextInt();
     int m = sc.nextInt();
     tNode root = new tNode();
-    while (n > 0) {  //Æ®¶óÀÌ ÀÚ·á±¸Á¶ ±¸ÃàÇÏ±â
+    while (n > 0) {  //íŠ¸ë¼ì´ ìžë£Œêµ¬ì¡° êµ¬ì¶•í•˜ê¸°
       String text = sc.next();
       tNode now = root;
       for (int i = 0; i < text.length(); i++) {
         char c = text.charAt(i);
-        // 26°³ ¾ËÆÄºªÀÇ À§Ä¡¸¦ ¹è¿­ index·Î ³ªÅ¸³»±â À§¼¼ -'a'¼öÇà
+        // 26ê°œ ì•ŒíŒŒë²³ì˜ ìœ„ì¹˜ë¥¼ ë°°ì—´ indexë¡œ ë‚˜íƒ€ë‚´ê¸° ìœ„ì„¸ -'a'ìˆ˜í–‰
         if (now.next[c - 'a'] == null) { 
           now.next[c - 'a'] = new tNode();
         }
@@ -21,17 +21,17 @@ public class P14425_¹®ÀÚ¿­Ã£±â {
       n--;
     }
     int count = 0;
-    while (m > 0) {  //Æ®¶óÀÌ ÀÚ·á±¸Á¶ °Ë»öÇÏ±â
+    while (m > 0) {  //íŠ¸ë¼ì´ ìžë£Œêµ¬ì¡° ê²€ìƒ‰í•˜ê¸°
       String text = sc.next();
       tNode now = root;
       for (int i = 0; i < text.length(); i++) {
         char c = text.charAt(i);
-        if (now.next[c - 'a'] == null) {  // °ø¹é³ëµåÀÌ¸é ÇØ´ç ¹®ÀÚ¿­À» Æ÷ÇÔÇÏÁö ¾ÊÀ½
+        if (now.next[c - 'a'] == null) {  // ê³µë°±ë…¸ë“œì´ë©´ í•´ë‹¹ ë¬¸ìžì—´ì„ í¬í•¨í•˜ì§€ ì•ŠìŒ
           break;
         }
         now = now.next[c - 'a'];
-        if (i == text.length() - 1 && now.isEnd) // ¹®ÀÚ¿­ÀÇ ³¡ÀÌ°í ÇöÀç±îÁö ¸ðµÎ ÀÏÄ¡ÇÏ¸é
-          count++;  // SÁýÇÕ¿¡ Æ÷ÇÔµÇ´Â ¹®ÀÚ¿­
+        if (i == text.length() - 1 && now.isEnd) // ë¬¸ìžì—´ì˜ ëì´ê³  í˜„ìž¬ê¹Œì§€ ëª¨ë‘ ì¼ì¹˜í•˜ë©´
+          count++;  // Sì§‘í•©ì— í¬í•¨ë˜ëŠ” ë¬¸ìžì—´
       }
       m--;
     }
@@ -40,5 +40,5 @@ public class P14425_¹®ÀÚ¿­Ã£±â {
 }
 class tNode {
   tNode[] next = new tNode[26];
-  boolean isEnd;  // ¹®ÀÚ¿­ÀÇ ¸¶Áö¸· À¯¹«¸¦ Ç¥½Ã
+  boolean isEnd;  // ë¬¸ìžì—´ì˜ ë§ˆì§€ë§‰ ìœ ë¬´ë¥¼ í‘œì‹œ
 }

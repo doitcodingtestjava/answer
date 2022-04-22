@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
-public class P13251_¡∂æ‡µπ≤®≥ª±‚ {
+public class P13251_Ï°∞ÏïΩÎèåÍ∫ºÎÇ¥Í∏∞ {
   public static void main(String[] args) throws IOException {
     int M, K, T;
     int D[] = new int[51];

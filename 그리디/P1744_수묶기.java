@@ -1,16 +1,16 @@
 import java.util.Collections;
 import java.util.PriorityQueue;
 import java.util.Scanner;
-public class P1744_¼ö¹­±â {
+public class P1744_ìˆ˜ë¬¶ê¸° {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
-    int N = sc.nextInt(); // Ä«µå ¹­À½ÀÇ ¼ö ÀúÀå
-    // ¾ç¼ö´Â ³»¸²Â÷¼ø Á¤·Ä
+    int N = sc.nextInt(); // ì¹´ë“œ ë¬¶ìŒì˜ ìˆ˜ ì €ì¥
+    // ì–‘ìˆ˜ëŠ” ë‚´ë¦¼ì°¨ìˆœ ì •ë ¬
     PriorityQueue<Integer> plusPq = new PriorityQueue<>(Collections.reverseOrder());
     PriorityQueue<Integer> minusPq = new PriorityQueue<>();
     int one = 0;
     int zero = 0;
-    for (int i = 0; i < N; i++) { // 4°³ÀÇ ±×·ìÀ¸·Î ºĞ¸®ÇÏ¿© ÀúÀå
+    for (int i = 0; i < N; i++) { // 4ê°œì˜ ê·¸ë£¹ìœ¼ë¡œ ë¶„ë¦¬í•˜ì—¬ ì €ì¥
       int data = sc.nextInt();
       if (data > 1) {
         plusPq.add(data);
@@ -23,7 +23,7 @@ public class P1744_¼ö¹­±â {
       }
     }
     int sum = 0;
-    // ¾ç¼öÃ³¸®
+    // ì–‘ìˆ˜ì²˜ë¦¬
     while (plusPq.size() > 1) {
       int first = plusPq.remove();
       int second = plusPq.remove();
@@ -32,7 +32,7 @@ public class P1744_¼ö¹­±â {
     if (!plusPq.isEmpty()) {
       sum = sum + plusPq.remove();
     }
-    // À½¼öÃ³¸®
+    // ìŒìˆ˜ì²˜ë¦¬
     while (minusPq.size() > 1) {
       int first = minusPq.remove();
       int second = minusPq.remove();
@@ -43,7 +43,7 @@ public class P1744_¼ö¹­±â {
         sum = sum + minusPq.remove();
       }
     }
-    // 1Ã³¸®
+    // 1ì²˜ë¦¬
     sum = sum + one;
     System.out.println(sum);
   }

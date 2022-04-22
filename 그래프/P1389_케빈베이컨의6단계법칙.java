@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.StringTokenizer;
-public class P1389_ÄÉºóº£ÀÌÄÁÀÇ6´Ü°è¹ıÄ¢ {
+public class P1389_ì¼€ë¹ˆë² ì´ì»¨ì˜6ë‹¨ê³„ë²•ì¹™ {
   private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   private static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
   static int N, M;
@@ -10,22 +10,22 @@ public class P1389_ÄÉºóº£ÀÌÄÁÀÇ6´Ü°è¹ıÄ¢ {
     N = Integer.parseInt(st.nextToken());
     M = Integer.parseInt(st.nextToken());
     distance = new int[N + 1][N + 1];
-    for (int i = 1; i <= N; i++) { // ÀÎÁ¢ Çà·Ä ÃÊ±âÈ­
+    for (int i = 1; i <= N; i++) { // ì¸ì ‘ í–‰ë ¬ ì´ˆê¸°í™”
       for (int j = 1; j <= N; j++) {
         if (i == j)
           distance[i][j] = 0;
         else
-          distance[i][j] = 10000001; // ÃæºĞÈ÷ Å«¼ö·Î ÀúÀå
+          distance[i][j] = 10000001; // ì¶©ë¶„íˆ í°ìˆ˜ë¡œ ì €ì¥
       }
     }
-    for (int i = 0; i < M; i++) {  // Ä£±¸ °ü°èÀÌ¹Ç·Î ¾ç¹æÇâ ÀúÀåÀ» ÇÏ¸ç 1·Î °¡ÁßÄ¡ ÅëÀÏ
+    for (int i = 0; i < M; i++) {  // ì¹œêµ¬ ê´€ê³„ì´ë¯€ë¡œ ì–‘ë°©í–¥ ì €ì¥ì„ í•˜ë©° 1ë¡œ ê°€ì¤‘ì¹˜ í†µì¼
       st = new StringTokenizer(br.readLine());
       int s = Integer.parseInt(st.nextToken());
       int e = Integer.parseInt(st.nextToken());
       distance[s][e] = 1;
       distance[e][s] = 1;
     }
-    for (int k = 1; k <= N; k++) { // ÇÃ·ÎÀÌµå ¿ö¼È ¾Ë°í¸®Áò ¼öÇà
+    for (int k = 1; k <= N; k++) { // í”Œë¡œì´ë“œ ì›Œì…œ ì•Œê³ ë¦¬ì¦˜ ìˆ˜í–‰
       for (int i = 1; i <= N; i++) {
         for (int j = 1; j <= N; j++) {
           if (distance[i][j] > distance[i][k] + distance[k][j])
@@ -40,7 +40,7 @@ public class P1389_ÄÉºóº£ÀÌÄÁÀÇ6´Ü°è¹ıÄ¢ {
       for (int j = 1; j <= N; j++) {
         temp = temp + distance[i][j];
       }
-      if(Min>temp)  // °¡Àå ÀÛÀº ÄÉºó º£ÀÌÄÁÀÇ ¼ö¸¦ Áö´Ï°í ÀÖ´Â i¸¦ Ã£±â
+      if(Min>temp)  // ê°€ì¥ ì‘ì€ ì¼€ë¹ˆ ë² ì´ì»¨ì˜ ìˆ˜ë¥¼ ì§€ë‹ˆê³  ìˆëŠ” ië¥¼ ì°¾ê¸°
       {
         Min = temp;
         Answer = i;

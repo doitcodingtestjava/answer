@@ -1,10 +1,10 @@
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
-public class P1715_Ä«µåÁ¤·ÄÇÏ±â {
+public class P1715_ì¹´ë“œì •ë ¬í•˜ê¸° {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
-    int N = sc.nextInt(); // Ä«µå ¹­À½ÀÇ ¼ö ÀúÀå
+    int N = sc.nextInt(); // ì¹´ë“œ ë¬¶ìŒì˜ ìˆ˜ ì €ì¥
     PriorityQueue<Integer> pq = new PriorityQueue<>();
     for (int i = 0; i < N; i++) {
       int data = sc.nextInt();

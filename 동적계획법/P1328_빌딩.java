@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class P1328_ºôµù {
+public class P1328_ë¹Œë”© {
   static long mod = 1000000007;
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
@@ -7,7 +7,7 @@ public class P1328_ºôµù {
     int L = sc.nextInt();
     int R = sc.nextInt();
     long D[][][] = new long[101][101][101];
-    D[1][1][1] = 1; // ºôµùÀÌ 1°³ÀÌ¸é ³õÀº ¼ö ÀÖ´Â °æ¿ìÀÇ ¼ö´Â 1°³
+    D[1][1][1] = 1; // ë¹Œë”©ì´ 1ê°œì´ë©´ ë†“ì€ ìˆ˜ ìˆëŠ” ê²½ìš°ì˜ ìˆ˜ëŠ” 1ê°œ
     for (int i = 2; i <= N; i++) {
       for (int j = 1; j <= L; j++) {
         for (int k = 1; k <= R; k++) {

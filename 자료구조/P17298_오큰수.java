@@ -1,33 +1,33 @@
 import java.util.*;
 import java.io.*;
-public class P17298_¿ÀÅ«¼ö {
+public class P17298_ì˜¤í°ìˆ˜ {
   public static void main(String[] args) throws IOException {
     BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
     int n = Integer.parseInt(bf.readLine());
-    int[]A = new int[n];    // ¼ö¿­ ¹è¿­ »ı¼º
-    int[]ans = new int[n]; // Á¤´ä ¹è¿­ »ı¼º
+    int[]A = new int[n];    // ìˆ˜ì—´ ë°°ì—´ ìƒì„±
+    int[]ans = new int[n]; // ì •ë‹µ ë°°ì—´ ìƒì„±
     String[] str = bf.readLine().split(" ");
     for (int i = 0; i < n; i++) {
         A[i] = Integer.parseInt(str[i]);
     }
     Stack<Integer> myStack = new Stack<>();
-    myStack.push(0); // Ã³À½¿¡´Â Ç×»ó ½ºÅÃÀÌ ºñ¾îÀÖÀ¸¹Ç·Î ÃÖÃÊ °ªÀ» pushÇÏ¿© ÃÊ±âÈ­
+    myStack.push(0); // ì²˜ìŒì—ëŠ” í•­ìƒ ìŠ¤íƒì´ ë¹„ì–´ìˆìœ¼ë¯€ë¡œ ìµœì´ˆ ê°’ì„ pushí•˜ì—¬ ì´ˆê¸°í™”
     for (int i = 1; i < n; i++) {
-        //½ºÅÃ ºñ¾îÀÖÁö ¾Ê°í ÇöÀç ¼ö¿­ÀÌ ½ºÅÃ TOPÀÎµ¦½º °¡¸£Å°´Â ¼ö¿­º¸´Ù Å©¸é
+        //ìŠ¤íƒ ë¹„ì–´ìˆì§€ ì•Šê³  í˜„ì¬ ìˆ˜ì—´ì´ ìŠ¤íƒ TOPì¸ë±ìŠ¤ ê°€ë¥´í‚¤ëŠ” ìˆ˜ì—´ë³´ë‹¤ í¬ë©´
         while (!myStack.isEmpty() && A[myStack.peek()] < A[i]) {  
-            ans[myStack.pop()] = A[i];  //Á¤´ä ¹è¿­¿¡ ¿ÀÅ«¼ö¸¦ ÇöÀç ¼ö¿­·Î ÀúÀåÇÏ±â
+            ans[myStack.pop()] = A[i];  //ì •ë‹µ ë°°ì—´ì— ì˜¤í°ìˆ˜ë¥¼ í˜„ì¬ ìˆ˜ì—´ë¡œ ì €ì¥í•˜ê¸°
         }
-        myStack.push(i); //½Å±Ôµ¥ÀÌÅÍ push  
+        myStack.push(i); //ì‹ ê·œë°ì´í„° push  
     }
     while (!myStack.empty()) {
-        // ¹İº¹¹®À» ´Ù µ¹°í ³ª¿Ô´Âµ¥ ½ºÅÃÀÌ ºñ¾îÀÖÁö ¾Ê´Ù¸é ºô ¶§ ±îÁö
+        // ë°˜ë³µë¬¸ì„ ë‹¤ ëŒê³  ë‚˜ì™”ëŠ”ë° ìŠ¤íƒì´ ë¹„ì–´ìˆì§€ ì•Šë‹¤ë©´ ë¹Œ ë•Œ ê¹Œì§€
         ans[myStack.pop()] = -1;
-        // stack¿¡ ½×ÀÎ index¿¡ -1À» ³Ö°í
+        // stackì— ìŒ“ì¸ indexì— -1ì„ ë„£ê³ 
     }
     BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
     for (int i = 0; i < n; i++) {
         bw.write(ans[i] + " ");
-        // Ãâ·ÂÇÑ´Ù
+        // ì¶œë ¥í•œë‹¤
     }
     bw.write("\n");
     bw.flush();

@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
-public class P1517_¹öºí¼ÒÆ®2 {
+public class P1517_ë²„ë¸”ì†ŒíŠ¸2 {
   public static int[] A, tmp;
   public static long result;
   public static void main(String[] args) throws IOException {
@@ -16,7 +16,7 @@ public class P1517_¹öºí¼ÒÆ®2 {
       A[i] = Integer.parseInt(st.nextToken());
     }
     result = 0;
-    merget_sort(1, N); //º´ÇÕÁ¤·Ä ¼öÇàÇÏ±â
+    merget_sort(1, N); //ë³‘í•©ì •ë ¬ ìˆ˜í–‰í•˜ê¸°
     System.out.println(result);
   }
 
@@ -24,7 +24,7 @@ public class P1517_¹öºí¼ÒÆ®2 {
     if (e - s < 1)
       return;
     int m = s + (e - s) / 2;
-    //Àç±ÍÇÔ¼ö ÇüÅÂ·Î ±¸Çö
+    //ì¬ê·€í•¨ìˆ˜ í˜•íƒœë¡œ êµ¬í˜„
     merget_sort(s, m); 
     merget_sort(m + 1, e);
     for (int i = s; i <= e; i++) {
@@ -33,10 +33,10 @@ public class P1517_¹öºí¼ÒÆ®2 {
     int k = s;
     int index1 = s;
     int index2 = m + 1;
-    while (index1 <= m && index2 <= e) {  //µÎ ±×·ìÀ» Merge ÇØÁÖ´Â ·ÎÁ÷ 
+    while (index1 <= m && index2 <= e) {  //ë‘ ê·¸ë£¹ì„ Merge í•´ì£¼ëŠ” ë¡œì§ 
       if (tmp[index1] > tmp[index2]) {
         A[k] = tmp[index2];
-        result = result + index2 - k; // µÚÂÊ µ¥ÀÌÅÍ °ªÀÌ ÀÛ¾Æ ¼±ÅÃµÇ´Â °æ¿ì °á°ú °ª ¾÷µ¥ÀÌÆ®
+        result = result + index2 - k; // ë’¤ìª½ ë°ì´í„° ê°’ì´ ì‘ì•„ ì„ íƒë˜ëŠ” ê²½ìš° ê²°ê³¼ ê°’ ì—…ë°ì´íŠ¸
         k++;
         index2++;
       } else {

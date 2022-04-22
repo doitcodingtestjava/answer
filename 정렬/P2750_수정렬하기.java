@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class P2750_¼öÁ¤·ÄÇÏ±â {
+public class P2750_ìˆ˜ì •ë ¬í•˜ê¸° {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     int N = sc.nextInt();

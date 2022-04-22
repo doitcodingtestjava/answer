@@ -10,12 +10,12 @@ public class P11438_LCA2 {
   static boolean[] visited;
   public static void main(String[] args) throws NumberFormatException, IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    int N = Integer.parseInt(br.readLine()); // Á¤Á¡ÀÇ ¼ö
+    int N = Integer.parseInt(br.readLine()); // ì •ì ì˜ ìˆ˜
     tree = new ArrayList[N + 1];
     for (int i = 1; i <= N; i++) {
       tree[i] = new ArrayList<Integer>();
     }
-    for (int i = 0; i < N - 1; i++) { // AÀÎÁ¢¸®½ºÆ®¿¡ ±×·¡ÇÁ µ¥ÀÌÅÍ ÀúÀå
+    for (int i = 0; i < N - 1; i++) { // Aì¸ì ‘ë¦¬ìŠ¤íŠ¸ì— ê·¸ë˜í”„ ë°ì´í„° ì €ì¥
       StringTokenizer st = new StringTokenizer(br.readLine());
       int s = Integer.parseInt(st.nextToken());
       int e = Integer.parseInt(st.nextToken());
@@ -26,20 +26,20 @@ public class P11438_LCA2 {
     visited = new boolean[N + 1];
     int temp = 1;
     kmax = 0;
-    while (temp <= N) { // ÃÖ´ë °¡´É Depth ±¸ÇÏ±â
+    while (temp <= N) { // ìµœëŒ€ ê°€ëŠ¥ Depth êµ¬í•˜ê¸°
       temp <<= 1;
       kmax++;
     }
     parent = new int[kmax + 1][N + 1];
-    BFS(1); // depth¸¦ BFS¸¦ ÅëÇÏ¿© ±¸ÇÏ±â
+    BFS(1); // depthë¥¼ BFSë¥¼ í†µí•˜ì—¬ êµ¬í•˜ê¸°
     for (int k = 1; k <= kmax; k++) {
       for (int n = 1; n <= N; n++) {
         parent[k][n] = parent[k - 1][parent[k - 1][n]];
       }
     }
-    int M = Integer.parseInt(br.readLine()); // ÁúÀÇÀÇ ¼ö
+    int M = Integer.parseInt(br.readLine()); // ì§ˆì˜ì˜ ìˆ˜
     for (int i = 0; i < M; i++) {
-      // °øÅë Á¶»óÀ» ±¸ÇÒ µÎ ³ëµå
+      // ê³µí†µ ì¡°ìƒì„ êµ¬í•  ë‘ ë…¸ë“œ
       StringTokenizer st = new StringTokenizer(br.readLine());
       int a = Integer.parseInt(st.nextToken());
       int b = Integer.parseInt(st.nextToken());
@@ -48,19 +48,19 @@ public class P11438_LCA2 {
     }
   }
   static int excuteLCA(int a, int b) {
-    if (depth[a] > depth[b]) {//´õ ±íÀÌ°¡ ±íÀº depth°¡ b°¡ µÇµµ·Ï º¯°æÇØÁÖ±â
+    if (depth[a] > depth[b]) {//ë” ê¹Šì´ê°€ ê¹Šì€ depthê°€ bê°€ ë˜ë„ë¡ ë³€ê²½í•´ì£¼ê¸°
       int temp = a;
       a = b;
       b = temp;
     }
-    for (int k = kmax; k >= 0; k--){// depth ºü¸£°Ô ¸ÂÃçÁÖ±â
+    for (int k = kmax; k >= 0; k--){// depth ë¹ ë¥´ê²Œ ë§ì¶°ì£¼ê¸°
       if (Math.pow(2, k) <= depth[b] - depth[a]) {
         if (depth[a] <= depth[parent[k][b]]) {
           b = parent[k][b];
         }
       }
     }
-    for (int k = kmax; k >= 0 && a != b; k--) { // Á¶»ó ºü¸£°Ô Ã£±â
+    for (int k = kmax; k >= 0 && a != b; k--) { // ì¡°ìƒ ë¹ ë¥´ê²Œ ì°¾ê¸°
       if (parent[k][a] != parent[k][b]) {
         a = parent[k][a];
         b = parent[k][b];
@@ -71,7 +71,7 @@ public class P11438_LCA2 {
       LCA = parent[0][LCA];
     return LCA;
   }
-  // BFS±¸Çö
+  // BFSêµ¬í˜„
   private static void BFS(int node) {
     Queue<Integer> queue = new LinkedList<Integer>();
     queue.add(node);
@@ -85,8 +85,8 @@ public class P11438_LCA2 {
         if (!visited[next]) {
           visited[next] = true;
           queue.add(next);
-          parent[0][next] = now_node; // ºÎ¸ğ ³ëµå ÀúÀå
-          depth[next] = level; // ³ëµå depth ÀúÀå
+          parent[0][next] = now_node; // ë¶€ëª¨ ë…¸ë“œ ì €ì¥
+          depth[next] = level; // ë…¸ë“œ depth ì €ì¥
         }
       }
       count++;

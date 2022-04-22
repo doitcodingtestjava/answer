@@ -1,12 +1,12 @@
 import java.util.Scanner;
-public class P11726_Å¸ÀÏÃ¤¿ì±â {
+public class P11726_íƒ€ì¼ì±„ìš°ê¸° {
   static long mod = 10007;
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     int N = sc.nextInt();
     long D[] = new long[1001];
-    D[1] = 1;  //±æÀÌ°¡ 2*1ÀÏ¶§ Å¸ÀÏ °æ¿ìÀÇ ¼ö
-    D[2] = 2;  //±æÀÌ°¡ 2*2ÀÏ¶§ Å¸ÀÏ °æ¿ìÀÇ ¼ö
+    D[1] = 1;  //ê¸¸ì´ê°€ 2*1ì¼ë•Œ íƒ€ì¼ ê²½ìš°ì˜ ìˆ˜
+    D[2] = 2;  //ê¸¸ì´ê°€ 2*2ì¼ë•Œ íƒ€ì¼ ê²½ìš°ì˜ ìˆ˜
     for(int i=3; i<=N; i++){
       D[i] = (D[i-1] + D[i-2])%mod; 
     }

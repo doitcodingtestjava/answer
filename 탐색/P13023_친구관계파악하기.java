@@ -1,11 +1,11 @@
 import java.util.*;
-public class P13023_Ä£±¸°ü°èÆÄ¾ÇÇÏ±â {
+public class P13023_ì¹œêµ¬ê´€ê³„íŒŒì•…í•˜ê¸° {
   static boolean visited[];
   static ArrayList<Integer>[] A;
   static boolean arrive;
   public static void main(String[] args) {
-    int N; // Á¤Á¡ÀÇ ¼ö
-    int M; // °£¼±ÀÇ ¼ö
+    int N; // ì •ì ì˜ ìˆ˜
+    int M; // ê°„ì„ ì˜ ìˆ˜
     arrive = false;
     Scanner scan = new Scanner(System.in);
     N = scan.nextInt();
@@ -29,10 +29,10 @@ public class P13023_Ä£±¸°ü°èÆÄ¾ÇÇÏ±â {
     if (arrive)
       System.out.println("1");
     else
-      System.out.println("0"); // 5ÀÇ ±íÀÌ°¡ ¾ø´Ù¸é 0 Ãâ·Â
+      System.out.println("0"); // 5ì˜ ê¹Šì´ê°€ ì—†ë‹¤ë©´ 0 ì¶œë ¥
   }
-  public static void DFS(int now, int depth) { // DFS±¸Çö
-    if (depth == 5 || arrive) { // ±íÀÌ°¡ 5°¡µÇ¸é ÇÁ·Î±×·¥ Á¾·á
+  public static void DFS(int now, int depth) { // DFSêµ¬í˜„
+    if (depth == 5 || arrive) { // ê¹Šì´ê°€ 5ê°€ë˜ë©´ í”„ë¡œê·¸ë¨ ì¢…ë£Œ
       arrive = true;
       return;
     }

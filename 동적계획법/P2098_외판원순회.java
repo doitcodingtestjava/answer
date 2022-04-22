@@ -1,7 +1,7 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
-class P2098_¿ÜÆÇ¿ø¼øÈ¸ {
+class P2098_ì™¸íŒì›ìˆœíšŒ {
     private static final int INF = 1000000*16+1;
     private static int N;
     private static int[][] W;
@@ -20,20 +20,20 @@ class P2098_¿ÜÆÇ¿ø¼øÈ¸ {
         d = new int[16][1 << 16];
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < 1 << N; j++) {
-                d[i][j] = INF; //¸ğµç ºñ¿ëÀ» ÃæºĞÈ÷ Å«¼ö·Î ÀúÀå
+                d[i][j] = INF; //ëª¨ë“  ë¹„ìš©ì„ ì¶©ë¶„íˆ í°ìˆ˜ë¡œ ì €ì¥
             }
         }
         System.out.println(tsp(0, 1));
     }
-    private static int tsp(int c, int v) { //¸ğµç °æ¿ìÀÇ ¼ö¿¡ ´ëÇÑ ¿ÏÀü Å½»ö, Àç±Í ±¸Çö
-        if (v == (1 << N) - 1) {    // ¸ğµç ³ëµå¸¦ ¹æ¹®ÇÑ °æ¿ì
+    private static int tsp(int c, int v) { //ëª¨ë“  ê²½ìš°ì˜ ìˆ˜ì— ëŒ€í•œ ì™„ì „ íƒìƒ‰, ì¬ê·€ êµ¬í˜„
+        if (v == (1 << N) - 1) {    // ëª¨ë“  ë…¸ë“œë¥¼ ë°©ë¬¸í•œ ê²½ìš°
             return W[c][0] == 0 ? INF : W[c][0];
         }
-        if (d[c][v] != INF) {  //ÀÌ¹Ì ¹æ¹®ÇÑ ³ëµåÀÎ °æ¿ì -> ÀÌ¹Ì °è»êÇÑ °æ¿ì ¹Ù·Î ¸®ÅÏ (¸Ş¸ğÀÌÁ¦ÀÌ¼Ç)
+        if (d[c][v] != INF) {  //ì´ë¯¸ ë°©ë¬¸í•œ ë…¸ë“œì¸ ê²½ìš° -> ì´ë¯¸ ê³„ì‚°í•œ ê²½ìš° ë°”ë¡œ ë¦¬í„´ (ë©”ëª¨ì´ì œì´ì…˜)
             return d[c][v];
         }
         for (int i = 0; i < N; i++) {
-            if ((v & (1 << i)) == 0 && W[c][i] != 0) {   //¹æ¹®ÇÑÀûÀÌ ¾ø°í °¥ ¼ö ÀÖ´Â µµ½ÃÀÎ °æ¿ì
+            if ((v & (1 << i)) == 0 && W[c][i] != 0) {   //ë°©ë¬¸í•œì ì´ ì—†ê³  ê°ˆ ìˆ˜ ìˆëŠ” ë„ì‹œì¸ ê²½ìš°
                 d[c][v] = Math.min(d[c][v], tsp(i, (v | (1 << i))) + W[c][i]);
             }
         }

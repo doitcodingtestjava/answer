@@ -1,7 +1,5 @@
-
-
 import java.util.Scanner;
-public class P2747_ÇÇº¸³ªÄ¡¼ö_BottomUp {
+public class P2747_í”¼ë³´ë‚˜ì¹˜ìˆ˜_BottomUp {
   static int[] D;
   public static void main(String[] args) {
     // TODO Auto-generated method stub

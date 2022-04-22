@@ -1,5 +1,5 @@
 import java.util.*;
-public class P1463_1·Î¸¸µé±â {
+public class P1463_1ë¡œë§Œë“¤ê¸° {
   static int N;
   static int D[];
   public static void main(String[] args) throws Exception {

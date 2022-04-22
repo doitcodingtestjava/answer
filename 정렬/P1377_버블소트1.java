@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-public class P1377_¹öºí¼ÒÆ®1 {
+public class P1377_ë²„ë¸”ì†ŒíŠ¸1 {
   public static void main(String[] args) throws IOException {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     int N = Integer.parseInt(reader.readLine());
@@ -10,10 +10,10 @@ public class P1377_¹öºí¼ÒÆ®1 {
     for (int i = 0; i < N; i++) {
       A[i] = new mData(Integer.parseInt(reader.readLine()), i);
     }
-    Arrays.sort(A);//A¹è¿­ Á¤·Ä O(nlogn)½Ã°£ º¹Àâµµ
+    Arrays.sort(A);//Aë°°ì—´ ì •ë ¬ O(nlogn)ì‹œê°„ ë³µìž¡ë„
     int Max = 0;
     for (int i = 0; i < N; i++) {
-      if (Max < A[i].index - i) //Á¤·Ä Àü index - Á¤·Ä ÈÄ index °è»ê °ªÀÇ ÃÖ´ë °ªÀ» Ã£¾Æ ÀúÀå
+      if (Max < A[i].index - i) //ì •ë ¬ ì „ index - ì •ë ¬ í›„ index ê³„ì‚° ê°’ì˜ ìµœëŒ€ ê°’ì„ ì°¾ì•„ ì €ìž¥
         Max = A[i].index - i;
     }
     System.out.println(Max + 1);
@@ -31,7 +31,7 @@ class mData implements Comparable<mData> {
   }
 
   @Override
-  public int compareTo(mData o) {//value ±âÁØ ¿À¸§Â÷¼ø Á¤·Ä
+  public int compareTo(mData o) {//value ê¸°ì¤€ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬
     return this.value - o.value;
   }
 }

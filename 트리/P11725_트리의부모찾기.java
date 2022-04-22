@@ -1,5 +1,5 @@
 import java.util.*;
-public class P11725_Æ®¸®ÀÇºÎ¸ğÃ£±â {
+public class P11725_íŠ¸ë¦¬ì˜ë¶€ëª¨ì°¾ê¸° {
   static int N;
   static boolean[] visit;
   static ArrayList<Integer> tree[];

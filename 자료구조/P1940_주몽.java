@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
-public class P1940_ÁÖ¸ù {
+public class P1940_ì£¼ëª½ {
   public static void main(String[] args) throws IOException {
     BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
     int N = Integer.parseInt(bf.readLine());

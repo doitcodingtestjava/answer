@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.StringTokenizer;
-public class P2162_¼±ºÐ±×·ì {
+public class P2162_ì„ ë¶„ê·¸ë£¹ {
   static int parent[] = new int[3001];
   static int L[][] = new int[3001][4];
   public static void main(String[] args) throws Exception {
@@ -16,7 +16,7 @@ public class P2162_¼±ºÐ±×·ì {
       L[i][1] = Integer.parseInt(st.nextToken());
       L[i][2] = Integer.parseInt(st.nextToken());
       L[i][3] = Integer.parseInt(st.nextToken());
-      for (int j = 1; j < i; j++) { //ÀÌÀü¿¡ ÀúÀåµÈ ¼±ºÐµé°ú ±³Â÷ ¿©ºÎ È®ÀÎ
+      for (int j = 1; j < i; j++) { //ì´ì „ì— ì €ìž¥ëœ ì„ ë¶„ë“¤ê³¼ êµì°¨ ì—¬ë¶€ í™•ì¸
         if (isCross(L[i][0], L[i][1], L[i][2], L[i][3], L[j][0], L[j][1], L[j][2], L[j][3]) == true) {
           Union(i, j);
         }
@@ -24,9 +24,9 @@ public class P2162_¼±ºÐ±×·ì {
     }
     int ans = 0, res=0;
     for (int i = 1; i <= N; i++) {
-        if (parent[i] < 0) {  //À½¼öÀÌ¸é ¼±ºÐ±×·ìÀ» ´ëÇ¥ÇÏ´Â ºÎ¸ð(´ëÇ¥) ³ëµåÀÌ¹Ç·Î Ä«¿îÆ®
+        if (parent[i] < 0) {  //ìŒìˆ˜ì´ë©´ ì„ ë¶„ê·¸ë£¹ì„ ëŒ€í‘œí•˜ëŠ” ë¶€ëª¨(ëŒ€í‘œ) ë…¸ë“œì´ë¯€ë¡œ ì¹´ìš´íŠ¸
             ans++;
-            res = Math.min(res, parent[i]); //À½¼öÀÇ Àý´ë °ªÀÌ ¼±ºÐ±×·ìÀÇ ¼±ºÐ °³¼ö
+            res = Math.min(res, parent[i]); //ìŒìˆ˜ì˜ ì ˆëŒ€ ê°’ì´ ì„ ë¶„ê·¸ë£¹ì˜ ì„ ë¶„ ê°œìˆ˜
         }
     }
     System.out.println(ans);
@@ -64,9 +64,9 @@ private static int find(int i) {
     int abd = CCW(x1, y1, x2, y2, x4, y4);
     int cda = CCW(x3, y3, x4, y4, x1, y1);
     int cdb = CCW(x3, y3, x4, y4, x2, y2);
-    if (abc * abd == 0 && cda * cdb == 0) { // ¼±ºÐÀÌ ÀÏÁ÷ ¼±ÀÎ °æ¿ì
+    if (abc * abd == 0 && cda * cdb == 0) { // ì„ ë¶„ì´ ì¼ì§ ì„ ì¸ ê²½ìš°
       return isOverlab(x1, y1, x2, y2, x3, y3, x4, y4);
-    } else if (abc * abd <= 0 && cda * cdb <= 0) { // ¼±ºÐÀÌ ±³Â÷ÇÏ´Â °æ¿ì
+    } else if (abc * abd <= 0 && cda * cdb <= 0) { // ì„ ë¶„ì´ êµì°¨í•˜ëŠ” ê²½ìš°
       return true;
     }
     return false;

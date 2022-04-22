@@ -1,11 +1,11 @@
 import java.util.Scanner;
-public class P10844_°è´Ü¼ö {
+public class P10844_ê³„ë‹¨ìˆ˜ {
   static long mod = 1000000000;
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     int N = sc.nextInt();
     long D[][] = new long[N + 1][11];
-    for (int i = 1; i <= 9; i++) { // 0À¸·Î ¼ýÀÚ°¡ ½ÃÀÛ ÇÒ ¼ö ¾øÀ¸¹Ç·Î D[0][1]Àº 0À¸·Î ÃÊ±âÈ­
+    for (int i = 1; i <= 9; i++) { // 0ìœ¼ë¡œ ìˆ«ìžê°€ ì‹œìž‘ í•  ìˆ˜ ì—†ìœ¼ë¯€ë¡œ D[0][1]ì€ 0ìœ¼ë¡œ ì´ˆê¸°í™”
       D[1][i] = 1;
     }
     for (int i = 2; i <= N; i++) {
@@ -17,7 +17,7 @@ public class P10844_°è´Ü¼ö {
     }
     long sum = 0;
     for (int i = 0; i < 10; i++) {
-      sum = (sum + D[N][i]) % mod; //Á¤´ä °ªÀ» ´õÇØ ÁÙ ¶§µµ %¿¬»ê ¼öÇà
+      sum = (sum + D[N][i]) % mod; //ì •ë‹µ ê°’ì„ ë”í•´ ì¤„ ë•Œë„ %ì—°ì‚° ìˆ˜í–‰
     }
     System.out.println(sum);
   }

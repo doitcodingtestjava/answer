@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
-public class P1854_K¹øÂ°ÃÖ´Ü°æ·ÎÃ£±â {
+public class P1854_Kë²ˆì§¸ìµœë‹¨ê²½ë¡œì°¾ê¸° {
   static final int INF = 100000000;
   public static void main(String[] args) throws IOException {
     int N, M, K;
@@ -14,7 +14,7 @@ public class P1854_K¹øÂ°ÃÖ´Ü°æ·ÎÃ£±â {
     M = Integer.parseInt(st.nextToken());
     K = Integer.parseInt(st.nextToken());
     PriorityQueue<Integer>[] distQueue = new PriorityQueue[N + 1];
-    Comparator<Integer> cp = new Comparator<Integer>() { // ¿À¸§Â÷¼øÀ¸·Î Á¤·Ä ±âÁØ ¼³Á¤
+    Comparator<Integer> cp = new Comparator<Integer>() { // ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì •ë ¬ ê¸°ì¤€ ì„¤ì •
       @Override
       public int compare(Integer o1, Integer o2) {
         return o1 < o2 ? 1 : -1;
@@ -23,7 +23,7 @@ public class P1854_K¹øÂ°ÃÖ´Ü°æ·ÎÃ£±â {
     for (int i = 0; i < N + 1; i++) {
       distQueue[i] = new PriorityQueue<Integer>(K, cp);
     }
-    for (int i = 0; i < M; i++) { // ÀÎÁ¢Çà·Ä¿¡ ±×·¡ÇÁ µ¥ÀÌÅÍ ÀúÀå
+    for (int i = 0; i < M; i++) { // ì¸ì ‘í–‰ë ¬ì— ê·¸ë˜í”„ ë°ì´í„° ì €ì¥
 
       st = new StringTokenizer(br.readLine());
       int a = Integer.parseInt(st.nextToken());
@@ -38,23 +38,23 @@ public class P1854_K¹øÂ°ÃÖ´Ü°æ·ÎÃ£±â {
     while (!pq.isEmpty()) {
       Node u = pq.poll();
       for (int adjNode = 1; adjNode <= N; adjNode++) {
-        // ¿¬°áµÈ ¸ğµç ³ëµå¿¡ ´ëÇÏ¿© °Ë»öÇÏ±â (½Ã°£º¹ÀâÅä Ãø¸é¿¡¼­ ÀÎÁ¢Çà·ÄÀÌ ºÒ¸®ÇÑÀÌÀ¯)
+        // ì—°ê²°ëœ ëª¨ë“  ë…¸ë“œì— ëŒ€í•˜ì—¬ ê²€ìƒ‰í•˜ê¸° (ì‹œê°„ë³µì¡í†  ì¸¡ë©´ì—ì„œ ì¸ì ‘í–‰ë ¬ì´ ë¶ˆë¦¬í•œì´ìœ )
         if (W[u.node][adjNode] != 0) {
-          // ÀúÀåµÈ °æ·Î°¡ K°³°¡ ¾ÈµÉ °æ¿ì ±×³É Ãß°¡ÇÑ´Ù.
+          // ì €ì¥ëœ ê²½ë¡œê°€ Kê°œê°€ ì•ˆë  ê²½ìš° ê·¸ëƒ¥ ì¶”ê°€í•œë‹¤.
           if (distQueue[adjNode].size() < K) {
             distQueue[adjNode].add(u.cost + W[u.node][adjNode]);
             pq.add(new Node(adjNode, u.cost + W[u.node][adjNode]));
           }
-          // ÀúÀåµÈ °æ·Î°¡ K°³ÀÌ°í, ÇöÀç °¡Àå Å« °ªº¸´Ù ÀÛÀ»¶§¸¸ Ãß°¡ÇÑ´Ù.
+          // ì €ì¥ëœ ê²½ë¡œê°€ Kê°œì´ê³ , í˜„ì¬ ê°€ì¥ í° ê°’ë³´ë‹¤ ì‘ì„ë•Œë§Œ ì¶”ê°€í•œë‹¤.
           else if (distQueue[adjNode].peek() > u.cost + W[u.node][adjNode]) {
-            distQueue[adjNode].poll(); // ±âÁ¸ Å¥¿¡¼­ Max°ª »èÁ¦¸ÕÀú ÇØÁÖ¾î¾ßÇÔ
+            distQueue[adjNode].poll(); // ê¸°ì¡´ íì—ì„œ Maxê°’ ì‚­ì œë¨¼ì € í•´ì£¼ì–´ì•¼í•¨
             distQueue[adjNode].add(u.cost + W[u.node][adjNode]);
             pq.add(new Node(adjNode, u.cost + W[u.node][adjNode]));
           }
         }
       }
     }
-    for (int i = 1; i <= N; i++) { // K¹øÂ° °æ·Î Ãâ·Â
+    for (int i = 1; i <= N; i++) { // Kë²ˆì§¸ ê²½ë¡œ ì¶œë ¥
       if (distQueue[i].size() == K) {
         bw.write(distQueue[i].peek() + "\n");
       } else {
@@ -66,7 +66,7 @@ public class P1854_K¹øÂ°ÃÖ´Ü°æ·ÎÃ£±â {
     br.close();
   }
 }
-//³ëµå Å¬·¡½º ÀÛ¼º
+//ë…¸ë“œ í´ë˜ìŠ¤ ì‘ì„±
 class Node implements Comparable<Node> {
   int node;
   int cost;

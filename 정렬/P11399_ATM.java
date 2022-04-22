@@ -8,7 +8,7 @@ public class P11399_ATM {
     for (int i = 0; i < N; i++) {
       A[i] = sc.nextInt();
     }
-    for (int i = 1; i < N; i++) { //»ðÀÔ Á¤·Ä
+    for (int i = 1; i < N; i++) { //ì‚½ìž… ì •ë ¬
       int insert_point = i;
       int insert_value = A[i];
       for (int j = i-1; j >= 0; j--) {
@@ -26,11 +26,11 @@ public class P11399_ATM {
       }
       A[insert_point] =insert_value;
     }
-    S[0]=A[0]; //ÇÕ¹è¿­ ¸¸µé±â 
+    S[0]=A[0]; //í•©ë°°ì—´ ë§Œë“¤ê¸° 
     for (int i = 1; i < N; i++) { 
       S[i] = S[i-1]+A[i];
     }
-    int sum = 0; //ÇÕ¹è¿­ ÃÑÇÕ ±¸ÇÏ±â
+    int sum = 0; //í•©ë°°ì—´ ì´í•© êµ¬í•˜ê¸°
     for (int i = 0; i < N; i++) {
       sum = sum + S[i];
     }

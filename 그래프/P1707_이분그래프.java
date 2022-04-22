@@ -1,7 +1,7 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-public class P1707_ÀÌºĞ±×·¡ÇÁ {
+public class P1707_ì´ë¶„ê·¸ë˜í”„ {
   static ArrayList<Integer>[] A;
   static int[] check;
   static boolean visited[];
@@ -20,14 +20,14 @@ public class P1707_ÀÌºĞ±×·¡ÇÁ {
       for (int i = 1; i <= V; i++) {
         A[i] = new ArrayList<Integer>();
       }
-      for (int i = 0; i < E; i++) { // ÀÎÁ¢ ¸®½ºÆ®·Î ±×·¡ÇÁ ÀúÀå
+      for (int i = 0; i < E; i++) { // ì¸ì ‘ ë¦¬ìŠ¤íŠ¸ë¡œ ê·¸ë˜í”„ ì €ì¥
         s = br.readLine().split(" ");
         int Start = Integer.parseInt(s[0]);
         int End = Integer.parseInt(s[1]);
         A[Start].add(End);
         A[End].add(Start);
       }
-      for (int i = 1; i <= V; i++) { // ÁÖ¾îÁø ±×·¡ÇÁ°¡ ÇÏ³ª·Î ¿¬°áµÇ¾î ÀÖ´Ù´Â º¸ÀåÀÌ ¾øÀ¸¹Ç·Î ¸ğµç Á¤Á¡¿¡¼­ ¼öÇà
+      for (int i = 1; i <= V; i++) { // ì£¼ì–´ì§„ ê·¸ë˜í”„ê°€ í•˜ë‚˜ë¡œ ì—°ê²°ë˜ì–´ ìˆë‹¤ëŠ” ë³´ì¥ì´ ì—†ìœ¼ë¯€ë¡œ ëª¨ë“  ì •ì ì—ì„œ ìˆ˜í–‰
         if (IsEven)
           DFS(i);
         else
@@ -40,14 +40,14 @@ public class P1707_ÀÌºĞ±×·¡ÇÁ {
         System.out.println("NO");
     }
   }
-  public static void DFS(int node) { // DFS±¸Çö
+  public static void DFS(int node) { // DFSêµ¬í˜„
     visited[node] = true;
     for (int i : A[node]){
       if (!visited[i]) {
-        check[i] = (check[node] + 1) % 2; // ÀÎÁ¢ÇÑ Á¤Á¡Àº °°Àº ÁıÇÕÀÌ ¾Æ´Ï¹Ç·Î ÀÌÀü Á¤Á¡°ú ´Ù¸¥ ÁıÇÕÀ¸·Î Ã³¸®
+        check[i] = (check[node] + 1) % 2; // ì¸ì ‘í•œ ì •ì ì€ ê°™ì€ ì§‘í•©ì´ ì•„ë‹ˆë¯€ë¡œ ì´ì „ ì •ì ê³¼ ë‹¤ë¥¸ ì§‘í•©ìœ¼ë¡œ ì²˜ë¦¬
         DFS(i);
       }
-      else if (check[node] == check[i]){ // ÀÌ¹Ì ¹æ¹®ÇÑ Á¤Á¡ÀÌ ÇöÀç ³» Á¤Á¡°ú °°Àº ÁıÇÕÀÌ¸é ÀÌºĞ ±×·¡ÇÁ°¡ ¾Æ´Ô
+      else if (check[node] == check[i]){ // ì´ë¯¸ ë°©ë¬¸í•œ ì •ì ì´ í˜„ì¬ ë‚´ ì •ì ê³¼ ê°™ì€ ì§‘í•©ì´ë©´ ì´ë¶„ ê·¸ë˜í”„ê°€ ì•„ë‹˜
         IsEven = false;
       }
     }

@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class P2166_´Ù°¢ÇüÀÇ³ĞÀÌ {
+public class P2166_ë‹¤ê°í˜•ì˜ë„“ì´ {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     int N = sc.nextInt();
@@ -9,13 +9,13 @@ public class P2166_´Ù°¢ÇüÀÇ³ĞÀÌ {
       x[i] = sc.nextInt();
       y[i] = sc.nextInt();
     }
-    x[N] = x[0]; // ¸¶Áö¸·°ú Ã³À½Á¡µµ CCW °è»ê¿¡ Æ÷ÇÔÇØÁÖ¾î¾ßÇÔ
+    x[N] = x[0]; // ë§ˆì§€ë§‰ê³¼ ì²˜ìŒì ë„ CCW ê³„ì‚°ì— í¬í•¨í•´ì£¼ì–´ì•¼í•¨
     y[N] = y[0];
     double result = 0;
     for (int i = 0; i < N; i++) {
       result += (x[i] * y[i + 1]) - (x[i + 1] * y[i]);
     }
-    String answer = String.format("%.1f", Math.abs(result) / 2.0); // µÑÂ° ÀÚ¸® ¹İ¿Ã¸²
+    String answer = String.format("%.1f", Math.abs(result) / 2.0); // ë‘˜ì§¸ ìë¦¬ ë°˜ì˜¬ë¦¼
     System.out.println(answer);
   }
 }

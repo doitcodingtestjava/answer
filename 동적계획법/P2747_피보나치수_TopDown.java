@@ -1,8 +1,6 @@
-
-
 import java.util.Scanner;
 
-public class P2747_ÇÇº¸³ªÄ¡¼ö_TopDown {
+public class P2747_í”¼ë³´ë‚˜ì¹˜ìˆ˜_TopDown {
   static int[] D;
   public static void main(String[] args) {
     // TODO Auto-generated method stub
@@ -19,8 +17,8 @@ public class P2747_ÇÇº¸³ªÄ¡¼ö_TopDown {
   }
 
   static int fibo(int n) {
-    if (D[n] != -1) //±âÁ¸¿¡ °è»êÇÑ ÀûÀÌ ÀÖ´Â ºÎºĞ ¹®Á¦´Â ´Ù½Ã °è»êÇÏÁö ¾Ê°í ¸®ÅÏÇÑ´Ù.
+    if (D[n] != -1) //ê¸°ì¡´ì— ê³„ì‚°í•œ ì ì´ ìˆëŠ” ë¶€ë¶„ ë¬¸ì œëŠ” ë‹¤ì‹œ ê³„ì‚°í•˜ì§€ ì•Šê³  ë¦¬í„´í•œë‹¤.
       return D[n];
-    return D[n] = fibo(n - 2) + fibo(n - 1); //¸Ş¸ğÀÌÁ¦ÀÌ¼Ç ºÎºĞ
+    return D[n] = fibo(n - 2) + fibo(n - 1); //ë©”ëª¨ì´ì œì´ì…˜ ë¶€ë¶„
   }
 }

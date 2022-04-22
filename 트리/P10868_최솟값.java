@@ -1,12 +1,12 @@
 import java.io.*;
 import java.util.*;
-public class P10868_ÃÖ¼Ú°ª {
+public class P10868_ìµœì†Ÿê°’ {
   static long[] tree;
   public static void main(String[] args) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     StringTokenizer st = new StringTokenizer(br.readLine());
-    int N = Integer.parseInt(st.nextToken()); // ¼öÀÇ °³¼ö
-    int M = Integer.parseInt(st.nextToken()); // ±¸°£ÀÇ ÃÖ¼Ú°ªÀ» ±¸ÇÏ´Â È½¼ö
+    int N = Integer.parseInt(st.nextToken()); // ìˆ˜ì˜ ê°œìˆ˜
+    int M = Integer.parseInt(st.nextToken()); // êµ¬ê°„ì˜ ìµœì†Ÿê°’ì„ êµ¬í•˜ëŠ” íšŸìˆ˜
     int treeHeight = 0;
     int lenght = N;
     while (lenght != 0) {
@@ -15,16 +15,16 @@ public class P10868_ÃÖ¼Ú°ª {
     }
     int treeSize = (int) Math.pow(2, treeHeight + 1);
     int leftNodeStartIndex = treeSize / 2 - 1;
-    // Æ®¸® ÃÊ±âÈ­ ÇÏ±â
+    // íŠ¸ë¦¬ ì´ˆê¸°í™” í•˜ê¸°
     tree = new long[treeSize + 1];
     for (int i = 0; i < tree.length; i++) {
       tree[i] = Integer.MAX_VALUE;
     }
-    // µ¥ÀÌÅÍ ÀÔ·Â ¹Ş±â
+    // ë°ì´í„° ì…ë ¥ ë°›ê¸°
     for (int i = leftNodeStartIndex + 1; i <= leftNodeStartIndex + N; i++) {
       tree[i] = Long.parseLong(br.readLine());
     }
-    // tree ¸¸µé±â
+    // tree ë§Œë“¤ê¸°
     setTree(treeSize - 1); 
     for (int i = 0; i < M; i++) {
       st = new StringTokenizer(br.readLine());
@@ -37,7 +37,7 @@ public class P10868_ÃÖ¼Ú°ª {
     br.close();
   }
 
-  private static long getMin(int s, int e) { //¹üÀ§ÀÇ ÃÖ¼Ú°ªÀ» ±¸ÇÏ´Â ÇÔ¼ö
+  private static long getMin(int s, int e) { //ë²”ìœ„ì˜ ìµœì†Ÿê°’ì„ êµ¬í•˜ëŠ” í•¨ìˆ˜
     long Min = Long.MAX_VALUE;
     while (s <= e) {
       if (s % 2 == 1) {
@@ -54,7 +54,7 @@ public class P10868_ÃÖ¼Ú°ª {
     return Min;
   }
 
-  private static void setTree(int i) { //ÃÊ±â Æ®¸® »ı¼º ÇÔ¼ö ±¸Çö
+  private static void setTree(int i) { //ì´ˆê¸° íŠ¸ë¦¬ ìƒì„± í•¨ìˆ˜ êµ¬í˜„
     while (i != 1) {
       if (tree[i / 2] > tree[i])
         tree[i / 2] = tree[i];

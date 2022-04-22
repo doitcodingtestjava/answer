@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class P1456_°ÅÀÇ¼Ò¼ö {
+public class P1456_ê±°ì˜ì†Œìˆ˜ {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     long Min = sc.nextLong();
@@ -8,11 +8,11 @@ public class P1456_°ÅÀÇ¼Ò¼ö {
     for (int i = 2; i < A.length; i++) {
       A[i] = i;
     }
-    for (int i = 2; i <= Math.sqrt(A.length); i++) { // Á¦°ö±Ù ±îÁö¸¸ ¼öÇà
+    for (int i = 2; i <= Math.sqrt(A.length); i++) { // ì œê³±ê·¼ ê¹Œì§€ë§Œ ìˆ˜í–‰
       if (A[i] == 0) {
         continue;
       }
-      for (int j = i + i; j < A.length; j = j + i) { // ¹è¼ö Áö¿ì±â
+      for (int j = i + i; j < A.length; j = j + i) { // ë°°ìˆ˜ ì§€ìš°ê¸°
         A[j] = 0;
       }
     }

@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class P1427_³»¸²Â÷¼øÁ¤·Ä {
+public class P1427_ë‚´ë¦¼ì°¨ìˆœì •ë ¬ {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     String str = sc.next();
@@ -10,7 +10,7 @@ public class P1427_³»¸²Â÷¼øÁ¤·Ä {
     for (int i = 0; i < str.length(); i++) {
       int Max = i;
       for (int j = i + 1; j < str.length(); j++) {
-        if (A[j] > A[Max])  //³»¸²Â÷¼øÀÌ¹Ç·Î ÃÖ´ë °ªÀ» Ã£À½
+        if (A[j] > A[Max])  //ë‚´ë¦¼ì°¨ìˆœì´ë¯€ë¡œ ìµœëŒ€ ê°’ì„ ì°¾ìŒ
           Max = j;
       }
       if (A[i] < A[Max]) {

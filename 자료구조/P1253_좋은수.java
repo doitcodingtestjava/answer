@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
-public class P1253_ÁÁÀº¼ö {
+public class P1253_ì¢‹ì€ìˆ˜ {
   public static void main(String[] args) throws NumberFormatException, IOException {
     BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
     int N = Integer.parseInt(bf.readLine());
@@ -18,9 +18,9 @@ public class P1253_ÁÁÀº¼ö {
       long find = A[k];
       int i = 0;
       int j = N - 1;
-      while (i < j) {  // ÅõÆ÷ÀÎÅÍ ¾Ë°í¸®Áò 
+      while (i < j) {  // íˆ¬í¬ì¸í„° ì•Œê³ ë¦¬ì¦˜ 
         if (A[i] + A[j] == find) {
-          // find´Â ¼­·Î ´Ù¸¥ µÎ ¼öÀÇ ÇÕÀÌ¿©¾ßµÊÀ» Ã¼Å©
+          // findëŠ” ì„œë¡œ ë‹¤ë¥¸ ë‘ ìˆ˜ì˜ í•©ì´ì—¬ì•¼ë¨ì„ ì²´í¬
           if (i != k && j != k) {
             Result++;
             break;

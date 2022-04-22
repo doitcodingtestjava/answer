@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-public class P1043_°ÅÁş¸» {
+public class P1043_ê±°ì§“ë§ {
   public static int[] parent;
   public static int[] trueP;
   public static ArrayList<Integer>[] party;
@@ -12,11 +12,11 @@ public class P1043_°ÅÁş¸» {
     int T = sc.nextInt();
     result = 0;
     trueP = new int[T];
-    for (int i = 0; i < T; i++) { // Áø½ÇÀ» ¾Æ´Â »ç¶÷ ÀúÀå
+    for (int i = 0; i < T; i++) { // ì§„ì‹¤ì„ ì•„ëŠ” ì‚¬ëŒ ì €ì¥
       trueP[i] = sc.nextInt();
     }
     party = new ArrayList[M];
-    for (int i = 0; i < M; i++) { // ÆÄÆ¼ µ¥ÀÌÅÍ ÀúÀå
+    for (int i = 0; i < M; i++) { // íŒŒí‹° ë°ì´í„° ì €ì¥
       party[i] = new ArrayList<Integer>();
       int party_size = sc.nextInt();
       for (int j = 0; j < party_size; j++) {
@@ -24,16 +24,16 @@ public class P1043_°ÅÁş¸» {
       }
     }
     parent = new int[N + 1];
-    for (int i = 0; i <= N; i++) { // ´ëÇ¥ ³ëµå¸¦ ÀÚ±â ÀÚ½ÅÀ¸·Î ÃÊ±âÈ­ ÇÏ±â
+    for (int i = 0; i <= N; i++) { // ëŒ€í‘œ ë…¸ë“œë¥¼ ìê¸° ìì‹ ìœ¼ë¡œ ì´ˆê¸°í™” í•˜ê¸°
       parent[i] = i;
     }
-    for (int i = 0; i < M; i++) { // °¢ ÆÄÆ¼¿¡ Âü¿©ÇÑ »ç¶÷µéÀ» ÇÏ³ªÀÇ ±×·ìÀ¸·Î ¸¸µé±â -> union ¿¬»ê
+    for (int i = 0; i < M; i++) { // ê° íŒŒí‹°ì— ì°¸ì—¬í•œ ì‚¬ëŒë“¤ì„ í•˜ë‚˜ì˜ ê·¸ë£¹ìœ¼ë¡œ ë§Œë“¤ê¸° -> union ì—°ì‚°
       int firstPeople = party[i].get(0);
       for (int j = 1; j < party[i].size(); j++) {
         union(firstPeople, party[i].get(j));
       }
     }
-    for (int i = 0; i < M; i++) { // °¢ ÆÄÆ¼¿¡¼­ Áø½ÇÀ» ¾Æ´Â »ç¶÷°ú °°Àº ±×·ì¿¡ ÀÖ´Ù¸é °úÀå ÇÒ ¼ö ¾øÀ½
+    for (int i = 0; i < M; i++) { // ê° íŒŒí‹°ì—ì„œ ì§„ì‹¤ì„ ì•„ëŠ” ì‚¬ëŒê³¼ ê°™ì€ ê·¸ë£¹ì— ìˆë‹¤ë©´ ê³¼ì¥ í•  ìˆ˜ ì—†ìŒ
       boolean isPossible = true;
       int cur = party[i].get(0);
       for (int j = 0; j < trueP.length; j++) {
@@ -47,20 +47,20 @@ public class P1043_°ÅÁş¸» {
     }
     System.out.println(result);
   }
-  public static void union(int a, int b) { // union ¿¬»ê : ¹Ù·Î ¿¬°áÀÌ ¾Æ´Ñ ´ëÇ¥ ³ëµå³¢¸® ¿¬°áÇÏ¿© ÁÜ
+  public static void union(int a, int b) { // union ì—°ì‚° : ë°”ë¡œ ì—°ê²°ì´ ì•„ë‹Œ ëŒ€í‘œ ë…¸ë“œë¼ë¦¬ ì—°ê²°í•˜ì—¬ ì¤Œ
     a = find(a);
     b = find(b);
     if (a != b) {
       parent[b] = a;
     }
   }
-  public static int find(int a) { // find ¿¬»ê
+  public static int find(int a) { // find ì—°ì‚°
     if (a == parent[a])
       return a;
     else
-      return parent[a] = find(parent[a]); // Àç±ÍÇÔ¼öÀÇ ÇüÅÂ·Î ±¸Çö
+      return parent[a] = find(parent[a]); // ì¬ê·€í•¨ìˆ˜ì˜ í˜•íƒœë¡œ êµ¬í˜„
   }
-  public static boolean checkSame(int a, int b) { // µÎ ¿ø¼Ò°¡ °°Àº ÁıÇÕÀÎÁö È®ÀÎ
+  public static boolean checkSame(int a, int b) { // ë‘ ì›ì†Œê°€ ê°™ì€ ì§‘í•©ì¸ì§€ í™•ì¸
     a = find(a);
     b = find(b);
     if (a == b) {

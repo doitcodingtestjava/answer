@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class P1947_¼±¹°Àü´Þ {
+public class P1947_ì„ ë¬¼ì „ë‹¬ {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     int N = sc.nextInt();

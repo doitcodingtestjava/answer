@@ -6,12 +6,12 @@ public class P11437_LCA {
   static boolean[] visited;
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
-    int N = sc.nextInt(); // Á¤Á¡ÀÇ ¼ö
+    int N = sc.nextInt(); // ì •ì ì˜ ìˆ˜
     tree = new ArrayList[N + 1];
     for (int i = 1; i <= N; i++) {
       tree[i] = new ArrayList<Integer>();
     }
-    for (int i = 0; i < N - 1; i++) { // AÀÎÁ¢¸®½ºÆ®¿¡ ±×·¡ÇÁ µ¥ÀÌÅÍ ÀúÀå
+    for (int i = 0; i < N - 1; i++) { // Aì¸ì ‘ë¦¬ìŠ¤íŠ¸ì— ê·¸ë˜í”„ ë°ì´í„° ì €ì¥
       int s = sc.nextInt();
       int e = sc.nextInt();
       tree[s].add(e);
@@ -20,10 +20,10 @@ public class P11437_LCA {
     depth = new int[N + 1];
     parent = new int[N + 1];
     visited = new boolean[N + 1];
-    BFS(1); // depth¸¦ BFS¸¦ ÅëÇÏ¿© ±¸ÇÏ±â
-    int M = sc.nextInt(); // ÁúÀÇÀÇ ¼ö
+    BFS(1); // depthë¥¼ BFSë¥¼ í†µí•˜ì—¬ êµ¬í•˜ê¸°
+    int M = sc.nextInt(); // ì§ˆì˜ì˜ ìˆ˜
     for (int i = 0; i < M; i++) {
-      // °øÅë Á¶»óÀ» ±¸ÇÒ µÎ ³ëµå
+      // ê³µí†µ ì¡°ìƒì„ êµ¬í•  ë‘ ë…¸ë“œ
       int a = sc.nextInt();
       int b = sc.nextInt();
       int LCA = excuteLCA(a, b);
@@ -36,16 +36,16 @@ public class P11437_LCA {
       a = b;
       b = temp;
     }
-    while (depth[a] != depth[b]) { // µÎ ³ëµåÀÇ Depth ¸ÂÃçÁÖ±â
+    while (depth[a] != depth[b]) { // ë‘ ë…¸ë“œì˜ Depth ë§ì¶°ì£¼ê¸°
       a = parent[a];
     }
-    while (a != b) { // °°Àº Á¶»óÀÌ ³ª¿Ã ¶§±îÁö ÇÑÄ­¾¿ ¿Ã·ÁÁÖ±â
+    while (a != b) { // ê°™ì€ ì¡°ìƒì´ ë‚˜ì˜¬ ë•Œê¹Œì§€ í•œì¹¸ì”© ì˜¬ë ¤ì£¼ê¸°
       a = parent[a];
       b = parent[b];
     }
     return a;
   }
-  // BFS±¸Çö
+  // BFSêµ¬í˜„
   private static void BFS(int node) { 
     Queue<Integer> queue = new LinkedList<Integer>();
     queue.add(node);
@@ -59,8 +59,8 @@ public class P11437_LCA {
         if (!visited[next]) {
           visited[next] = true;
           queue.add(next);
-          parent[next] = now_node;  //ºÎ¸ğ ³ëµå ÀúÀå
-          depth[next] = level; //³ëµå depth ÀúÀå
+          parent[next] = now_node;  //ë¶€ëª¨ ë…¸ë“œ ì €ì¥
+          depth[next] = level; //ë…¸ë“œ depth ì €ì¥
         }
       }
       count++;

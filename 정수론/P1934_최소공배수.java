@@ -1,5 +1,5 @@
 import java.util.*;
-public class P1934_ÃÖ¼Ò°ø¹è¼ö {
+public class P1934_ìµœì†Œê³µë°°ìˆ˜ {
   public static void main(String[] args) throws Exception {
     Scanner sc = new Scanner(System.in);
     int t = sc.nextInt();

@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
-public class P1916_ÃÖ¼Òºñ¿ë±¸ÇÏ±â {
+public class P1916_ìµœì†Œë¹„ìš©êµ¬í•˜ê¸° {
   static int N, M;
-  static ArrayList<Node_1916>[] list; // ÀÎÁ¢¸®½ºÆ®·Î ±×·¡ÇÁ Ç¥ÇöÇÏ±â.
-  static int[] dist; // ÃÖ´Ü°Å¸® ¹è¿­.
-  static boolean[] visit; // »ç¿ë³ëµåÀÎÁö È®ÀÎÇÏ´Â ¹è¿­.
+  static ArrayList<Node_1916>[] list; // ì¸ì ‘ë¦¬ìŠ¤íŠ¸ë¡œ ê·¸ë˜í”„ í‘œí˜„í•˜ê¸°.
+  static int[] dist; // ìµœë‹¨ê±°ë¦¬ ë°°ì—´.
+  static boolean[] visit; // ì‚¬ìš©ë…¸ë“œì¸ì§€ í™•ì¸í•˜ëŠ” ë°°ì—´.
   public static void main(String[] args) throws Exception {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -24,7 +24,7 @@ public class P1916_ÃÖ¼Òºñ¿ë±¸ÇÏ±â {
     for (int i = 0; i <= N; i++) {
       list[i] = new ArrayList<Node_1916>();
     }
-    for (int i = 0; i < M; i++) { // ÁÖ¾îÁø ±×·¡ÇÁÀÇ °£¼±µéÀ» ÀÎÁ¢¸®½ºÆ® ÀÚ·á±¸Á¶¿¡ ³Ö´Â ºÎºĞ
+    for (int i = 0; i < M; i++) { // ì£¼ì–´ì§„ ê·¸ë˜í”„ì˜ ê°„ì„ ë“¤ì„ ì¸ì ‘ë¦¬ìŠ¤íŠ¸ ìë£Œêµ¬ì¡°ì— ë„£ëŠ” ë¶€ë¶„
       st = new StringTokenizer(br.readLine());
       int start = Integer.parseInt(st.nextToken());
       int end = Integer.parseInt(st.nextToken());
@@ -34,13 +34,13 @@ public class P1916_ÃÖ¼Òºñ¿ë±¸ÇÏ±â {
     st = new StringTokenizer(br.readLine());
     int startIndex = Integer.parseInt(st.nextToken());
     int endIndex = Integer.parseInt(st.nextToken());
-    // ´ÙÀÍ½ºÆ®¶ó ¾Ë°í¸®Áò ¼öÇà
+    // ë‹¤ìµìŠ¤íŠ¸ë¼ ì•Œê³ ë¦¬ì¦˜ ìˆ˜í–‰
     bw.write(dijkstra(startIndex, endIndex) + "\n");
     bw.flush();
     bw.close();
     br.close();
   }
-  public static int dijkstra(int start, int end) {   // ´ÙÀÍ½ºÆ®¶ó ¾Ë°í¸®Áò
+  public static int dijkstra(int start, int end) {   // ë‹¤ìµìŠ¤íŠ¸ë¼ ì•Œê³ ë¦¬ì¦˜
     PriorityQueue<Node_1916> pq = new PriorityQueue<>();
     pq.offer(new Node_1916(start, 0));
     dist[start] = 0;
@@ -49,7 +49,7 @@ public class P1916_ÃÖ¼Òºñ¿ë±¸ÇÏ±â {
       int now = nowNode_1916.targetNode_1916;
       if (!visit[now]) {
         visit[now] = true;
-        for (Node_1916 n : list[now]) { // ¼±ÅÃ³ëµå + ºñ¿ë < Å¸ÄÏ³ëµåÀÎ °æ¿ì °ªÀ» °»½ÅÇÏ´Â ºÎºĞ
+        for (Node_1916 n : list[now]) { // ì„ íƒë…¸ë“œ + ë¹„ìš© < íƒ€ì¼“ë…¸ë“œì¸ ê²½ìš° ê°’ì„ ê°±ì‹ í•˜ëŠ” ë¶€ë¶„
           if (!visit[n.targetNode_1916] && dist[n.targetNode_1916] > dist[now] + n.value) {
             dist[n.targetNode_1916] = dist[now] + n.value;
             pq.add(new Node_1916(n.targetNode_1916, dist[n.targetNode_1916]));

@@ -1,12 +1,12 @@
 import java.util.*;
-public class P1206_DFS¿ÍBFS {
+public class P1206_DFSì™€BFS {
   static boolean visited[];
   static ArrayList<Integer>[] A;
   public static void main(String[] args) {
     Scanner scan = new Scanner(System.in);
-    int N = scan.nextInt(); // Á¤Á¡ÀÇ ¼ö
-    int M = scan.nextInt(); // °£¼±ÀÇ ¼ö
-    int Start = scan.nextInt(); // ½ÃÀÛÁ¡
+    int N = scan.nextInt(); // ì •ì ì˜ ìˆ˜
+    int M = scan.nextInt(); // ê°„ì„ ì˜ ìˆ˜
+    int Start = scan.nextInt(); // ì‹œì‘ì 
     A = new ArrayList[N + 1];
     for (int i = 1; i <= N; i++) {
       A[i] = new ArrayList<Integer>();
@@ -17,20 +17,20 @@ public class P1206_DFS¿ÍBFS {
       A[S].add(E);
       A[E].add(S);
     }
-    // ¹æ¹®ÇÒ ¼ö ÀÖ´Â Á¤Á¡ÀÌ ¿©·¯ °³ÀÎ °æ¿ì¿¡´Â ¹øÈ£°¡ ÀÛÀº °ÍÀ» ¸ÕÀú ¹æ¹® ÇÏ±â À§ÇØ Á¤·Ä
+    // ë°©ë¬¸í•  ìˆ˜ ìˆëŠ” ì •ì ì´ ì—¬ëŸ¬ ê°œì¸ ê²½ìš°ì—ëŠ” ë²ˆí˜¸ê°€ ì‘ì€ ê²ƒì„ ë¨¼ì € ë°©ë¬¸ í•˜ê¸° ìœ„í•´ ì •ë ¬
     for (int i = 1; i <= N; i++) {
       Collections.sort(A[i]);
     }
-    visited = new boolean[N + 1];  //¹æ¹® ¹è¿­ ÃÊ±âÈ­
+    visited = new boolean[N + 1];  //ë°©ë¬¸ ë°°ì—´ ì´ˆê¸°í™”
     DFS(Start);
     System.out.println();
-    visited = new boolean[N + 1];  //¹æ¹® ¹è¿­ ÃÊ±âÈ­
+    visited = new boolean[N + 1];  //ë°©ë¬¸ ë°°ì—´ ì´ˆê¸°í™”
     BFS(Start);
     System.out.println();
 
   }
 
-  public static void DFS(int node) {  // DFS±¸Çö
+  public static void DFS(int node) {  // DFSêµ¬í˜„
     System.out.print(node + " ");
     visited[node] = true;
     for (int i : A[node]) {
@@ -40,7 +40,7 @@ public class P1206_DFS¿ÍBFS {
     }
   }
 
-  private static void BFS(int node) {  // BFS±¸Çö
+  private static void BFS(int node) {  // BFSêµ¬í˜„
     Queue<Integer> queue = new LinkedList<Integer>();
     queue.add(node);
     visited[node] = true;

@@ -4,12 +4,12 @@ import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class P11003_ÃÖ¼Ú°ªÃ£±â {
+public class P11003_ìµœì†Ÿê°’ì°¾ê¸° {
   public static final Scanner scanner = new Scanner(System.in);
 
   public static void main(String[] args) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    // Ãâ·ÂÀ» ±×¶§ ±×¶§ ÇÏ´Â °Íº¸´Ù ¹öÆÛ¿¡ ³Ö°í ÇÑ¹ø¿¡ Ãâ·ÂÇÏ±â À§ÇØ BufferedWriter¸¦ »ç¿ë
+    // ì¶œë ¥ì„ ê·¸ë•Œ ê·¸ë•Œ í•˜ëŠ” ê²ƒë³´ë‹¤ ë²„í¼ì— ë„£ê³  í•œë²ˆì— ì¶œë ¥í•˜ê¸° ìœ„í•´ BufferedWriterë¥¼ ì‚¬ìš©
     BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
     StringTokenizer st = new StringTokenizer(br.readLine());
     int N = Integer.parseInt(st.nextToken());
@@ -18,12 +18,12 @@ public class P11003_ÃÖ¼Ú°ªÃ£±â {
     Deque<Node> mydeque = new LinkedList<>();
     for (int i = 0; i < N; i++) {
       int now = Integer.parseInt(st.nextToken());
-      // »õ·Î¿î °ªÀÌ µé¾î ¿Ã ¶§¸¶´Ù Á¤·ÄÇÏÁö ¾Ê°í ÇöÀç ¼öº¸´Ù Å« °ªÀ» µ¦¿¡¼­ Á¦°ÅÇÔÀ¸·Î½á ½Ã°£º¹Àâµµ¸¦ ÁÙÀÏ ¼ö ÀÖÀ½
+      // ìƒˆë¡œìš´ ê°’ì´ ë“¤ì–´ ì˜¬ ë•Œë§ˆë‹¤ ì •ë ¬í•˜ì§€ ì•Šê³  í˜„ì¬ ìˆ˜ë³´ë‹¤ í° ê°’ì„ ë±ì—ì„œ ì œê±°í•¨ìœ¼ë¡œì¨ ì‹œê°„ë³µì¡ë„ë¥¼ ì¤„ì¼ ìˆ˜ ìˆìŒ
       while (!mydeque.isEmpty() && mydeque.getLast().value > now) {
         mydeque.removeLast();
       }
       mydeque.addLast(new Node(now, i));
-      // ¹üÀ§¿¡¼­ ¹ş¾î³­ °ªÀº µ¦¿¡¼­ Á¦°Å
+      // ë²”ìœ„ì—ì„œ ë²—ì–´ë‚œ ê°’ì€ ë±ì—ì„œ ì œê±°
       if (mydeque.getFirst().index <= i - L) {
         mydeque.removeFirst();
       }

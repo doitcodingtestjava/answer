@@ -3,7 +3,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-public class P2751_¼öÁ¤·ÄÇÏ±â2 {
+public class P2751_ìˆ˜ì •ë ¬í•˜ê¸°2 {
   public static int[] A, tmp;
   public static long result;
   public static void main(String[] args) throws IOException {
@@ -15,7 +15,7 @@ public class P2751_¼öÁ¤·ÄÇÏ±â2 {
     for (int i = 1; i <= N; i++) {
       A[i] = Integer.parseInt(br.readLine());
     }
-    merget_sort(1, N); // º´ÇÕÁ¤·Ä ¼öÇàÇÏ±â
+    merget_sort(1, N); // ë³‘í•©ì •ë ¬ ìˆ˜í–‰í•˜ê¸°
     for (int i = 1; i <= N; i++) {
       bw.write(A[i] + "\n");
     }
@@ -27,7 +27,7 @@ public class P2751_¼öÁ¤·ÄÇÏ±â2 {
     if (e - s < 1)
       return;
     int m = s + (e - s) / 2;
-    // Àç±ÍÇÔ¼ö ÇüÅÂ·Î ±¸Çö
+    // ì¬ê·€í•¨ìˆ˜ í˜•íƒœë¡œ êµ¬í˜„
     merget_sort(s, m);
     merget_sort(m + 1, e);
     for (int i = s; i <= e; i++) {
@@ -36,7 +36,7 @@ public class P2751_¼öÁ¤·ÄÇÏ±â2 {
     int k = s;
     int index1 = s;
     int index2 = m + 1;
-    while (index1 <= m && index2 <= e) { // µÎ ±×·ìÀ» Merge ÇØÁÖ´Â ·ÎÁ÷
+    while (index1 <= m && index2 <= e) { // ë‘ ê·¸ë£¹ì„ Merge í•´ì£¼ëŠ” ë¡œì§
       if (tmp[index1] > tmp[index2]) {
         A[k] = tmp[index2];
         k++;
@@ -47,7 +47,7 @@ public class P2751_¼öÁ¤·ÄÇÏ±â2 {
         index1++;
       }
     }
-    // ÇÑÂÊ ±×·ìÀÌ ¸ğµÎ ¼±ÅÃµÈ ÈÄ ³²¾ÆÀÖ´Â °ª Á¤¸®ÇÏ±â
+    // í•œìª½ ê·¸ë£¹ì´ ëª¨ë‘ ì„ íƒëœ í›„ ë‚¨ì•„ìˆëŠ” ê°’ ì •ë¦¬í•˜ê¸°
     while (index1 <= m) {
       A[k] = tmp[index1];
       k++;

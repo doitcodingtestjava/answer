@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class P11047_µ¿Àü°³¼öÃÖ¼Ú°ª {
+public class P11047_ë™ì „ê°œìˆ˜ìµœì†Ÿê°’ {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     int N = sc.nextInt();
@@ -10,9 +10,9 @@ public class P11047_µ¿Àü°³¼öÃÖ¼Ú°ª {
     }
     int count = 0;
     for (int i = N - 1; i >= 0; i--) {
-      if (A[i] <= K) { // ÇöÀç µ¿ÀüÀÇ °¡Ä¡°¡ Kº¸´Ù ÀÛ°Å³ª °°À¸¸é ±¸¼º¿¡ Ãß°¡ÇÑ´Ù.
+      if (A[i] <= K) { // í˜„ìž¬ ë™ì „ì˜ ê°€ì¹˜ê°€ Kë³´ë‹¤ ìž‘ê±°ë‚˜ ê°™ìœ¼ë©´ êµ¬ì„±ì— ì¶”ê°€í•œë‹¤.
         count += (K / A[i]);
-        K = K % A[i]; // K¸¦ ÇöÀç µ¿ÀüÀ» »ç¿ëÇÏ°í ³²Àº ±Ý¾×À¸·Î ¾÷µ¥ÀÌÆ® ÇÔ
+        K = K % A[i]; // Kë¥¼ í˜„ìž¬ ë™ì „ì„ ì‚¬ìš©í•˜ê³  ë‚¨ì€ ê¸ˆì•¡ìœ¼ë¡œ ì—…ë°ì´íŠ¸ í•¨
       }
     }
     System.out.println(count);

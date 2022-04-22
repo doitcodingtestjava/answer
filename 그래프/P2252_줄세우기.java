@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
-public class P2252_ÁÙ¼¼¿ì±â {
+public class P2252_ì¤„ì„¸ìš°ê¸° {
   public static void main(String[] args) throws Exception {
     Scanner sc = new Scanner(System.in);
     int N = sc.nextInt();
@@ -11,14 +11,14 @@ public class P2252_ÁÙ¼¼¿ì±â {
     for (int i = 0; i <= N; i++) {
       A.add(new ArrayList<>());
     }
-    int[] indegree = new int[N + 1];  // ÁøÀÔ Â÷¼ö ¹è¿­
+    int[] indegree = new int[N + 1];  // ì§„ì… ì°¨ìˆ˜ ë°°ì—´
     for (int i = 0; i < M; i++) {
       int S = sc.nextInt();
       int E = sc.nextInt();
       A.get(S).add(E);
-      indegree[E]++; // ÁøÀÔÂ÷¼ö ¹è¿­ µ¥ÀÌÅÍ ÀúÀåÇÏ±â
+      indegree[E]++; // ì§„ì…ì°¨ìˆ˜ ë°°ì—´ ë°ì´í„° ì €ì¥í•˜ê¸°
     }
-    Queue<Integer> queue = new LinkedList<>();  // À§»ó Á¤·Ä ¼öÇà
+    Queue<Integer> queue = new LinkedList<>();  // ìœ„ìƒ ì •ë ¬ ìˆ˜í–‰
     for (int i = 1; i <= N; i++) {
       if (indegree[i] == 0) {
         queue.offer(i);

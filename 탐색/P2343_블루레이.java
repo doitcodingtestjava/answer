@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class P2343_∫Ì∑Á∑π¿Ã {
+public class P2343_Î∏îÎ£®Î†àÏù¥ {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     int N = sc.nextInt();
@@ -10,14 +10,14 @@ public class P2343_∫Ì∑Á∑π¿Ã {
     for (int i = 0; i < N; i++) {
       A[i] = sc.nextInt();
       if (start < A[i])
-        start = A[i]; // ∑πΩº √÷¥Î∞™¿ª Ω√¿€¿Œµ¶Ω∫∑Œ ¿˙¿Â
-      end = end + A[i]; // ∏µÁ ∑πΩº¿« √— «’¿ª ¡æ∑· ¿Œµ¶Ω∫∑Œ ¿˙¿Â
+        start = A[i]; // Î†àÏä® ÏµúÎåÄÍ∞íÏùÑ ÏãúÏûëÏù∏Îç±Ïä§Î°ú Ï†ÄÏû•
+      end = end + A[i]; // Î™®Îì† Î†àÏä®Ïùò Ï¥ù Ìï©ÏùÑ Ï¢ÖÎ£å Ïù∏Îç±Ïä§Î°ú Ï†ÄÏû•
     }
     while (start <= end) {
       int middle = (start + end) / 2;
       int sum = 0;
       int count = 0;
-      for (int i = 0; i < N; i++) { // middle∞™¿∏∑Œ ∏µÁ ∑πΩº¿ª ¿˙¿Â «“ ºˆ ¿÷¥¬¡ˆ »Æ¿Œ
+      for (int i = 0; i < N; i++) { // middleÍ∞íÏúºÎ°ú Î™®Îì† Î†àÏä®ÏùÑ Ï†ÄÏû• Ìï† Ïàò ÏûàÎäîÏßÄ ÌôïÏù∏
         if (sum + A[i] > middle) {
           count++;
           sum = 0;

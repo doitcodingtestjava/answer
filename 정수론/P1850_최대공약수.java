@@ -1,7 +1,7 @@
 import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;
 import java.util.*;
-public class P1850_ÃÖ´ë°ø¾à¼ö {
+public class P1850_ìµœëŒ€ê³µì•½ìˆ˜ {
   public static void main(String[] args) throws Exception {
     Scanner sc = new Scanner(System.in);
     BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));

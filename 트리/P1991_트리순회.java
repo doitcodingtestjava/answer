@@ -1,17 +1,17 @@
 import java.util.*;
-public class P1991_Æ®¸®¼øÈ¸ {
+public class P1991_íŠ¸ë¦¬ìˆœíšŒ {
   static int[][] tree;
   public static void main(String args[]) {
     Scanner sc = new Scanner(System.in);
     int n = sc.nextInt();
     sc.nextLine();
-    tree = new int[26][2]; // 0->¿ÞÂÊ ÀÚ½Ä ³ëµå; 1->¿À¸¥ÂÊ ÀÚ½Ä ³ëµå
+    tree = new int[26][2]; // 0->ì™¼ìª½ ìžì‹ ë…¸ë“œ; 1->ì˜¤ë¥¸ìª½ ìžì‹ ë…¸ë“œ
     for (int i = 0; i < n; i++) {
       String[] temp = sc.nextLine().split(" ");
-      int node = temp[0].charAt(0) - 'A'; // index·Î º¯È¯À» À§ÇØ A¹®ÀÚ »©ÁÖ±â
+      int node = temp[0].charAt(0) - 'A'; // indexë¡œ ë³€í™˜ì„ ìœ„í•´ Aë¬¸ìž ë¹¼ì£¼ê¸°
       char left = temp[1].charAt(0);
       char right = temp[2].charAt(0);
-      // ÀÚ½Ä ³ëµå°¡ ¾øÀ» °æ¿ì -1À» ÀúÀå
+      // ìžì‹ ë…¸ë“œê°€ ì—†ì„ ê²½ìš° -1ì„ ì €ìž¥
       if (left == '.') {
         tree[node][0] = -1;
       } else {
@@ -33,22 +33,22 @@ public class P1991_Æ®¸®¼øÈ¸ {
   public static void preOrder(int now) {
     if (now == -1)
       return;
-    System.out.print((char) (now + 'A')); // 1.ÇöÀç Á¤Á¡
-    preOrder(tree[now][0]); // 2.¿ÞÂÊ Å½»ö
-    preOrder(tree[now][1]); // 3.¿À¸¥ÂÊ Å½»ö
+    System.out.print((char) (now + 'A')); // 1.í˜„ìž¬ ì •ì 
+    preOrder(tree[now][0]); // 2.ì™¼ìª½ íƒìƒ‰
+    preOrder(tree[now][1]); // 3.ì˜¤ë¥¸ìª½ íƒìƒ‰
   }
   public static void inOrder(int now) {
     if (now == -1)
       return;
-    inOrder(tree[now][0]); // 1.¿ÞÂÊ Å½»ö
-    System.out.print((char) (now + 'A')); // 2.ÇöÀç Á¤Á¡
-    inOrder(tree[now][1]); // 3.¿À¸¥ÂÊ Å½»ö
+    inOrder(tree[now][0]); // 1.ì™¼ìª½ íƒìƒ‰
+    System.out.print((char) (now + 'A')); // 2.í˜„ìž¬ ì •ì 
+    inOrder(tree[now][1]); // 3.ì˜¤ë¥¸ìª½ íƒìƒ‰
   }
   public static void postOrder(int now) {
     if (now == -1)
       return;
-    postOrder(tree[now][0]); // 1.¿ÞÂÊ Å½»ö
-    postOrder(tree[now][1]); // 2.¿À¸¥ÂÊ Å½»ö
-    System.out.print((char) (now + 'A')); // 2.ÇöÀç Á¤Á¡
+    postOrder(tree[now][0]); // 1.ì™¼ìª½ íƒìƒ‰
+    postOrder(tree[now][1]); // 2.ì˜¤ë¥¸ìª½ íƒìƒ‰
+    System.out.print((char) (now + 'A')); // 2.í˜„ìž¬ ì •ì 
   }
 }

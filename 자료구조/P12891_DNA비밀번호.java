@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class P12891_DNAºñ¹Ð¹øÈ£ {
+public class P12891_DNAë¹„ë°€ë²ˆí˜¸ {
   static int checkArr[];
   static int myArr[];
   static int checkSecret;
@@ -26,24 +26,24 @@ public class P12891_DNAºñ¹Ð¹øÈ£ {
       if (checkArr[i] == 0)
         checkSecret++;
     }
-    for (int i = 0; i < P; i++) { //ÃÊ±â PºÎºÐ ¹®ÀÚ¿­ Ã³¸® ºÎºÐ
+    for (int i = 0; i < P; i++) { //ì´ˆê¸° Pë¶€ë¶„ ë¬¸ìžì—´ ì²˜ë¦¬ ë¶€ë¶„
       Add(A[i]);
     }
     if (checkSecret == 4)
       Result++;
-    // ½½¶óÀÌµù À©µµ¿ì Ã³¸® ºÎºÐ
+    // ìŠ¬ë¼ì´ë”© ìœˆë„ìš° ì²˜ë¦¬ ë¶€ë¶„
     for (int i = P; i < S; i++) {
       int j = i - P;
       Add(A[i]);
       Remove(A[j]);
-      if (checkSecret == 4)  // 4ÀÚ¸® ¼ö¿¡ ´ëÇÑ Å©±â°¡ ¸ðµÎ ÃæÁ·µÇ¾úÀ» ¶§´Â À¯È¿ÇÑ ºñ¹Ð¹øÈ£
+      if (checkSecret == 4)  // 4ìžë¦¬ ìˆ˜ì— ëŒ€í•œ í¬ê¸°ê°€ ëª¨ë‘ ì¶©ì¡±ë˜ì—ˆì„ ë•ŒëŠ” ìœ íš¨í•œ ë¹„ë°€ë²ˆí˜¸
         Result++;
     }
     System.out.println(Result);
     bf.close();
   }
 
-  private static void Add(char c) { //»õ·Î µé¾î¿Â ¹®ÀÚ¸¦ Ã³¸®ÇØÁÖ´Â ÇÔ¼ö
+  private static void Add(char c) { //ìƒˆë¡œ ë“¤ì–´ì˜¨ ë¬¸ìžë¥¼ ì²˜ë¦¬í•´ì£¼ëŠ” í•¨ìˆ˜
     switch (c) {
     case 'A':
       myArr[0]++;
@@ -68,7 +68,7 @@ public class P12891_DNAºñ¹Ð¹øÈ£ {
     }
   }
 
-  private static void Remove(char c) { //Á¦°ÅµÇ´Â  ¹®ÀÚ¸¦ Ã³¸®ÇØÁÖ´Â ÇÔ¼ö
+  private static void Remove(char c) { //ì œê±°ë˜ëŠ”  ë¬¸ìžë¥¼ ì²˜ë¦¬í•´ì£¼ëŠ” í•¨ìˆ˜
     switch (c) {
     case 'A':
       if (myArr[0] == checkArr[0])

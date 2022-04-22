@@ -12,7 +12,7 @@ public class P2018_연속된자연수의합 {
         count++;
         end_index++;
         sum = sum + end_index;
-      } else if (sum > N) {   // sum > N ->  sum = sum – start_index; start_index++
+      } else if (sum > N) {   //sum > N ->  sum = sum - Start index;  Start index++;
         sum = sum - start_index;
         start_index++;
       } else {                //sum < N ->  End index++;  sum = sum + End index;
@@ -23,3 +23,5 @@ public class P2018_연속된자연수의합 {
     System.out.println(count);
   }
 }
+
+

@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.StringTokenizer;
-public class P17387_¼±ºĞ±³Â÷ {
+public class P17387_ì„ ë¶„êµì°¨ {
   public static void main(String[] args) throws Exception {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     StringTokenizer st = new StringTokenizer(br.readLine());
@@ -23,7 +23,7 @@ public class P17387_¼±ºĞ±³Â÷ {
     else if(temp < 0) return -1;
     return 0;
 }
- //¼±ºĞ°ãÄ§¿©ºÎ ÆÇº° ÇÔ¼ö
+ //ì„ ë¶„ê²¹ì¹¨ì—¬ë¶€ íŒë³„ í•¨ìˆ˜
  private static boolean isOverlab(long x1,long y1,long x2,long y2,long x3,long y3,long x4,long y4){ 
 if(Math.min(x1, x2) <= Math.max(x3, x4) && Math.min(x3, x4) <= Math.max(x1, x2)
    && Math.min(y1, y2) <= Math.max(y3, y4) && Math.min(y3, y4) <= Math.max(y1, y2))return true;
@@ -34,9 +34,9 @@ if(Math.min(x1, x2) <= Math.max(x3, x4) && Math.min(x3, x4) <= Math.max(x1, x2)
     int abd = CCW(x1, y1, x2, y2, x4, y4);
     int cda = CCW(x3, y3, x4, y4, x1, y1);
     int cdb = CCW(x3, y3, x4, y4, x2, y2);
-    if(abc * abd == 0 && cda * cdb == 0) {  // ¼±ºĞÀÌ ÀÏÁ÷ ¼±ÀÎ °æ¿ì
-      return isOverlab(x1, y1, x2, y2, x3, y3, x4, y4);  //°ãÄ¡´Â ¼±ºĞÀÎÁö ÆÇº°ÇÏ±â
-    }else if(abc * abd <= 0 && cda * cdb <= 0) {  // ¼±ºĞÀÌ ±³Â÷ÇÏ´Â °æ¿ì
+    if(abc * abd == 0 && cda * cdb == 0) {  // ì„ ë¶„ì´ ì¼ì§ ì„ ì¸ ê²½ìš°
+      return isOverlab(x1, y1, x2, y2, x3, y3, x4, y4);  //ê²¹ì¹˜ëŠ” ì„ ë¶„ì¸ì§€ íŒë³„í•˜ê¸°
+    }else if(abc * abd <= 0 && cda * cdb <= 0) {  // ì„ ë¶„ì´ êµì°¨í•˜ëŠ” ê²½ìš°
       return true;
     }
     return false;

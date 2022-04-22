@@ -4,16 +4,16 @@ public class P11689_GCDNK1 {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     long n = Long.parseLong(br.readLine());
     long result = n;
-    for (long p = 2; p <= Math.sqrt(n); p++) { // Á¦°ö±Ù±îÁö¸¸ ÁøÇà
-      if (n % p == 0) { // p°¡ ¼ÒÀÎ¼öÀÎÁö È®ÀÎ
-        result = result - result / p; // °á°ú °ª ¾÷µ¥ÀÌÆ®
-        while (n % p == 0) { // ÇØ´ç ¼ÒÀÎ¼ö¸¦ Áö¿öÁÜ 2^7*11ÀÌ¶ó¸é 2^7À» ¾ø¾Ö°í 11¸¸ ³²±è
+    for (long p = 2; p <= Math.sqrt(n); p++) { // ì œê³±ê·¼ê¹Œì§€ë§Œ ì§„í–‰
+      if (n % p == 0) { // pê°€ ì†Œì¸ìˆ˜ì¸ì§€ í™•ì¸
+        result = result - result / p; // ê²°ê³¼ ê°’ ì—…ë°ì´íŠ¸
+        while (n % p == 0) { // í•´ë‹¹ ì†Œì¸ìˆ˜ë¥¼ ì§€ì›Œì¤Œ 2^7*11ì´ë¼ë©´ 2^7ì„ ì—†ì• ê³  11ë§Œ ë‚¨ê¹€
           n /= p;
         }
       }
     }
-    if (n > 1) // ¾ÆÁ÷ ¼ÒÀÎ¼ö ±¸¼ºÀÌ ³²¾ÆÀÖ´Â °æ¿ì
-//(¹İº¹¹®¿¡¼­ Á¦°ö±Ù±îÁö¸¸ Å½»öÇß±â ¶§¹®¿¡ 1°³ÀÇ ¼ÒÀÎ¼ö°¡ ´©¶ôµÇ´Â ÄÉÀÌ½º)
+    if (n > 1) // ì•„ì§ ì†Œì¸ìˆ˜ êµ¬ì„±ì´ ë‚¨ì•„ìˆëŠ” ê²½ìš°
+//(ë°˜ë³µë¬¸ì—ì„œ ì œê³±ê·¼ê¹Œì§€ë§Œ íƒìƒ‰í–ˆê¸° ë•Œë¬¸ì— 1ê°œì˜ ì†Œì¸ìˆ˜ê°€ ëˆ„ë½ë˜ëŠ” ì¼€ì´ìŠ¤)
       result = result - result / n;
     System.out.println(result);
   }

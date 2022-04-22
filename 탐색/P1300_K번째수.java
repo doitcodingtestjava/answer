@@ -1,23 +1,23 @@
 import java.util.Scanner;
-public class P1300_K¹øÂ°¼ö {
+public class P1300_Kë²ˆì§¸ìˆ˜ {
   public static void main(String[] args) throws Exception {
     Scanner sc = new Scanner(System.in);
     int N = sc.nextInt();
     int K = sc.nextInt();
     long start = 1, end = K;
     long ans = 0;
-    // ÀÌºĞ Å½»ö ¼öÇà
+    // ì´ë¶„ íƒìƒ‰ ìˆ˜í–‰
     while (start <= end) {
       long middle = (start + end) / 2; 
       long cnt = 0;
-      // Áß°£ °ªº¸´Ù ÀÛÀº ¼ö´Â ¸î °³ÀÎÁö °è»ê.
+      // ì¤‘ê°„ ê°’ë³´ë‹¤ ì‘ì€ ìˆ˜ëŠ” ëª‡ ê°œì¸ì§€ ê³„ì‚°.
       for (int i = 1; i <= N; i++) {
-        cnt += Math.min(middle / i, N);  // ÀÛÀº ¼ö¸¦ Ä«¿îÆ®ÇÏ´Â ÇÙ½É·ÎÁ÷
+        cnt += Math.min(middle / i, N);  // ì‘ì€ ìˆ˜ë¥¼ ì¹´ìš´íŠ¸í•˜ëŠ” í•µì‹¬ë¡œì§
       }
       if (cnt < K) {
         start = middle + 1;
       } else {
-        ans = middle;  // ÇöÀç ´Ü°èÀÇ Áß°£ °ªÀ» Á¤´ä º¯¼ö¿¡ ÀúÀå
+        ans = middle;  // í˜„ì¬ ë‹¨ê³„ì˜ ì¤‘ê°„ ê°’ì„ ì •ë‹µ ë³€ìˆ˜ì— ì €ì¥
         end = middle - 1;
       }
     }

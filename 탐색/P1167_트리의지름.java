@@ -1,11 +1,11 @@
 import java.util.*;
-public class P1167_Æ®¸®ÀÇÁö¸§ {
+public class P1167_íŠ¸ë¦¬ì˜ì§€ë¦„ {
   static boolean visited[];
   static int [] distance;
   static ArrayList<Edge_1677>[] A;
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
-    int N = sc.nextInt(); // Á¤Á¡ÀÇ ¼ö
+    int N = sc.nextInt(); // ì •ì ì˜ ìˆ˜
     A = new ArrayList[N + 1];
     for (int i = 1; i <= N; i++) {
       A[i] = new ArrayList<Edge_1677>();
@@ -35,7 +35,7 @@ public class P1167_Æ®¸®ÀÇÁö¸§ {
     System.out.println(distance[N]);
   }
 
-  private static void BFS(int index) {  // BFS±¸Çö
+  private static void BFS(int index) {  // BFSêµ¬í˜„
     Queue<Integer> queue = new LinkedList<Integer>();
     queue.add(index);
     visited[index] = true;

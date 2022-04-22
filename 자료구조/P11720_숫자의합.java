@@ -1,14 +1,14 @@
 import java.util.Scanner;
-public class P11720_¼ıÀÚÀÇÇÕ {
+public class P11720_ìˆ«ìì˜í•© {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     int N = sc.nextInt();
-    // String º¯¼ö·Î ¹Ş¾Æ ¹è¿­ º¯¼ö·Î º¯È¯ÇÏ±â
+    // String ë³€ìˆ˜ë¡œ ë°›ì•„ ë°°ì—´ ë³€ìˆ˜ë¡œ ë³€í™˜í•˜ê¸°
     String sNum = sc.next();
     char[] cNum = sNum.toCharArray();
     int sum = 0;
     for (int i = 0; i < cNum.length; i++) {
-      sum += cNum[i] - '0'; // ¹®ÀÚ °ªÀ» Á¤¼ö ÇüÀ¸·Î º¯È¯ÇÏ¿© ´õÇØÁÖ±â
+      sum += cNum[i] - '0'; // ë¬¸ì ê°’ì„ ì •ìˆ˜ í˜•ìœ¼ë¡œ ë³€í™˜í•˜ì—¬ ë”í•´ì£¼ê¸°
     }
     System.out.print(sum);
   }

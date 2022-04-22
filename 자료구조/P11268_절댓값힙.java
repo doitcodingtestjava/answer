@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.PriorityQueue;
-public class P11268_Àı´ñ°ªÈü {
+public class P11268_ì ˆëŒ“ê°’í™ {
   public static void main(String[] args) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     int N = Integer.parseInt(br.readLine());
@@ -10,9 +10,9 @@ public class P11268_Àı´ñ°ªÈü {
       int first_abs = Math.abs(o1);
       int second_abs = Math.abs(o2);
       if (first_abs == second_abs)
-        return o1 > o2 ? 1 : -1;// Àı´ë°ªÀÌ °°Àº °æ¿ì À½¼ö ¿ì¼± Á¤·Ä
+        return o1 > o2 ? 1 : -1;// ì ˆëŒ€ê°’ì´ ê°™ì€ ê²½ìš° ìŒìˆ˜ ìš°ì„  ì •ë ¬
       else
-        return first_abs - second_abs;// Àı´ë°ªÀ» ±âÁØÀ¸·Î Á¤·Ä
+        return first_abs - second_abs;// ì ˆëŒ€ê°’ì„ ê¸°ì¤€ìœ¼ë¡œ ì •ë ¬
     });
     for (int i = 0; i < N; i++) {
       int request = Integer.parseInt(br.readLine());

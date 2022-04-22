@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class P1722_¼ø¿­ÀÇ¼ø¼­ {
+public class P1722_ìˆœì—´ì˜ìˆœì„œ {
   public static void main(String[] args) throws IOException {
     int N, Q;
     long F[] = new long[21];
@@ -15,7 +15,7 @@ public class P1722_¼ø¿­ÀÇ¼ø¼­ {
     st = new StringTokenizer(bf.readLine());
     Q = Integer.parseInt(st.nextToken());
     F[0] = 1;
-    for (int i = 1; i <= N; i++) { // ÆÑÅä¸®¾ó ÃÊ±âÈ­ -> °¢ ÀÚ¸®¼ö¿¡¼­ ¸¸µé¼ö ÀÖ´Â °æ¿ìÀÇ ¼ö
+    for (int i = 1; i <= N; i++) { // íŒ©í† ë¦¬ì–¼ ì´ˆê¸°í™” -> ê° ìë¦¬ìˆ˜ì—ì„œ ë§Œë“¤ìˆ˜ ìˆëŠ” ê²½ìš°ì˜ ìˆ˜
       F[i] = F[i - 1] * i;
     }
     if (Q == 1) {
@@ -23,8 +23,8 @@ public class P1722_¼ø¿­ÀÇ¼ø¼­ {
       for (int i = 1; i <= N; i++) {
         for (int j = 1, cnt = 1; j <= N; j++) {
           if (visit[j])
-            continue; // ÀÌ¹Ì »ç¿ëÇÑ ¼ıÀÚ´Â »ç¿ëÇÒ ¼ö ¾øÀ½
-          if (K <= cnt * F[N - i]) { // ÁÖ¾îÁø K¿¡ µû¶ó °¢ ÀÚ¸®¿¡ µé¾î°¥ ¼ö ÀÖ´Â ¼ö Ã£±â
+            continue; // ì´ë¯¸ ì‚¬ìš©í•œ ìˆ«ìëŠ” ì‚¬ìš©í•  ìˆ˜ ì—†ìŒ
+          if (K <= cnt * F[N - i]) { // ì£¼ì–´ì§„ Kì— ë”°ë¼ ê° ìë¦¬ì— ë“¤ì–´ê°ˆ ìˆ˜ ìˆëŠ” ìˆ˜ ì°¾ê¸°
             K -= ((cnt - 1) * F[N - i]);
             S[i] = j;
             visit[j] = true;
@@ -43,10 +43,10 @@ public class P1722_¼ø¿­ÀÇ¼ø¼­ {
         long cnt = 0;
         for (int j = 1; j < S[i]; j++) {
           if (visit[j] == false) {
-            cnt++; // ¹Ì»ç¿ë ¼ıÀÚ °³¼ö¸¸Å­ Ä«¿îÆ®
+            cnt++; // ë¯¸ì‚¬ìš© ìˆ«ì ê°œìˆ˜ë§Œí¼ ì¹´ìš´íŠ¸
           }
         }
-        K += cnt * F[N - i]; // ÀÚ¸®¼ö °³¼ö¿¡ µû¶ó ¼ø¼­ ´õÇØÁÖ±â
+        K += cnt * F[N - i]; // ìë¦¬ìˆ˜ ê°œìˆ˜ì— ë”°ë¼ ìˆœì„œ ë”í•´ì£¼ê¸°
         visit[S[i]] = true;
       }
       System.out.println(K);

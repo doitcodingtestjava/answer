@@ -14,9 +14,9 @@ public class P9252_LCS {
     for (int i = 1; i <= A.length; i++) {
       for (int j = 1; j <= B.length; j++) {
         if (A[i - 1] == B[j - 1]) {
-          DP[i][j] = DP[i - 1][j - 1] + 1; // °°Àº ¹®ÀÚ¿­ÀÏ °æ¿ì ¿ŞÂÊ ´ë°¢¼± °ª +1
+          DP[i][j] = DP[i - 1][j - 1] + 1; // ê°™ì€ ë¬¸ìì—´ì¼ ê²½ìš° ì™¼ìª½ ëŒ€ê°ì„  ê°’ +1
         } else {
-          DP[i][j] = Math.max(DP[i - 1][j], DP[i][j - 1]); // ´Ù¸£¸é ¿ŞÂÊ°ú À§ÀÇ °ª Áß Å«¼ö
+          DP[i][j] = Math.max(DP[i - 1][j], DP[i][j - 1]); // ë‹¤ë¥´ë©´ ì™¼ìª½ê³¼ ìœ„ì˜ ê°’ ì¤‘ í°ìˆ˜
         }
       }
     }
@@ -27,13 +27,13 @@ public class P9252_LCS {
     }
     System.out.println();
   }
-  private static void getText(int r, int c) { // LCS Ãâ·ÂÇÔ¼ö
+  private static void getText(int r, int c) { // LCS ì¶œë ¥í•¨ìˆ˜
     if (r == 0 || c == 0) return;
-    if (A[r - 1] == B[c - 1]) { // °°À¸¸é LCS¿¡ ±â·ÏÇÏ°í ¿ŞÂÊ À§·Î ÀÌµ¿
+    if (A[r - 1] == B[c - 1]) { // ê°™ìœ¼ë©´ LCSì— ê¸°ë¡í•˜ê³  ì™¼ìª½ ìœ„ë¡œ ì´ë™
       Path.add(A[r - 1]);
       getText(r - 1, c - 1);
     } else {
-      if (DP[r - 1][c] > DP[r][c - 1]) // ´Ù¸£¸é ¿ŞÂÊ°ú Áß Å« ¼ö·Î ÀÌµ¿
+      if (DP[r - 1][c] > DP[r][c - 1]) // ë‹¤ë¥´ë©´ ì™¼ìª½ê³¼ ì¤‘ í° ìˆ˜ë¡œ ì´ë™
         getText(r - 1, c); 
       else
         getText(r, c - 1);

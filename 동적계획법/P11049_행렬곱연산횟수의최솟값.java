@@ -1,6 +1,6 @@
 import java.util.*;
 import java.io.*;
-public class P11049_Çà·Ä°ö¿¬»êÈ½¼öÀÇÃÖ¼Ú°ª {
+public class P11049_í–‰ë ¬ê³±ì—°ì‚°íšŸìˆ˜ì˜ìµœì†Ÿê°’ {
   static int N;
   static Matrix[] M;
   static int[][] D;
@@ -19,20 +19,20 @@ public class P11049_Çà·Ä°ö¿¬»êÈ½¼öÀÇÃÖ¼Ú°ª {
     }
     System.out.println(excute(1, N));
   }
-  // top-down¹æ½Ä Á¡È­½Ä ÇÔ¼ö ±¸Çö
+  // top-downë°©ì‹ ì í™”ì‹ í•¨ìˆ˜ êµ¬í˜„
   static int excute(int s, int e) {
     int result = Integer.MAX_VALUE;
-    if (D[s][e] != -1) // ÀÌ¹Ì °è»êÇÑ ÀûÀÌ ÀÖ´Â ºÎºĞÀÌ¸é ´Ù½Ã °è»êÇÏÁö ¾Ê´Â´Ù -> ¸Ş¸ğÀÌÁ¦ÀÌ¼Ç
+    if (D[s][e] != -1) // ì´ë¯¸ ê³„ì‚°í•œ ì ì´ ìˆëŠ” ë¶€ë¶„ì´ë©´ ë‹¤ì‹œ ê³„ì‚°í•˜ì§€ ì•ŠëŠ”ë‹¤ -> ë©”ëª¨ì´ì œì´ì…˜
       return D[s][e];
-    if (s == e) // Çà·Ä ÇÑ °³ÀÇ °ö¼À ¿¬»êÀÇ ¼ö
+    if (s == e) // í–‰ë ¬ í•œ ê°œì˜ ê³±ì…ˆ ì—°ì‚°ì˜ ìˆ˜
       return 0;
-    if (s + 1 == e) // Çà·Ä µÎ °³ÀÇ °ö¼À ¿¬»êÀÇ ¼ö
+    if (s + 1 == e) // í–‰ë ¬ ë‘ ê°œì˜ ê³±ì…ˆ ì—°ì‚°ì˜ ìˆ˜
       return M[s].y * M[s].x * M[e].x;
-    for (int i = s; i < e; i++) // Çà·ÄÀÌ 3°³ ÀÌ»óÀÏ °æ¿ì °ö¼À¿¬»ê¼ö -> Á¡È­½Ä Ã³¸®
+    for (int i = s; i < e; i++) // í–‰ë ¬ì´ 3ê°œ ì´ìƒì¼ ê²½ìš° ê³±ì…ˆì—°ì‚°ìˆ˜ -> ì í™”ì‹ ì²˜ë¦¬
       result = Math.min(result, M[s].y * M[i].x * M[e].x + excute(s, i) + excute(i + 1, e));
     return D[s][e] = result;
   }
-  // Çà·ÄÁ¤º¸ ÀúÀå Class
+  // í–‰ë ¬ì •ë³´ ì €ì¥ Class
   static class Matrix {
     private int y;
     private int x;

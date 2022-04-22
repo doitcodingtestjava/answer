@@ -1,6 +1,6 @@
 import java.util.Arrays;
 import java.util.Scanner;
-public class P1920_¿øÇÏ´ÂÁ¤¼öÃ£±â {
+public class P1920_ì›í•˜ëŠ”ì •ìˆ˜ì°¾ê¸° {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     int N = sc.nextInt();
@@ -13,7 +13,7 @@ public class P1920_¿øÇÏ´ÂÁ¤¼öÃ£±â {
     for (int i = 0; i < M; i++) {
       boolean find = false;
       int target = sc.nextInt();
-      // ÀÌÁø Å½»ö ½ÃÀÛ
+      // ì´ì§„ íƒìƒ‰ ì‹œì‘
       int start = 0;
       int end = A.length - 1;
       while (start <= end) {

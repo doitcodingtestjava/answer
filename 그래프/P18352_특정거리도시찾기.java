@@ -1,15 +1,15 @@
 import java.util.*;
-public class P18352_Æ¯Á¤°Å¸®µµ½ÃÃ£±â {
+public class P18352_íŠ¹ì •ê±°ë¦¬ë„ì‹œì°¾ê¸° {
   static int visited[];
   static ArrayList<Integer>[] A;
   static int N,M,K,X;
   static List<Integer> answer;
   public static void main(String[] args) {
     Scanner scan = new Scanner(System.in);
-    N = scan.nextInt(); // Á¤Á¡ÀÇ ¼ö
-    M = scan.nextInt(); // °£¼±ÀÇ ¼ö
-    K = scan.nextInt(); // °£¼±ÀÇ ¼ö
-    X = scan.nextInt(); // °£¼±ÀÇ ¼ö
+    N = scan.nextInt(); // ì •ì ì˜ ìˆ˜
+    M = scan.nextInt(); // ê°„ì„ ì˜ ìˆ˜
+    K = scan.nextInt(); // ê°„ì„ ì˜ ìˆ˜
+    X = scan.nextInt(); // ê°„ì„ ì˜ ìˆ˜
     A = new ArrayList[N + 1];
     answer = new ArrayList<>();
     for (int i = 1; i <= N; i++) {
@@ -20,7 +20,7 @@ public class P18352_Æ¯Á¤°Å¸®µµ½ÃÃ£±â {
       int E = scan.nextInt();
       A[S].add(E);
     }
-    visited = new int[N + 1];  //¹æ¹® ¹è¿­ ÃÊ±âÈ­
+    visited = new int[N + 1];  //ë°©ë¬¸ ë°°ì—´ ì´ˆê¸°í™”
     for(int i=0;i<=N;i++){
       visited[i]=-1;
     }
@@ -40,7 +40,7 @@ public class P18352_Æ¯Á¤°Å¸®µµ½ÃÃ£±â {
       }
     }
   }
-  // BFS±¸Çö
+  // BFSêµ¬í˜„
   private static void BFS(int node) {  
     Queue<Integer> queue = new LinkedList<Integer>();
     queue.add(node);

@@ -3,7 +3,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-public class P10989_¼öÁ¤·ÄÇÏ±â3 {
+public class P10989_ìˆ˜ì •ë ¬í•˜ê¸°3 {
   public static int[] A;
   public static long result;
   public static void main(String[] args) throws IOException {
@@ -27,23 +27,23 @@ public class P10989_¼öÁ¤·ÄÇÏ±â3 {
     int[] output = new int[A.length];
     int jarisu = 1;
     int count = 0;
-    while (count != max_size) // ÃÖ´ë ÀÚ¸®¼ö ¸¸Å­ ¹İº¹
+    while (count != max_size) // ìµœëŒ€ ìë¦¬ìˆ˜ ë§Œí¼ ë°˜ë³µ
     {
       int[] bucket = new int[10];
       for (int i = 0; i < A.length; i++) {
-        bucket[(A[i] / jarisu) % 10]++; // ÀÏÀÇ ÀÚ¸® ºÎÅÍ ½ÃÀÛ
+        bucket[(A[i] / jarisu) % 10]++; // ì¼ì˜ ìë¦¬ ë¶€í„° ì‹œì‘
       }
-      for (int i = 1; i < 10; i++) { // ÇÕ¹è¿­À» ÀÌ¿ëÇÏ¿© index °è»ê
+      for (int i = 1; i < 10; i++) { // í•©ë°°ì—´ì„ ì´ìš©í•˜ì—¬ index ê³„ì‚°
         bucket[i] += bucket[i - 1];
       }
-      for (int i = A.length - 1; i >= 0; i--) { // ÇöÀç ÀÚ¸®¼ö ±âÁØÀ¸·Î Á¤·ÄÇÏ±â
+      for (int i = A.length - 1; i >= 0; i--) { // í˜„ì¬ ìë¦¬ìˆ˜ ê¸°ì¤€ìœ¼ë¡œ ì •ë ¬í•˜ê¸°
         output[bucket[(A[i] / jarisu % 10)] - 1] = A[i];
         bucket[(A[i] / jarisu) % 10]--;
       }
       for (int i = 0; i < A.length; i++) {
-        A[i] = output[i]; // ´ÙÀ½ ÀÚ¸® ¼ö ÀÌµ¿À» À§ÇØ ÇöÀç ÀÚ¸®¼ö ±âÁØ Á¤·Ä µ¥ÀÌÅÍ ÀúÀå
+        A[i] = output[i]; // ë‹¤ìŒ ìë¦¬ ìˆ˜ ì´ë™ì„ ìœ„í•´ í˜„ì¬ ìë¦¬ìˆ˜ ê¸°ì¤€ ì •ë ¬ ë°ì´í„° ì €ì¥
       }
-      jarisu = jarisu * 10; // ÀÚ¸®¼ö Áõ°¡
+      jarisu = jarisu * 10; // ìë¦¬ìˆ˜ ì¦ê°€
       count++;
     }
   };

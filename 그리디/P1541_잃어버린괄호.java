@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class P1541_ÀÒ¾î¹ö¸°°ıÈ£ {
+public class P1541_ìƒì–´ë²„ë¦°ê´„í˜¸ {
   static int answer = 0;
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
@@ -8,13 +8,13 @@ public class P1541_ÀÒ¾î¹ö¸°°ıÈ£ {
     for (int i = 0; i < str.length; i++) {
       int temp = mySum(str[i]);
       if (i == 0)
-        answer = answer + temp; // Á¦ÀÏ ¾Õ¿¡ °Í¸¸ ´õÇØÁÖ°í
+        answer = answer + temp; // ì œì¼ ì•ì— ê²ƒë§Œ ë”í•´ì£¼ê³ 
       else
-        answer = answer - temp; // µÚ¿¡ ºÎºĞÀº ´õÇÑ °ªµéÀ» »©ÁÜ
+        answer = answer - temp; // ë’¤ì— ë¶€ë¶„ì€ ë”í•œ ê°’ë“¤ì„ ë¹¼ì¤Œ
     }
     System.out.println(answer);
   }
-  static int mySum(String a) { // ³ª´²Áø ±×·ìÀÇ ´õÇÏ±â ¿¬»ê ¼öÇà ÇÔ¼ö
+  static int mySum(String a) { // ë‚˜ëˆ ì§„ ê·¸ë£¹ì˜ ë”í•˜ê¸° ì—°ì‚° ìˆ˜í–‰ í•¨ìˆ˜
     int sum = 0;
     String temp[] = a.split("[+]");
     for (int i = 0; i < temp.length; i++) {

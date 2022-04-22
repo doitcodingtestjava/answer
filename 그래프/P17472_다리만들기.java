@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.*;
-public class P17472_´Ù¸®¸¸µé±â {
+public class P17472_ë‹¤ë¦¬ë§Œë“¤ê¸° {
   static int[] dr = { -1, 0, 1, 0 };
   static int[] dc = { 0, 1, 0, -1 };
   static int[] parent;
@@ -13,19 +13,19 @@ public class P17472_´Ù¸®¸¸µé±â {
   public static void main(String[] args) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     StringTokenizer st = new StringTokenizer(br.readLine());
-    N = Integer.parseInt(st.nextToken()); // °¡·ÎÅ©±â
-    M = Integer.parseInt(st.nextToken()); // ¼¼·ÎÅ©±â
+    N = Integer.parseInt(st.nextToken()); // ê°€ë¡œí¬ê¸°
+    M = Integer.parseInt(st.nextToken()); // ì„¸ë¡œí¬ê¸°
     map = new int[N][M];
     visited = new boolean[N][M];
     for (int i = 0; i < N; i++) {
       st = new StringTokenizer(br.readLine());
       for (int j = 0; j < M; j++) {
-        map[i][j] = Integer.parseInt(st.nextToken()); //¸Ê Á¤º¸ ÀúÀå
+        map[i][j] = Integer.parseInt(st.nextToken()); //ë§µ ì •ë³´ ì €ì¥
       }
     }
     sNum = 1;
     sumlist = new ArrayList<>();
-    for (int i = 0; i < N; i++) { //°¢ ÀÚ¸®¿¡¼­ BFS Å½»öÀ» ÀÌ¿ëÇÏ¿© ¼¶µéÀ» ºĞ¸®ÇÏ¿© Áİ´Ï´Ù.
+    for (int i = 0; i < N; i++) { //ê° ìë¦¬ì—ì„œ BFS íƒìƒ‰ì„ ì´ìš©í•˜ì—¬ ì„¬ë“¤ì„ ë¶„ë¦¬í•˜ì—¬ ì¤ë‹ˆë‹¤.
       for (int j = 0; j < M; j++) {
         if (map[i][j] != 0 && visited[i][j] != true) {
           BFS(i, j);
@@ -35,24 +35,24 @@ public class P17472_´Ù¸®¸¸µé±â {
       }
 }
     queue = new PriorityQueue<>(); 
-    for (int i = 0; i < sumlist.size(); i++) { //¼¶ÀÇ °¢ ÁöÁ¡¿¡¼­ ¸¸µé¼ö ÀÖ´Â ¸ğµç °£¼±À» ÀúÀå
+    for (int i = 0; i < sumlist.size(); i++) { //ì„¬ì˜ ê° ì§€ì ì—ì„œ ë§Œë“¤ìˆ˜ ìˆëŠ” ëª¨ë“  ê°„ì„ ì„ ì €ì¥
       ArrayList<int[]> now = sumlist.get(i);
       for (int j = 0; j < now.size(); j++) {
         int r = now.get(j)[0];
         int c = now.get(j)[1];
         int now_S = map[r][c];
-        for (int d = 0; d < 4; d++) { //4¹æÇâ °Ë»ö
+        for (int d = 0; d < 4; d++) { //4ë°©í–¥ ê²€ìƒ‰
           int tempR = dr[d];
           int tempC = dc[d];
           int blenght = 0;
           while (r + tempR >= 0 && r + tempR < N && c + tempC >= 0 && c + tempC < M) {
-            if (map[r + tempR][c + tempC] == now_S) //°°Àº ¼¶ÀÌ¸é °£¼±À» ¸¸µé¼ö ¾øÀ½
+            if (map[r + tempR][c + tempC] == now_S) //ê°™ì€ ì„¬ì´ë©´ ê°„ì„ ì„ ë§Œë“¤ìˆ˜ ì—†ìŒ
               break;
-            else if (map[r + tempR][c + tempC] != 0) { //°°Àº ¼¶ÀÌ ¾Æ´Ï°í ¹Ù´Ù°¡ ¾Æ´Ï¸é 
-              if (blenght > 1) // ´Ù¸¥ ¼¶ -> ±æÀÌ°¡ 1ÀÌ»óÀÏ¶§ °£¼±À¸·Î ´õÇØÁİ´Ï´Ù.
+            else if (map[r + tempR][c + tempC] != 0) { //ê°™ì€ ì„¬ì´ ì•„ë‹ˆê³  ë°”ë‹¤ê°€ ì•„ë‹ˆë©´ 
+              if (blenght > 1) // ë‹¤ë¥¸ ì„¬ -> ê¸¸ì´ê°€ 1ì´ìƒì¼ë•Œ ê°„ì„ ìœ¼ë¡œ ë”í•´ì¤ë‹ˆë‹¤.
                 queue.add(new bEdge(now_S, map[r + tempR][c + tempC], blenght));
               break;
-            } else //¹Ù´ÙÀÌ¸é ´Ù¸®ÀÇ ±æÀÌ¸¦ ¿¬ÀåÇÏ¿© Áİ´Ï´Ù.
+            } else //ë°”ë‹¤ì´ë©´ ë‹¤ë¦¬ì˜ ê¸¸ì´ë¥¼ ì—°ì¥í•˜ì—¬ ì¤ë‹ˆë‹¤.
               blenght++;
             if (tempR < 0)tempR--;
             else if (tempR > 0)tempR++;
@@ -68,9 +68,9 @@ public class P17472_´Ù¸®¸¸µé±â {
     }
     int useEdge = 0;
     int result = 0;
-    while (!queue.isEmpty()) {  //ÃÖ¼Ò ½ÅÀå Æ®¸® ¾Ë°í¸®ÁòÀ» ¼öÇàÇÏ¿© Áİ´Ï´Ù.
+    while (!queue.isEmpty()) {  //ìµœì†Œ ì‹ ì¥ íŠ¸ë¦¬ ì•Œê³ ë¦¬ì¦˜ì„ ìˆ˜í–‰í•˜ì—¬ ì¤ë‹ˆë‹¤.
       bEdge now = queue.poll();
-      if (find(now.s) != find(now.e)) // °°Àº ºÎ¸ğ°¡ ¾Æ´Ï¶ó¸é -> ¿¬°á °¡´É
+      if (find(now.s) != find(now.e)) // ê°™ì€ ë¶€ëª¨ê°€ ì•„ë‹ˆë¼ë©´ -> ì—°ê²° ê°€ëŠ¥
       {
         union(now.s, now.e);
         result = result + now.v;
@@ -83,20 +83,20 @@ public class P17472_´Ù¸®¸¸µé±â {
       System.out.println(-1);
     }
   }
-  public static void union(int a, int b) { // union ¿¬»ê : ´ëÇ¥ ³ëµå³¢¸® ¿¬°áÇÏ¿© ÁÜ
+  public static void union(int a, int b) { // union ì—°ì‚° : ëŒ€í‘œ ë…¸ë“œë¼ë¦¬ ì—°ê²°í•˜ì—¬ ì¤Œ
     a = find(a);
     b = find(b);
     if (a != b) {
       parent[b] = a;
     }
   }
-  public static int find(int a) { // find ¿¬»ê
+  public static int find(int a) { // find ì—°ì‚°
     if (a == parent[a])
       return a;
     else
-      return parent[a] = find(parent[a]); // Àç±ÍÇÔ¼öÀÇ ÇüÅÂ·Î ±¸Çö -> °æ·Î ¾ĞÃà ºÎºĞ
+      return parent[a] = find(parent[a]); // ì¬ê·€í•¨ìˆ˜ì˜ í˜•íƒœë¡œ êµ¬í˜„ -> ê²½ë¡œ ì••ì¶• ë¶€ë¶„
   }
-  private static void BFS(int i, int j) { // BFS¸¦ ÅëÇÏ¿© ¿¬°áµÈ ¼¶À» Ã£¾ÆÁİ´Ï´Ù.
+  private static void BFS(int i, int j) { // BFSë¥¼ í†µí•˜ì—¬ ì—°ê²°ëœ ì„¬ì„ ì°¾ì•„ì¤ë‹ˆë‹¤.
     Queue<int[]> queue = new LinkedList<>();
     mlist = new ArrayList<>();
     int[] start = { i, j };
@@ -108,11 +108,11 @@ public class P17472_´Ù¸®¸¸µé±â {
       int now[] = queue.poll();
       int r = now[0];
       int c = now[1];
-      for (int d = 0; d < 4; d++) { //4¹æÇâ °Ë»ö
+      for (int d = 0; d < 4; d++) { //4ë°©í–¥ ê²€ìƒ‰
         int tempR = dr[d];
         int tempC = dc[d];
         while (r + tempR >= 0 && r + tempR < N && c + tempC >= 0 && c + tempC < M) {
-          //ÇöÀç ¹æ¹®ÇÑ ÀûÀÌ ¾ø°í ¹Ù´Ù°¡ ¾Æ´Ï¸é °°Àº ¼¶À¸·Î Ãë±Ş
+          //í˜„ì¬ ë°©ë¬¸í•œ ì ì´ ì—†ê³  ë°”ë‹¤ê°€ ì•„ë‹ˆë©´ ê°™ì€ ì„¬ìœ¼ë¡œ ì·¨ê¸‰
           if (visited[r + tempR][c + tempC] == false && map[r + tempR][c + tempC] != 0) { 
             addNode(r + tempR, c + tempC, queue);
           } else break;
@@ -124,7 +124,7 @@ public class P17472_´Ù¸®¸¸µé±â {
       }
     }
 }
-//Æ¯Á¤ À§Ä¡¸¦ ¼¶ Á¤º¸·Î ³Ö¾îÁÖ´Â ÇÔ¼ö
+//íŠ¹ì • ìœ„ì¹˜ë¥¼ ì„¬ ì •ë³´ë¡œ ë„£ì–´ì£¼ëŠ” í•¨ìˆ˜
   private static void addNode(int i, int j, Queue<int[]> queue) { 
     map[i][j] = sNum;
     visited[i][j] = true;
