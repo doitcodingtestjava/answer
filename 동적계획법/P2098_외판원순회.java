@@ -32,11 +32,13 @@ class P2098_외판원순회 {
         if (d[c][v] != INF) {  //이미 방문한 노드인 경우 -> 이미 계산한 경우 바로 리턴 (메모이제이션)
             return d[c][v];
         }
+        int min_val = INF;
         for (int i = 0; i < N; i++) {
             if ((v & (1 << i)) == 0 && W[c][i] != 0) {   //방문한적이 없고 갈 수 있는 도시인 경우
-                d[c][v] = Math.min(d[c][v], tsp(i, (v | (1 << i))) + W[c][i]);
+                min_val = Math.min(min_val, tsp(i, (v | (1 << i))) + W[c][i]);
             }
         }
+        d[c][v] = min_val;
         return d[c][v];
     }
 }
