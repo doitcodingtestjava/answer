@@ -43,14 +43,17 @@ public class P11004_K번째수 {
     int i = S+1, j = E;
     
     while (i <= j) {
-        while (pivot < A[j] && j > 0 ){   //피벗보다 작은 수가 나올때까지 j--
+        while (j >= S+1  && pivot < A[j]){   //피벗보다 작은 수가 나올때까지 j--
             j--;    
         }
-        while (pivot > A[i]  && i <A.length-1){  //피벗보다 큰 수가 나올 떄까지 i++
+        while (i <= E && pivot > A[i]){  //피벗보다 큰 수가 나올 떄까지 i++
                i ++;  
         }
-        if (i <= j) {
+        if (i < j) {
             swap (A, i++, j--);  // 찾은 i와 j를 교환하기
+        }
+        else{
+            break;
         }
     }
     // i == j 피벗의 값을 양쪽으로 분리한 가운데에 오도록 설정하기
