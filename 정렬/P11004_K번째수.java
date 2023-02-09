@@ -49,7 +49,7 @@ public class P11004_K번째수 {
         while (pivot > A[i]){  //피벗보다 큰 수가 나올 떄까지 i++
                i ++;  
         }
-        if (i =< j) {
+        if (i <= j) {
             swap (A, i++, j--);  // 찾은 i와 j를 교환하기
         }
         else{
