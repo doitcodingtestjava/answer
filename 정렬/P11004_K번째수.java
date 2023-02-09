@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class P11004_K번째수 {
+public class Main {
   public static void main(String[] args) throws IOException {
     BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
     StringTokenizer st = new StringTokenizer(in.readLine());
@@ -43,16 +43,15 @@ public class P11004_K번째수 {
     int i = S+1, j = E;
     
     while (i <= j) {
-        while (pivot < A[j]){   //피벗보다 작은 수가 나올때까지 j--
+        while (j>= S+1 && pivot < A[j]){   //피벗보다 작은 수가 나올때까지 j--
             j--;    
         }
-        while (pivot > A[i]){  //피벗보다 큰 수가 나올 떄까지 i++
+        while (i<= E && pivot > A[i]){  //피벗보다 큰 수가 나올 떄까지 i++
                i ++;  
         }
-        if (i <= j) {
+        if (i < j) {
             swap (A, i++, j--);  // 찾은 i와 j를 교환하기
-        }
-        else{
+        }else{
             break;
         }
     }
