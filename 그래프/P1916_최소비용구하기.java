@@ -23,7 +23,7 @@ class node implements Comparable<node> {
  
 }
  
-public class Main {
+public class P1916_최소비용구하기 {
     static int N, M;
     static ArrayList<node>[] list; // 인접리스트로 그래프 표현하기.
     static int[] dist; // 최단거리 배열.
