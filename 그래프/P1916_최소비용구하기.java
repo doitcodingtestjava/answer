@@ -50,7 +50,7 @@ public class P1916_최소비용구하기 {
       if (!visit[now]) {
         visit[now] = true;
         for (Node_1916 n : list[now]) { // 선택노드 + 비용 < 타켓노드인 경우 값을 갱신하는 부분
-          if (!visit[n.targetNode_1916] && dist[n.targetNode_1916] > dist[now] + n.value) {
+          if (dist[n.targetNode_1916] > dist[now] + n.value) {
             dist[n.targetNode_1916] = dist[now] + n.value;
             pq.add(new Node_1916(n.targetNode_1916, dist[n.targetNode_1916]));
           }
