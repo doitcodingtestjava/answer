@@ -3,10 +3,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.StringTokenizer;
+import java.util.*;
 public class P1325_효율적인해킹 {
   static int N, M;
   static boolean visited[];
@@ -42,7 +39,7 @@ public class P1325_효율적인해킹 {
     }
   }
   public static void BFS(int index) {
-    Queue<Integer> queue = new LinkedList<Integer>();
+    Queue<Integer> queue = new ArrayDeque<Integer>();
     queue.add(index);
     visited[index] = true;
     while (!queue.isEmpty()) {
